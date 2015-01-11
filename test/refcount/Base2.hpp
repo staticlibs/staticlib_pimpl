@@ -16,12 +16,11 @@ class Base2 : public virtual Abstract {
 protected:
     class Impl;
 
-//    Base2(std::shared_ptr<RefCountObject::Impl> pimpl) :
-//    staticlib::refobjects::RefCountObject::RefCountObject(pimpl),
-//    Abstract::Abstract(pimpl) { }
-    REFOBJ_INHERIT_CONSTRUCTOR_REFCOUNT(Base2, (staticlib::refobjects::RefCountObject)(Abstract))
 public:
-
+    //    Base2(std::shared_ptr<RefCountObject::Impl> pimpl) :
+    //    staticlib::refobjects::RefCountObject::RefCountObject(pimpl),
+    //    Abstract::Abstract(pimpl) { }
+    REFOBJ_INHERIT_CONSTRUCTOR_REFCOUNT(Base2, (staticlib::refobjects::RefCountObject)(Abstract))
     virtual const std::string get_str_from_base2() const;
 };
 

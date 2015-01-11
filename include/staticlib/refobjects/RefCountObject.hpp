@@ -8,7 +8,9 @@
 #ifndef REFCOUNTOBJECT_HPP
 #define	REFCOUNTOBJECT_HPP
 // https://connect.microsoft.com/VisualStudio/feedback/details/774986/codename-milan-delegating-constructors-causes-warning-c4100-initvbases-unreferenced-formal-parameter-w4-when-derived-class-uses-virtual-inheritance
-#pragma warning (disable : 4100)
+#if defined _MSC_VER
+    #pragma warning (disable : 4100)
+#endif
 
 #include <memory>
 

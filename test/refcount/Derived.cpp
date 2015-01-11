@@ -52,6 +52,7 @@ public:
     }
 
     virtual std::string call_by_name(string name) {
+        (void) name;
 		return "disabled for MSVC";
 //        return this->func_map[name](this);
     }
