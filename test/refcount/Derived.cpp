@@ -16,19 +16,19 @@ namespace refcount {
 using std::string;
 using std::make_shared;
 using std::unordered_map;
-using std::function;
+//using std::function;
 
 class Derived::Impl : public virtual Intermediate::Impl {
     const string str_derived;
-    unordered_map<string, function<const string(Impl*)>> func_map;    
+//    unordered_map<string, function<const string(Impl*)>> func_map;    
 public:
     Impl(const string& str):
     Base::Impl(str),
-    Intermediate::Impl(str), str_derived(string("derived_").append(str)),
-    func_map({
-        {"get_str", &Impl::get_str},
-        {"get_str_derived_zeroarg", &Impl::get_str_derived_zeroarg}
-    }) { }
+	Intermediate::Impl(str), str_derived(string("derived_").append(str)) { }
+//    func_map({
+//        {"get_str", &Impl::get_str},
+//        {"get_str_derived_zeroarg", &Impl::get_str_derived_zeroarg}
+//    }) { }
 
     virtual const std::string get_str() override {
         string res = string();
@@ -52,7 +52,8 @@ public:
     }
 
     virtual std::string call_by_name(string name) {
-        return this->func_map[name](this);
+		return "disabled for MSVC";
+//        return this->func_map[name](this);
     }
 
 };

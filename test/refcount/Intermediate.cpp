@@ -32,7 +32,7 @@ Intermediate::Impl::Impl() :
 Impl::Impl("noarg") { }
 //Intermediate::Intermediate() :
 //Intermediate::Intermediate(make_shared<Intermediate::Impl>()) { }
-REFOBJ_FORWARD_CONSTRUCTOR_REFCOUNT(Intermediate)
+REFOBJ_FORWARD_CONSTRUCTOR_REFCOUNT_NOARG(Intermediate)
 
 const string Intermediate::Impl::get_str() {
     string res = string();

@@ -19,11 +19,10 @@ class Abstract : public virtual staticlib::refobjects::RefCountObject {
 protected:
     class Impl;
 
+public:
 //    Abstract(std::shared_ptr<RefCountObject::Impl> pimpl) :
 //    staticlib::refobjects::RefCountObject::RefCountObject(pimpl) { }    
     REFOBJ_INHERIT_CONSTRUCTOR_REFCOUNT(Abstract, (staticlib::refobjects::RefCountObject))
-public:
-    
     virtual const std::string get_str();
 };
 

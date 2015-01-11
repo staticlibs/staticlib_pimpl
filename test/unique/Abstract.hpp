@@ -16,11 +16,12 @@ namespace unique {
 
 class Abstract : public staticlib::refobjects::RefUniqueObject {
 protected:    
-//    using staticlib::refobjects::RefUniqueObject::RefUniqueObject;
-    REFOBJ_INHERIT_CONSTRUCTOR(Abstract, staticlib::refobjects::RefUniqueObject)
     class Impl;
     
 public:
+	//    using staticlib::refobjects::RefUniqueObject::RefUniqueObject;
+	REFOBJ_INHERIT_CONSTRUCTOR(Abstract, staticlib::refobjects::RefUniqueObject)
+
     virtual const std::string get_str();
 };
 

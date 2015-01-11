@@ -35,9 +35,11 @@ void test_size() {
 //    std::cout << sizeof(base) << std::endl;
 //    std::cout << sizeof(intermediate) << std::endl;
 //    std::cout << sizeof(derived) << std::endl;
-    assert(16 == sizeof (base));
-    assert(32 == sizeof (intermediate));
-    assert(32 == sizeof (derived));
+    auto ptr_size = sizeof(void*);
+    (void) ptr_size;
+    assert(2*ptr_size == sizeof (base));
+    assert(4*ptr_size == sizeof (intermediate));
+    assert(4*ptr_size == sizeof (derived));
 }
 
 void test_polymorphic() {
@@ -93,6 +95,7 @@ void test_move() {
         auto tmp = std::move(source.get_impl_ptr());
         (void) tmp;
     } catch (const RefObjectMovedFromException& e) {
+		(void) e;
         catched_source = true;
     }
     assert(true == catched_source);
@@ -101,12 +104,14 @@ void test_move() {
         auto tmp = std::move(move_constructed.get_impl_ptr());
         (void) tmp;
     } catch (const RefObjectMovedFromException& e) {
+		(void) e;
         catched_mc = true;
     }
     assert(true == catched_mc);
 }
 
 void takes_iface(const Base2& b2) {
+    (void) b2;
     assert("424242" == b2.get_str_from_base2());
 }
 

@@ -14,7 +14,15 @@
 
 #define REFOBJ_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
 class_name(std::unique_ptr<staticlib::refobjects::RefUniqueObject::Impl> pimpl) BOOST_NOEXCEPT : \
-parent_class_name(std::move(pimpl)) { }
+parent_class_name(std::move(pimpl)) { } \
+\
+class_name(class_name&& other) BOOST_NOEXCEPT : \
+parent_class_name(std::move(other)) { } \
+\
+class_name& operator=(class_name&& other) BOOST_NOEXCEPT { \
+    parent_class_name::operator=(std::move(other)); \
+    return *this; \
+}
 
 namespace staticlib {
 namespace refobjects {
