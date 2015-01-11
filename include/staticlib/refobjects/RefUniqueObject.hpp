@@ -13,7 +13,7 @@
 #include "staticlib/refobjects/RefObjectEmptyException.hpp"
 
 #define REFOBJ_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
-class_name(std::unique_ptr<staticlib::refobjects::RefUniqueObject::Impl> pimpl) noexcept : \
+class_name(std::unique_ptr<staticlib::refobjects::RefUniqueObject::Impl> pimpl) BOOST_NOEXCEPT : \
 parent_class_name(std::move(pimpl)) { }
 
 namespace staticlib {
@@ -30,7 +30,7 @@ public:
     /**
      * Virtual destructor
      */
-    virtual ~RefUniqueObject() noexcept;
+    virtual ~RefUniqueObject() BOOST_NOEXCEPT;
     /**
      * Deleted copy constructor
      * 
@@ -49,14 +49,14 @@ public:
      * 
      * @param other other instance
      */
-    RefUniqueObject(RefUniqueObject&& other) noexcept;
+    RefUniqueObject(RefUniqueObject&& other) BOOST_NOEXCEPT;
     /**
      * Move assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    RefUniqueObject& operator=(RefUniqueObject&& other) noexcept;
+    RefUniqueObject& operator=(RefUniqueObject&& other) BOOST_NOEXCEPT;
 
 protected:
     /**
@@ -67,12 +67,12 @@ protected:
         /**
          * Virtual destructor
          */
-        virtual ~Impl() noexcept;        
+        virtual ~Impl() BOOST_NOEXCEPT;        
     protected:
         /**
          * Default constructor
          */
-        Impl() noexcept;
+        Impl() BOOST_NOEXCEPT;
     private:
         /**
          * Deleted copy constructor
@@ -123,7 +123,7 @@ public:
     /**
      * Constructor to be called from other constructors
      */
-    RefUniqueObject(std::unique_ptr<RefUniqueObject::Impl> pimpl) noexcept;
+    RefUniqueObject(std::unique_ptr<RefUniqueObject::Impl> pimpl) BOOST_NOEXCEPT;
     /**
      * Unique pointer access, made public only for downcast support,
      * should NOT be used in normal client code

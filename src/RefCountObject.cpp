@@ -11,20 +11,20 @@
 namespace staticlib {
 namespace refobjects {
 
-RefCountObject::~RefCountObject() noexcept = default;
+RefCountObject::~RefCountObject() BOOST_NOEXCEPT = default;
 
-RefCountObject::RefCountObject(const RefCountObject& other) noexcept :
+RefCountObject::RefCountObject(const RefCountObject& other) BOOST_NOEXCEPT :
 pimpl(other.pimpl) { }
 
-RefCountObject& RefCountObject::operator=(const RefCountObject& other) noexcept {
+RefCountObject& RefCountObject::operator=(const RefCountObject& other) BOOST_NOEXCEPT {
     this->pimpl = other.pimpl;
     return *this;
 }
 
-RefCountObject::RefCountObject(RefCountObject&& other) noexcept :
+RefCountObject::RefCountObject(RefCountObject&& other) BOOST_NOEXCEPT :
 pimpl(std::move(other.pimpl)) { }
 
-RefCountObject::RefCountObject(std::shared_ptr<RefCountObject::Impl> pimpl) noexcept :
+RefCountObject::RefCountObject(std::shared_ptr<RefCountObject::Impl> pimpl) BOOST_NOEXCEPT :
 pimpl(pimpl) { }
 
 std::shared_ptr<RefCountObject::Impl>& RefCountObject::get_impl_ptr() {
@@ -41,9 +41,9 @@ const std::shared_ptr<RefCountObject::Impl>& RefCountObject::get_impl_ptr_const(
     throw RefObjectMovedFromException();
 }
 
-RefCountObject::Impl::~Impl() noexcept = default;
+RefCountObject::Impl::~Impl() BOOST_NOEXCEPT = default;
 
-RefCountObject::Impl::Impl() noexcept = default;
+RefCountObject::Impl::Impl() BOOST_NOEXCEPT = default;
 
 
 } // namespace

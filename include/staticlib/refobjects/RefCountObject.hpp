@@ -26,26 +26,26 @@ public:
     /**
      * Virtual destructor
      */
-    virtual ~RefCountObject() noexcept;
+    virtual ~RefCountObject() BOOST_NOEXCEPT;
     /**
      * Copy constructor
      * 
      * @param other other instance
      */
-    RefCountObject(const RefCountObject& other) noexcept;
+    RefCountObject(const RefCountObject& other) BOOST_NOEXCEPT;
     /**
      * Copy assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    RefCountObject& operator=(const RefCountObject& other) noexcept;
+    RefCountObject& operator=(const RefCountObject& other) BOOST_NOEXCEPT;
     /**
      * Move constructor
      * 
      * @param other other instance
      */
-    RefCountObject(RefCountObject&& other) noexcept;    
+    RefCountObject(RefCountObject&& other) BOOST_NOEXCEPT;    
     // move assignment operator broken due to virtual base class
     /**
      * Deleted move assignment operator, broken due to virtual base class
@@ -64,12 +64,12 @@ protected:
         /**
          * Virtual destructor
          */
-        virtual ~Impl() noexcept;
+        virtual ~Impl() BOOST_NOEXCEPT;
     protected:
         /**
          * Default constructor
          */
-        Impl() noexcept;
+        Impl() BOOST_NOEXCEPT;
     private:
         /**
          * Deleted copy constructor
@@ -120,7 +120,7 @@ public:
     /**
      * Constructor to be called from other constructors
      */
-    RefCountObject(std::shared_ptr<RefCountObject::Impl> pimpl) noexcept;
+    RefCountObject(std::shared_ptr<RefCountObject::Impl> pimpl) BOOST_NOEXCEPT;
     /**
      * Unique pointer access, made public only for downcast support,
      * should NOT be used in normal client code
