@@ -10,7 +10,7 @@
 
 #include <memory>
 
-#include "staticlib/refobjects/RefObjectEmptyException.hpp"
+#include "staticlib/refobjects/RefObjectException.hpp"
 
 #define REFOBJ_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
 class_name(std::unique_ptr<staticlib::refobjects::RefUniqueObject::Impl> pimpl) BOOST_NOEXCEPT : \

@@ -14,6 +14,6 @@ using std::string;
 Base3::Impl::Impl() :
 Abstract::Impl() { }
 
-REFOBJ_FORWARD_FUNCTION(const string, Base3, get_str_from_base3)
+REFOBJ_FORWARD_FUNCTION(Base3, const string, get_str_from_base3)
 
 } // namespace     

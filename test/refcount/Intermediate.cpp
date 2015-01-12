@@ -43,22 +43,22 @@ const string Intermediate::Impl::get_str() {
     }
     return res;
 }
-REFOBJ_FORWARD_FUNCTION(const string, Intermediate, get_str)
+REFOBJ_FORWARD_FUNCTION(Intermediate, const string, get_str)
 
 const string Intermediate::Impl::get_str_intermediate() {
     return this->str_intermediate;
 }
-REFOBJ_FORWARD_FUNCTION(const string, Intermediate, get_str_intermediate)
+REFOBJ_FORWARD_FUNCTION(Intermediate, const string, get_str_intermediate)
 
 const string Intermediate::Impl::get_str_from_base2() const {
     return "4242";
 }
-REFOBJ_FORWARD_FUNCTION_CONST(const string, Intermediate, get_str_from_base2)
+REFOBJ_FORWARD_FUNCTION_CONST(Intermediate, const string, get_str_from_base2)
         
 const string Intermediate::Impl::get_str_from_base3() {
     return "4343";
 }
-REFOBJ_FORWARD_FUNCTION(const string, Intermediate, get_str_from_base3)
+REFOBJ_FORWARD_FUNCTION(Intermediate, const string, get_str_from_base3)
         
         
 } // namespace

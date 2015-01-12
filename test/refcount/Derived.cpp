@@ -63,11 +63,11 @@ Derived::Derived(const string& str) :
 Derived::Derived(make_shared<Derived::Impl>(str)) { }
 //REFOBJ_FORWARD_CONSTRUCTOR_REFCOUNT(Derived, (const string&))
 
-REFOBJ_FORWARD_FUNCTION(const string, Derived, get_str)
-REFOBJ_FORWARD_FUNCTION(const string, Derived, get_str_derived, (string) (int))
-REFOBJ_FORWARD_FUNCTION(const string, Derived, get_str_derived_zeroarg)
-REFOBJ_FORWARD_FUNCTION(void, Derived, do_something_derived, (bool))
-REFOBJ_FORWARD_FUNCTION(string, Derived, call_by_name, (string))
+REFOBJ_FORWARD_FUNCTION(Derived, const string , get_str)
+REFOBJ_FORWARD_FUNCTION(Derived, const string, get_str_derived, (string) (int))
+REFOBJ_FORWARD_FUNCTION(Derived, const string, get_str_derived_zeroarg)
+REFOBJ_FORWARD_FUNCTION(Derived, void, do_something_derived, (bool))
+REFOBJ_FORWARD_FUNCTION(Derived, string, call_by_name, (string))
 
 } // namespace
 

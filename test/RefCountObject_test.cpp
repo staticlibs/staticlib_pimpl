@@ -9,7 +9,7 @@
 #include <iostream>
 #include <cassert>
 
-#include "staticlib/refobjects/RefObjectEmptyException.hpp"
+#include "staticlib/refobjects/RefObjectException.hpp"
 
 #include "refcount/Abstract.cpp"
 #include "refcount/Base.cpp"
@@ -21,7 +21,7 @@
 namespace { // anonymous
 
 using std::vector;
-using staticlib::refobjects::RefObjectMovedFromException;
+using staticlib::refobjects::RefObjectException;
 using refcount::Abstract;
 using refcount::Base;
 using refcount::Base2;
@@ -98,7 +98,7 @@ void test_move() {
     try {
         auto tmp = source.get_impl_ptr();
         (void) tmp;
-    } catch (const RefObjectMovedFromException& e) {
+    } catch (const RefObjectException& e) {
         (void) e;
         catched = true;
     }
@@ -122,7 +122,7 @@ void test_empty() {
     bool catched = false;
     try {
         std::cout << bmoved.get_str() << std::endl;
-    } catch (const RefObjectMovedFromException& e) {
+    } catch (const RefObjectException& e) {
         (void) e;
         catched = true;
         // std::cout << "Caught exception from moved object" << std::endl;

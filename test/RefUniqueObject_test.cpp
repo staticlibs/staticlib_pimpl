@@ -9,7 +9,7 @@
 #include <vector>
 #include <cassert>
 
-#include "staticlib/refobjects/RefObjectEmptyException.hpp"
+#include "staticlib/refobjects/RefObjectException.hpp"
 
 #include "unique/Abstract.cpp"
 #include "unique/Base.cpp"
@@ -19,7 +19,7 @@
 namespace { // anonymous
 
 using std::vector;
-using staticlib::refobjects::RefObjectMovedFromException;
+using staticlib::refobjects::RefObjectException;
 using unique::Abstract;
 using unique::Base;
 using unique::Base2;
@@ -94,7 +94,7 @@ void test_move() {
     try {
         auto tmp = std::move(source.get_impl_ptr());
         (void) tmp;
-    } catch (const RefObjectMovedFromException& e) {
+    } catch (const RefObjectException& e) {
 		(void) e;
         catched_source = true;
     }
@@ -103,7 +103,7 @@ void test_move() {
     try {
         auto tmp = std::move(move_constructed.get_impl_ptr());
         (void) tmp;
-    } catch (const RefObjectMovedFromException& e) {
+    } catch (const RefObjectException& e) {
 		(void) e;
         catched_mc = true;
     }
@@ -120,6 +120,21 @@ void test_interfaces() {
     takes_iface(der);
 }
 
+void test_stacktrace() {
+    std::string expected{R"(foo
+    at unique::Derived::Impl::throw_something(Derived.cpp:35)
+    at unique::Derived::throw_something(Derived.cpp:43))"};
+    bool catched = false;
+    try {
+        Derived der = Derived("foo");
+        der.throw_something();
+    } catch(const std::exception& e) {
+        catched = true;
+        assert(expected == e.what());
+    }
+    assert(catched);
+}
+
 } // namespace
 
 int main() {
@@ -129,6 +144,7 @@ int main() {
     test_downcast();
     test_move();
     test_interfaces();
+    test_stacktrace();
     
     return 0;
 }

@@ -25,6 +25,8 @@ public:
     virtual const std::string get_str() override;
 
     virtual const std::string get_str_derived();
+    
+    void throw_something();
 };
 
 } // namespace

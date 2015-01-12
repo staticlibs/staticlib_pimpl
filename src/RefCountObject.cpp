@@ -5,7 +5,7 @@
  * Created on October 3, 2014, 6:21 PM
  */
 
-#include "staticlib/refobjects/RefObjectEmptyException.hpp"
+#include "staticlib/refobjects/RefObjectException.hpp"
 #include "staticlib/refobjects/RefCountObject.hpp"
 
 namespace staticlib {
@@ -31,14 +31,14 @@ std::shared_ptr<RefCountObject::Impl>& RefCountObject::get_impl_ptr() {
     if (nullptr != this->pimpl.get()) {
         return this->pimpl;
     }
-    throw RefObjectMovedFromException();
+    throw RefObjectException();
 }
 
 const std::shared_ptr<RefCountObject::Impl>& RefCountObject::get_impl_ptr_const() const {
     if (nullptr != this->pimpl.get()) {
         return this->pimpl;
     }
-    throw RefObjectMovedFromException();
+    throw RefObjectException();
 }
 
 RefCountObject::Impl::~Impl() BOOST_NOEXCEPT = default;

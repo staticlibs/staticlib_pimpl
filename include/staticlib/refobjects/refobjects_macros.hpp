@@ -17,6 +17,8 @@
 #include <boost/preprocessor/comparison/equal.hpp>
 
 #include "staticlib/stdlib/make_unique.hpp"
+#include "staticlib/exceptions/tracemsg.hpp"
+#include "staticlib/refobjects/RefObjectException.hpp"
 
 #define REFOBJ_FORWARD_RET_TYPE_void 1)(1
 #define REFOBJ_FORWARD_IS_NOT_VOID(type) BOOST_PP_EQUAL(BOOST_PP_SEQ_SIZE((REFOBJ_FORWARD_RET_TYPE_##type)),1)
@@ -28,24 +30,40 @@
 #define REFOBJ_FORWARD_CREATE_ARG_PASS_LIST(PARAMS) BOOST_PP_SEQ_ENUM(BOOST_PP_SEQ_FOR_EACH_I(REFOBJ_FORWARD_ARGS_PASS, _, PARAMS))      
 #define REFOBJ_FORWARD_CREATE_RETURN(function_return) BOOST_PP_EXPR_IF(REFOBJ_FORWARD_IS_NOT_VOID(function_return),return)
 
-#define REFOBJ_FORWARD_FUNCTION_ARG(function_return, class_name, function_name, PARAMS) \
+#define REFOBJ_FORWARD_FUNCTION_ARG(class_name, function_return, function_name, PARAMS) \
 function_return class_name::function_name(REFOBJ_FORWARD_CREATE_PARAMS_LIST(PARAMS)) { \
-    REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl<class_name::Impl>()->function_name(REFOBJ_FORWARD_CREATE_ARG_PASS_LIST(PARAMS)); \
+    try { \
+        REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl<class_name::Impl>()->function_name(REFOBJ_FORWARD_CREATE_ARG_PASS_LIST(PARAMS)); \
+    } catch (const std::exception& e) { \
+        throw staticlib::refobjects::RefObjectException(TRACEMSG(e.what())); \
+    } \
 }
 
-#define REFOBJ_FORWARD_FUNCTION_ARG_CONST(function_return, class_name, function_name, PARAMS) \
+#define REFOBJ_FORWARD_FUNCTION_ARG_CONST(class_name, function_return, function_name, PARAMS) \
 function_return class_name::function_name(REFOBJ_FORWARD_CREATE_PARAMS_LIST(PARAMS)) const { \
-    REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl_const<class_name::Impl>()->function_name(REFOBJ_FORWARD_CREATE_ARG_PASS_LIST(PARAMS)); \
+    try { \
+        REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl_const<class_name::Impl>()->function_name(REFOBJ_FORWARD_CREATE_ARG_PASS_LIST(PARAMS)); \
+    } catch (const std::exception& e) { \
+        throw staticlib::refobjects::RefObjectException(TRACEMSG(e.what())); \
+    } \
 }
 
-#define REFOBJ_FORWARD_FUNCTION_NOARG(function_return, class_name, function_name) \
+#define REFOBJ_FORWARD_FUNCTION_NOARG(class_name, function_return, function_name) \
 function_return class_name::function_name() { \
-    REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl<class_name::Impl>()->function_name(); \
+    try { \
+        REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl<class_name::Impl>()->function_name(); \
+    } catch (const std::exception& e) { \
+        throw staticlib::refobjects::RefObjectException(TRACEMSG(e.what())); \
+    } \
 }
 
-#define REFOBJ_FORWARD_FUNCTION_NOARG_CONST(function_return, class_name, function_name) \
+#define REFOBJ_FORWARD_FUNCTION_NOARG_CONST(class_name, function_return, function_name) \
 function_return class_name::function_name() const { \
-    REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl_const<class_name::Impl>()->function_name(); \
+    try { \
+        REFOBJ_FORWARD_CREATE_RETURN(function_return) this->get_impl_const<class_name::Impl>()->function_name(); \
+    } catch (const std::exception& e) { \
+        throw staticlib::refobjects::RefObjectException(TRACEMSG(e.what())); \
+    } \
 }
 
 #define REFOBJ_FORWARD_CONSTRUCTOR_REFCOUNT_ARG(class_name, PARAMS) \

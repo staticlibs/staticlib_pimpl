@@ -24,6 +24,6 @@ const string Base::Impl::get_str() {
     res.append(this->str_base);
     return res;
 }
-REFOBJ_FORWARD_FUNCTION(const string, Base, get_str)
+REFOBJ_FORWARD_FUNCTION(Base, const string, get_str)
 
 } // namespace

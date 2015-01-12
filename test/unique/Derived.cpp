@@ -30,12 +30,17 @@ public:
     virtual const std::string get_str_derived() {
         return str_derived;
     }
+    
+    void throw_something() {
+        throw staticlib::refobjects::RefObjectException(TRACEMSG("foo"));
+    }
 };
 
 REFOBJ_FORWARD_CONSTRUCTOR(Derived, (const string&))
 
-REFOBJ_FORWARD_FUNCTION(const string, Derived, get_str)
-REFOBJ_FORWARD_FUNCTION(const string, Derived, get_str_derived)
+REFOBJ_FORWARD_FUNCTION(Derived, const string, get_str)
+REFOBJ_FORWARD_FUNCTION(Derived, const string, get_str_derived)
+REFOBJ_FORWARD_FUNCTION(Derived, void, throw_something)
 
 } // namespace
 

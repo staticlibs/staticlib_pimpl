@@ -27,14 +27,14 @@ std::unique_ptr<RefUniqueObject::Impl>& RefUniqueObject::get_impl_ptr() {
     if (nullptr != this->pimpl.get()) {
         return this->pimpl;
     }
-    throw RefObjectMovedFromException();
+    throw RefObjectException();
 }
 
 const std::unique_ptr<RefUniqueObject::Impl>& RefUniqueObject::get_impl_ptr_const() const {
     if (nullptr != this->pimpl.get()) {
         return this->pimpl;
     }
-    throw RefObjectMovedFromException();
+    throw RefObjectException();
 }
 
 RefUniqueObject::Impl::~Impl() BOOST_NOEXCEPT = default;

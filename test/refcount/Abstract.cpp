@@ -16,6 +16,6 @@ using std::string;
 Abstract::Impl::Impl():
 RefCountObject::Impl() { }
 
-REFOBJ_FORWARD_FUNCTION(const string, Abstract, get_str)
+REFOBJ_FORWARD_FUNCTION(Abstract, const string, get_str)
 
 } // namespace

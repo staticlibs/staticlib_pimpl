@@ -14,7 +14,7 @@
 
 #include <memory>
 
-#include "staticlib/refobjects/RefObjectEmptyException.hpp"
+#include "staticlib/refobjects/RefObjectException.hpp"
 
 namespace staticlib {
 namespace refobjects {
