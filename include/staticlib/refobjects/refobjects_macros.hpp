@@ -79,7 +79,6 @@ class_name::class_name(staticlib::stdlib::make_unique<class_name::Impl>()) { }
 #define REFOBJ_FORWARD_GET_CONSTRUCTOR_REFCOUNT_MACRO(_1,_2,NAME,...) NAME
 #define REFOBJ_FORWARD_CONSTRUCTOR_REFCOUNT(...) REFOBJ_EXPAND(REFOBJ_FORWARD_GET_CONSTRUCTOR_REFCOUNT_MACRO(__VA_ARGS__, REFOBJ_FORWARD_CONSTRUCTOR_REFCOUNT_ARG, REFOBJ_FORWARD_CONSTRUCTOR_REFCOUNT_NOARG, _dummy)(__VA_ARGS__))
 
-// headers constructor inheritance for compilers lacking support for this C++11 feature
 #define REFOBJ_INHERIT_CONSTRUCTOR_REFCOUNT_MACRO(r, data, i, elem) (elem(pimpl))
 #define REFOBJ_INHERIT_MOVE_CONSTRUCTOR_REFCOUNT_MACRO(r, data, i, elem) (elem(std::move(other)))
 #define REFOBJ_INHERIT_CONSTRUCTOR_REFCOUNT(class_name, PARENTS) \

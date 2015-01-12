@@ -20,7 +20,7 @@ protected:
     
 public:
 	//    using staticlib::refobjects::RefUniqueObject::RefUniqueObject;
-	REFOBJ_INHERIT_CONSTRUCTOR(Abstract, staticlib::refobjects::RefUniqueObject)
+    REFOBJ_INHERIT_CONSTRUCTOR(Abstract, staticlib::refobjects::RefUniqueObject)
 
     virtual const std::string get_str();
 };
