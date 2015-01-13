@@ -14,16 +14,18 @@ set ( ${PROJECT_NAME}_VERSION_MINOR 1 )
 set ( ${PROJECT_NAME}_VERSION_MICRO 0 )
 
 # dependencies (optional, required only for macros)
-staticlib_add_dependency ( staticlib_ext_boost )
 staticlib_add_dependency ( staticlib_util_stdlib )
-staticlib_add_dependency ( staticlib_exceptions )
 
 # build steps
 staticlib_collect_all_sources ( )
 add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} )
-set ( ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME} staticlib_exceptions )
+
+# tests
+set ( ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME} staticlib_util_stdlib )
 staticlib_enable_testing ( ${PROJECT_NAME}_TEST_LIBS )
 staticlib_enable_docs ( )
 
 # headers export
-staticlib_set_in_parent_scope ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include )
+set ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include 
+        ${staticlib_util_stdlib_INCLUDES} )
+staticlib_set_in_parent_scope ( ${PROJECT_NAME}_INCLUDES "${${PROJECT_NAME}_INCLUDES}" )

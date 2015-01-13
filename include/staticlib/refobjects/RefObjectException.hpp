@@ -8,7 +8,7 @@
 #ifndef REFOBJECTEXCEPTION_HPP
 #define	REFOBJECTEXCEPTION_HPP
 
-#include "staticlib/exceptions/StaticlibException.hpp"
+#include "staticlib/stdlib/BaseException.hpp"
 
 namespace staticlib {
 namespace refobjects {
@@ -16,7 +16,7 @@ namespace refobjects {
 /**
  * Module specific exception
  */
-class RefObjectException : public staticlib::exceptions::StaticlibException {
+class RefObjectException : public staticlib::stdlib::BaseException {
 public:
     /**
      * Default constructor
@@ -29,7 +29,7 @@ public:
      * @param msg error message
      */
     RefObjectException(const std::string& msg) :
-    staticlib::exceptions::StaticlibException(msg) { }
+    staticlib::stdlib::BaseException(msg) { }
 
 };
 

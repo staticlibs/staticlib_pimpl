@@ -16,8 +16,8 @@
 #include <boost/preprocessor/control/expr_if.hpp>
 #include <boost/preprocessor/comparison/equal.hpp>
 
-#include "staticlib/stdlib/make_unique.hpp"
-#include "staticlib/exceptions/tracemsg.hpp"
+#include "staticlib/stdlib/memory_utils.hpp"
+#include "staticlib/stdlib/tracemsg.hpp"
 #include "staticlib/refobjects/RefObjectException.hpp"
 
 #define REFOBJ_FORWARD_RET_TYPE_void 1)(1
