@@ -5,7 +5,7 @@
  * Created on July 1, 2014, 2:22 PM
  */
 
-#include "staticlib/refobjects/refobjects_macros.hpp"
+#include "staticlib/pimpl/pimpl_forward_macros.hpp"
 #include "unique/Intermediate.hpp"
 #include "unique/IntermediateImpl.hpp"
 #include "unique/Derived.hpp"
@@ -32,15 +32,15 @@ public:
     }
     
     void throw_something() {
-        throw staticlib::refobjects::RefObjectException(TRACEMSG("foo"));
+        throw staticlib::pimpl::PimplException(TRACEMSG("foo"));
     }
 };
 
-REFOBJ_FORWARD_CONSTRUCTOR(Derived, (const string&))
+PIMPL_FORWARD_CONSTRUCTOR(Derived, (const string&))
 
-REFOBJ_FORWARD_FUNCTION(Derived, const string, get_str)
-REFOBJ_FORWARD_FUNCTION(Derived, const string, get_str_derived)
-REFOBJ_FORWARD_FUNCTION(Derived, void, throw_something)
+PIMPL_FORWARD_FUNCTION(Derived, const string, get_str)
+PIMPL_FORWARD_FUNCTION(Derived, const string, get_str_derived)
+PIMPL_FORWARD_FUNCTION(Derived, void, throw_something)
 
 } // namespace
 

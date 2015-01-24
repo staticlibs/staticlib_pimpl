@@ -5,7 +5,7 @@
  * Created on July 1, 2014, 9:20 AM
  */
 
-#include "staticlib/refobjects/refobjects_macros.hpp"
+#include "staticlib/pimpl/pimpl_forward_macros.hpp"
 #include "unique/AbstractImpl.hpp"
 #include "unique/Base.hpp"
 #include "unique/BaseImpl.hpp"
@@ -16,7 +16,7 @@ using std::string;
 
 Base::Impl::Impl(const string& str) : 
 Abstract::Impl(), str_base(str) { }
-REFOBJ_FORWARD_CONSTRUCTOR(Base, (const string&))
+PIMPL_FORWARD_CONSTRUCTOR(Base, (const string&))
 
 const string Base::Impl::get_str() {
     string res = string();
@@ -24,6 +24,6 @@ const string Base::Impl::get_str() {
     res.append(this->str_base);
     return res;
 }
-REFOBJ_FORWARD_FUNCTION(Base, const string, get_str)
+PIMPL_FORWARD_FUNCTION(Base, const string, get_str)
 
 } // namespace

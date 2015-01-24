@@ -18,7 +18,7 @@ protected:
     
 public:
 //    using Abstract::Abstract;
-    REFOBJ_INHERIT_CONSTRUCTOR(Base, Abstract)
+    PIMPL_INHERIT_CONSTRUCTOR(Base, Abstract)
     
     Base(const std::string& str);
     

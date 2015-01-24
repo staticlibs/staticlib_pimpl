@@ -18,7 +18,7 @@ protected:
 
 public:
 //    using Intermediate::Intermediate;
-    REFOBJ_INHERIT_CONSTRUCTOR(Derived, Intermediate)
+    PIMPL_INHERIT_CONSTRUCTOR(Derived, Intermediate)
     
     Derived(const std::string& str);
     

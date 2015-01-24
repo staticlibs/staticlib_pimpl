@@ -1,5 +1,5 @@
 /* 
- * File:   test_RefUniqueObject.cpp
+ * File:   test_PimplObject.cpp
  * Author: alex
  * 
  * Created on October 3, 2014, 7:35 PM
@@ -9,7 +9,7 @@
 #include <vector>
 #include <cassert>
 
-#include "staticlib/refobjects/RefObjectException.hpp"
+#include "staticlib/pimpl/PimplException.hpp"
 
 #include "unique/Abstract.cpp"
 #include "unique/Base.cpp"
@@ -19,7 +19,7 @@
 namespace { // anonymous
 
 using std::vector;
-using staticlib::refobjects::RefObjectException;
+using staticlib::pimpl::PimplException;
 using unique::Abstract;
 using unique::Base;
 using unique::Base2;
@@ -94,8 +94,8 @@ void test_move() {
     try {
         auto tmp = std::move(source.get_impl_ptr());
         (void) tmp;
-    } catch (const RefObjectException& e) {
-		(void) e;
+    } catch (const PimplException& e) {
+        (void) e;
         catched_source = true;
     }
     assert(true == catched_source);
@@ -103,8 +103,8 @@ void test_move() {
     try {
         auto tmp = std::move(move_constructed.get_impl_ptr());
         (void) tmp;
-    } catch (const RefObjectException& e) {
-		(void) e;
+    } catch (const PimplException& e) {
+        (void) e;
         catched_mc = true;
     }
     assert(true == catched_mc);

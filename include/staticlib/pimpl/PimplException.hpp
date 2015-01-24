@@ -1,34 +1,34 @@
 /* 
- * File:   RefObjectMovedFromException.hpp
+ * File:   PimplException.hpp
  * Author: alex
  *
  * Created on October 3, 2014, 6:29 PM
  */
 
-#ifndef REFOBJECTEXCEPTION_HPP
-#define	REFOBJECTEXCEPTION_HPP
+#ifndef PIMPLEXCEPTION_HPP
+#define	PIMPLEXCEPTION_HPP
 
 #include "staticlib/stdlib/BaseException.hpp"
 
 namespace staticlib {
-namespace refobjects {
+namespace pimpl {
 
 /**
  * Module specific exception
  */
-class RefObjectException : public staticlib::stdlib::BaseException {
+class PimplException : public staticlib::stdlib::BaseException {
 public:
     /**
      * Default constructor
      */
-    RefObjectException() = default;
+    PimplException() = default;
 
     /**
      * Constructor with message
      * 
      * @param msg error message
      */
-    RefObjectException(const std::string& msg) :
+    PimplException(const std::string& msg) :
     staticlib::stdlib::BaseException(msg) { }
 
 };
@@ -36,5 +36,5 @@ public:
 } // namespace
 }
 
-#endif	/* REFOBJECTEXCEPTION_HPP */
+#endif	/* PIMPLEXCEPTION_HPP */
 

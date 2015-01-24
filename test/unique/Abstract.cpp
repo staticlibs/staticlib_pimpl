@@ -5,7 +5,7 @@
  * Created on September 6, 2014, 11:44 AM
  */
 
-#include "staticlib/refobjects/refobjects_macros.hpp"
+#include "staticlib/pimpl/pimpl_forward_macros.hpp"
 #include "unique/Abstract.hpp"
 #include "unique/AbstractImpl.hpp"
 
@@ -14,8 +14,8 @@ namespace unique {
 using std::string;
 
 Abstract::Impl::Impl() :
-RefUniqueObject::Impl() { }
+PimplObject::Impl() { }
 
-REFOBJ_FORWARD_FUNCTION(Abstract, const string, get_str)
+PIMPL_FORWARD_FUNCTION(Abstract, const string, get_str)
 
 } // namespace

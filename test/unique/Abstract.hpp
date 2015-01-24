@@ -10,17 +10,17 @@
 
 #include <string>
 
-#include "staticlib/refobjects/RefUniqueObject.hpp"
+#include "staticlib/pimpl/PimplObject.hpp"
 
 namespace unique {
 
-class Abstract : public staticlib::refobjects::RefUniqueObject {
+class Abstract : public staticlib::pimpl::PimplObject {
 protected:    
     class Impl;
     
 public:
-	//    using staticlib::refobjects::RefUniqueObject::RefUniqueObject;
-    REFOBJ_INHERIT_CONSTRUCTOR(Abstract, staticlib::refobjects::RefUniqueObject)
+	//    using staticlib::pimpl::PimplObject::PimplObject;
+    PIMPL_INHERIT_CONSTRUCTOR(Abstract, staticlib::pimpl::PimplObject)
 
     virtual const std::string get_str();
 };

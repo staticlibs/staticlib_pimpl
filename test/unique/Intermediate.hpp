@@ -20,7 +20,7 @@ protected:
     
 public:
 //    using Base::Base;
-    REFOBJ_INHERIT_CONSTRUCTOR(Intermediate, Base)
+    PIMPL_INHERIT_CONSTRUCTOR(Intermediate, Base)
     
     Intermediate(const std::string& str);
 

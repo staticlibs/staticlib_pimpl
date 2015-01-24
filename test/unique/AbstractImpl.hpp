@@ -12,7 +12,7 @@
 
 namespace unique {
 
-class Abstract::Impl : public RefUniqueObject::Impl {
+class Abstract::Impl : public PimplObject::Impl {
 protected:
     Impl();
 

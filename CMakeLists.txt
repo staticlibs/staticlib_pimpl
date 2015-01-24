@@ -10,7 +10,7 @@ if ( NOT DEFINED STATICLIB_PARENT_DIR )
 endif ( )
 
 # project header
-project ( staticlib_refobjects CXX )
+project ( staticlib_pimpl CXX )
 set ( ${PROJECT_NAME}_VERSION_MAJOR 0 )
 set ( ${PROJECT_NAME}_VERSION_MINOR 1 )
 set ( ${PROJECT_NAME}_VERSION_MICRO 0 )

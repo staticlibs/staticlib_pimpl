@@ -1,19 +1,21 @@
 /* 
- * File:   RefUniqueObject.hpp
+ * File:   PimplObject.hpp
  * Author: alex
  *
  * Created on September 6, 2014, 11:47 AM
  */
 
-#ifndef REFUNIQUEOBJECT_HPP
-#define	REFUNIQUEOBJECT_HPP
+#ifndef PIMPLOBJECT_HPP
+#define	PIMPLOBJECT_HPP
 
 #include <memory>
 
-#include "staticlib/refobjects/RefObjectException.hpp"
+#include <boost/config.hpp>
+
+#include "staticlib/pimpl/PimplException.hpp"
 
 namespace staticlib {
-namespace refobjects {
+namespace pimpl {
 
 /**
  * PIMPL implementation based on 'std::unique_ptr'.
@@ -21,38 +23,38 @@ namespace refobjects {
  * NOT `CopyConstructible` and `CopyAssignable`.
  * Multiple inheritance is NOT supported.
  */
-class RefUniqueObject {
+class PimplObject {
 public:
     /**
      * Virtual destructor
      */
-    virtual ~RefUniqueObject() BOOST_NOEXCEPT;
+    virtual ~PimplObject() BOOST_NOEXCEPT;
     /**
      * Deleted copy constructor
      * 
      * @param other other instance
      */
-    RefUniqueObject(const RefUniqueObject& other) = delete;
+    PimplObject(const PimplObject& other) = delete;
     /**
      * Deleted copy assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    RefUniqueObject& operator=(const RefUniqueObject& other) = delete;
+    PimplObject& operator=(const PimplObject& other) = delete;
     /**
      * Move constructor
      * 
      * @param other other instance
      */
-    RefUniqueObject(RefUniqueObject&& other) BOOST_NOEXCEPT;
+    PimplObject(PimplObject&& other) BOOST_NOEXCEPT;
     /**
      * Move assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    RefUniqueObject& operator=(RefUniqueObject&& other) BOOST_NOEXCEPT;
+    PimplObject& operator=(PimplObject&& other) BOOST_NOEXCEPT;
 
 protected:
     /**
@@ -63,12 +65,14 @@ protected:
         /**
          * Virtual destructor
          */
-        virtual ~Impl() BOOST_NOEXCEPT;        
+        virtual ~Impl() BOOST_NOEXCEPT;       
+        
     protected:
         /**
          * Default constructor
          */
         Impl() BOOST_NOEXCEPT;
+        
     private:
         /**
          * Deleted copy constructor
@@ -98,47 +102,24 @@ protected:
         Impl& operator=(Impl&& other) = delete;
     };
 
-    /**
-     * Impl pointer accessor for inheritors
-     * 
-     * @return pointer to Impl instance
-     */
-    template <typename T> T* get_impl() {
-        return static_cast<T*> (this->get_impl_ptr().get());
-    }
-    /**
-     * Auxiliary Impl pointer accessor for const methods forwarding
-     * 
-     * @return pointer to Impl instance
-     */
-    template <typename T> T* get_impl_const() const {
-        return static_cast<T*> (this->get_impl_ptr_const().get());
-    }
-
 public:
     /**
      * Constructor to be called from other constructors
      */
-    RefUniqueObject(std::unique_ptr<RefUniqueObject::Impl> pimpl) BOOST_NOEXCEPT;
+    PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) BOOST_NOEXCEPT;
     /**
      * Unique pointer access, made public only for downcast support,
      * should NOT be used in normal client code
      * 
      * @return unique_ptr to Impl instance
      */
-    std::unique_ptr<RefUniqueObject::Impl>& get_impl_ptr();
+    std::unique_ptr<PimplObject::Impl>& get_impl_ptr() const;
 
 private:
     /**
      * Pointer to Impl instance
      */
-    std::unique_ptr<RefUniqueObject::Impl> pimpl = nullptr;
-    /**
-     * Auxiliary method for const methods forwarding
-     * 
-     * @return 
-     */
-    const std::unique_ptr<RefUniqueObject::Impl>& get_impl_ptr_const() const;
+    mutable std::unique_ptr<PimplObject::Impl> pimpl = nullptr;
 
 };
 
@@ -147,8 +128,8 @@ private:
 
 // Optional helper macros
 
-// required for msvc
-#define REFOBJ_MOVE_CONSTRUCTORS(class_name, parent_class_name) \
+// required for msvc compiler
+#define PIMPL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \
 class_name(class_name&& other) BOOST_NOEXCEPT : \
 parent_class_name(std::move(other)) { } \
 \
@@ -157,17 +138,17 @@ class_name& operator=(class_name&& other) BOOST_NOEXCEPT { \
     return *this; \
 }
 
-#define REFOBJ_CONSTRUCTOR(class_name) \
-class_name(std::unique_ptr<staticlib::refobjects::RefUniqueObject::Impl> pimpl) BOOST_NOEXCEPT : \
-staticlib::refobjects::RefUniqueObject(std::move(pimpl)) { } \
+#define PIMPL_CONSTRUCTOR(class_name) \
+class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) BOOST_NOEXCEPT : \
+staticlib::pimpl::PimplObject(std::move(pimpl)) { } \
 \
-REFOBJ_MOVE_CONSTRUCTORS(class_name, staticlib::refobjects::RefUniqueObject)
+PIMPL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
 
-#define REFOBJ_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
-class_name(std::unique_ptr<staticlib::refobjects::RefUniqueObject::Impl> pimpl) BOOST_NOEXCEPT : \
+#define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
+class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) BOOST_NOEXCEPT : \
 parent_class_name(std::move(pimpl)) { } \
 \
-REFOBJ_MOVE_CONSTRUCTORS(class_name, parent_class_name)
+PIMPL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
-#endif	/* REFUNIQUEOBJECT_HPP */
+#endif	/* PIMPLOBJECT_HPP */
 
