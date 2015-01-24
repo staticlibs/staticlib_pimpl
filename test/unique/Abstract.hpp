@@ -10,7 +10,7 @@
 
 #include <string>
 
-#include "staticlib/pimpl/PimplObject.hpp"
+#include "staticlib/pimpl.hpp"
 
 namespace unique {
 
