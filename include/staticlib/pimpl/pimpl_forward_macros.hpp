@@ -8,6 +8,11 @@
 #ifndef PIMPL_FORWARD_MACROS_HPP
 #define	PIMPL_FORWARD_MACROS_HPP
 
+#ifdef _MSC_VER
+    //http://lists.boost.org/boost-users/2014/11/83291.php
+    #pragma warning (disable: 4003)
+#endif //_MSC_VER
+
 #include <boost/preprocessor/seq/size.hpp>
 #include <boost/preprocessor/seq/enum.hpp>
 #include <boost/preprocessor/seq/for_each_i.hpp>

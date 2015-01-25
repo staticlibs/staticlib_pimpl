@@ -129,6 +129,7 @@ void test_stacktrace() {
         Derived der = Derived("foo");
         der.throw_something();
     } catch(const std::exception& e) {
+        (void) e;
         catched = true;
 //        assert(expected == e.what());
     }
