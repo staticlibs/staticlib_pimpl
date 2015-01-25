@@ -22,9 +22,15 @@ public:
     
     Derived(const std::string& str);
     
-    virtual const std::string get_str() override;
+    virtual std::string get_str() override;
 
-    virtual const std::string get_str_derived();
+    virtual std::string get_str_derived();
+    
+    std::string some_method_with_args(std::string arg1);
+    
+    std::string some_const_method_with_args(std::string arg1, int arg2) const;
+    
+    std::string some_const_method_noargs() const;
     
     void throw_something();
 };

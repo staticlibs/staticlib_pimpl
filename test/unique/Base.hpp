@@ -22,7 +22,7 @@ public:
     
     Base(const std::string& str);
     
-    virtual const std::string get_str() override;
+    virtual std::string get_str() override;
 };
 
 } // namespace

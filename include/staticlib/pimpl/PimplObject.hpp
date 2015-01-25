@@ -8,7 +8,9 @@
 #ifndef PIMPLOBJECT_HPP
 #define	PIMPLOBJECT_HPP
 
+#include <string>
 #include <memory>
+#include <ostream>
 
 #include <boost/config.hpp>
 
@@ -61,19 +63,12 @@ protected:
      * Implementation class
      */
     class Impl {
+        friend PimplObject;
     public:
         /**
          * Virtual destructor
          */
-        virtual ~Impl() BOOST_NOEXCEPT;       
-        
-    protected:
-        /**
-         * Default constructor
-         */
-        Impl() BOOST_NOEXCEPT;
-        
-    private:
+        virtual ~Impl() BOOST_NOEXCEPT;  
         /**
          * Deleted copy constructor
          * 
@@ -100,13 +95,28 @@ protected:
          * @return reference to this instance
          */
         Impl& operator=(Impl&& other) = delete;
+        
+    protected:
+        /**
+         * Default constructor
+         */
+        Impl() BOOST_NOEXCEPT;
+        /**
+         * String description of this instance,
+         * `classname@address` by default
+         * 
+         * @return string description
+         */
+        virtual std::string to_string() const;
+
     };
 
-public:
     /**
      * Constructor to be called from other constructors
      */
     PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) BOOST_NOEXCEPT;
+    
+public:
     /**
      * Unique pointer access, made public only for downcast support,
      * should NOT be used in normal client code
@@ -114,6 +124,20 @@ public:
      * @return unique_ptr to Impl instance
      */
     std::unique_ptr<PimplObject::Impl>& get_impl_ptr() const;
+    /**
+     * String description of this instance,
+     * `classname@address` by default
+     * 
+     * @return string description
+     */
+    virtual std::string to_string() const;
+    /**
+     * Prints string description to ostream
+     * 
+     * @param stream out stream
+     * @param obj instance to print
+     */
+    friend std::ostream& operator<<(std::ostream& stream, const PimplObject& obj);
 
 private:
     /**
@@ -129,7 +153,7 @@ private:
 // Optional helper macros
 
 // required for msvc compiler
-#define PIMPL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \
+#define PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \
 class_name(class_name&& other) BOOST_NOEXCEPT : \
 parent_class_name(std::move(other)) { } \
 \
@@ -142,13 +166,13 @@ class_name& operator=(class_name&& other) BOOST_NOEXCEPT { \
 class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) BOOST_NOEXCEPT : \
 staticlib::pimpl::PimplObject(std::move(pimpl)) { } \
 \
-PIMPL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
+PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
 class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) BOOST_NOEXCEPT : \
 parent_class_name(std::move(pimpl)) { } \
 \
-PIMPL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
+PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
 #endif	/* PIMPLOBJECT_HPP */
 

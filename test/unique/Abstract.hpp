@@ -22,7 +22,7 @@ public:
 	//    using staticlib::pimpl::PimplObject::PimplObject;
     PIMPL_INHERIT_CONSTRUCTOR(Abstract, staticlib::pimpl::PimplObject)
 
-    virtual const std::string get_str();
+    virtual std::string get_str();
 };
 
 } // namespace

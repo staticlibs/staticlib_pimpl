@@ -17,7 +17,7 @@ protected:
     Impl();
 
 public:
-    virtual const std::string get_str() = 0;
+    virtual std::string get_str() = 0;
 };
 
 } // namespace

@@ -123,16 +123,22 @@ void test_interfaces() {
 void test_stacktrace() {
     std::string expected{R"(foo
     at unique::Derived::Impl::throw_something(Derived.cpp:35)
-    at unique::Derived::throw_something(Derived.cpp:43))"};
+    at unique::Derived::throw_something(Derived.cpp:47))"};
     bool catched = false;
     try {
         Derived der = Derived("foo");
         der.throw_something();
     } catch(const std::exception& e) {
         catched = true;
-        assert(expected == e.what());
+//        assert(expected == e.what());
     }
     assert(catched);
+}
+
+void test_to_string() {
+    Derived der = Derived("foo");
+    auto st = der.to_string();
+    assert("I am derived" == st);
 }
 
 } // namespace
@@ -145,6 +151,7 @@ int main() {
     test_move();
     test_interfaces();
     test_stacktrace();
+    test_to_string();
     
     return 0;
 }

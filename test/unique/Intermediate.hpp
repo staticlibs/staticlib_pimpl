@@ -24,13 +24,13 @@ public:
     
     Intermediate(const std::string& str);
 
-    virtual const std::string get_str() override;
+    virtual std::string get_str() override;
 
-    virtual const std::string get_str_intermediate();
+    virtual std::string get_str_intermediate();
     
-    virtual const std::string get_str_from_base2() const override;
+    virtual std::string get_str_from_base2() const override;
     
-    virtual const std::string get_str_from_base3() override;
+    virtual std::string get_str_from_base3() override;
 };
 
 } // namespace

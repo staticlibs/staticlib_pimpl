@@ -14,30 +14,30 @@ using std::string;
 
 Intermediate::Impl::Impl(const string& str) : 
 Base::Impl(str), str_intermediate(string("intermediate_").append(str)) { }
-PIMPL_FORWARD_CONSTRUCTOR(Intermediate, (const string&))
+PIMPL_FORWARD_CONSTRUCTOR(Intermediate, (const string&), ())
 
-const string Intermediate::Impl::get_str() {
+string Intermediate::Impl::get_str() {
     string res = string();
     res.append("Intermediate::");
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_FUNCTION(Intermediate, const string, get_str)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str, ())
 
-const string Intermediate::Impl::get_str_intermediate() {
+string Intermediate::Impl::get_str_intermediate() {
     return this->str_intermediate;
 }
-PIMPL_FORWARD_FUNCTION(Intermediate, const string, get_str_intermediate)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_intermediate, ())
 
-const string Intermediate::Impl::get_str_from_base2() const {
+string Intermediate::Impl::get_str_from_base2() const {
     return "424242";
 }
-PIMPL_FORWARD_FUNCTION_CONST(Intermediate, const string, get_str_from_base2)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base2, (const))
 
-const string Intermediate::Impl::get_str_from_base3() {
+string Intermediate::Impl::get_str_from_base3() {
     return "434343";
 }
-PIMPL_FORWARD_FUNCTION(Intermediate, const string, get_str_from_base3)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base3, ())
 
 } // namespace
 

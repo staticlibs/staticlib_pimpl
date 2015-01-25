@@ -16,14 +16,14 @@ using std::string;
 
 Base::Impl::Impl(const string& str) : 
 Abstract::Impl(), str_base(str) { }
-PIMPL_FORWARD_CONSTRUCTOR(Base, (const string&))
+PIMPL_FORWARD_CONSTRUCTOR(Base, (const string&), ())
 
-const string Base::Impl::get_str() {
+string Base::Impl::get_str() {
     string res = string();
     res.append("Base::");
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_FUNCTION(Base, const string, get_str)
+PIMPL_FORWARD_METHOD(Base, string, get_str, ())
 
 } // namespace

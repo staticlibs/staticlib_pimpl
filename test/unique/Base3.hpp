@@ -12,7 +12,7 @@ namespace unique {
 
 class Base3 {
 public:
-    virtual const std::string get_str_from_base3() = 0;
+    virtual std::string get_str_from_base3() = 0;
 };
 
 } // namespace
