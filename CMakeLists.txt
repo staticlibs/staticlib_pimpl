@@ -16,7 +16,6 @@ set ( ${PROJECT_NAME}_VERSION_MINOR 1 )
 set ( ${PROJECT_NAME}_VERSION_MICRO 0 )
 
 # dependencies
-staticlib_add_dependency ( staticlib_ext_boost ) # optional, required only for macros
 staticlib_add_dependency ( staticlib_util_stdlib )
 
 # build steps
