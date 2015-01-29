@@ -8,9 +8,7 @@
 #include <string>
 #include <ostream>
 
-#include <boost/config.hpp>
-
-#include "staticlib/stdlib/string_utils.hpp"
+#include "staticlib/stdlib.hpp"
 #include "staticlib/pimpl/PimplObject.hpp"
 
 namespace staticlib {
@@ -18,17 +16,17 @@ namespace pimpl {
 
 namespace ss = staticlib::stdlib;
 
-PimplObject::~PimplObject() BOOST_NOEXCEPT = default;
+PimplObject::~PimplObject() STATICLIB_NOEXCEPT = default;
 
-PimplObject::PimplObject(PimplObject&& other) BOOST_NOEXCEPT :
+PimplObject::PimplObject(PimplObject&& other) STATICLIB_NOEXCEPT :
 pimpl(std::move(other.pimpl)) { }
 
-PimplObject& PimplObject::operator=(PimplObject&& other) BOOST_NOEXCEPT {
+PimplObject& PimplObject::operator=(PimplObject&& other) STATICLIB_NOEXCEPT {
     this->pimpl = std::move(other.pimpl);
     return *this;
 }
 
-PimplObject::PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) BOOST_NOEXCEPT :
+PimplObject::PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT :
 pimpl(std::move(pimpl)) { };
 
 std::unique_ptr<PimplObject::Impl>& PimplObject::get_impl_ptr() const {
@@ -52,9 +50,9 @@ std::ostream& operator<<(std::ostream& stream, const PimplObject& obj) {
 }
 
 
-PimplObject::Impl::~Impl() BOOST_NOEXCEPT = default;
+PimplObject::Impl::~Impl() STATICLIB_NOEXCEPT = default;
 
-PimplObject::Impl::Impl() BOOST_NOEXCEPT = default;
+PimplObject::Impl::Impl() STATICLIB_NOEXCEPT = default;
 
 } // namespace
 }

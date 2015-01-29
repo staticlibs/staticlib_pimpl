@@ -12,7 +12,7 @@
 #include <memory>
 #include <ostream>
 
-#include <boost/config.hpp>
+#include "staticlib/stdlib/config.hpp"
 
 #include "staticlib/pimpl/PimplException.hpp"
 
@@ -30,7 +30,7 @@ public:
     /**
      * Virtual destructor
      */
-    virtual ~PimplObject() BOOST_NOEXCEPT;
+    virtual ~PimplObject() STATICLIB_NOEXCEPT;
     /**
      * Deleted copy constructor
      * 
@@ -49,14 +49,14 @@ public:
      * 
      * @param other other instance
      */
-    PimplObject(PimplObject&& other) BOOST_NOEXCEPT;
+    PimplObject(PimplObject&& other) STATICLIB_NOEXCEPT;
     /**
      * Move assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    PimplObject& operator=(PimplObject&& other) BOOST_NOEXCEPT;
+    PimplObject& operator=(PimplObject&& other) STATICLIB_NOEXCEPT;
 
 protected:
     /**
@@ -68,7 +68,7 @@ protected:
         /**
          * Virtual destructor
          */
-        virtual ~Impl() BOOST_NOEXCEPT;  
+        virtual ~Impl() STATICLIB_NOEXCEPT;  
         /**
          * Deleted copy constructor
          * 
@@ -100,7 +100,7 @@ protected:
         /**
          * Default constructor
          */
-        Impl() BOOST_NOEXCEPT;
+        Impl() STATICLIB_NOEXCEPT;
         /**
          * String description of this instance,
          * `classname@address` by default
@@ -114,7 +114,7 @@ protected:
     /**
      * Constructor to be called from other constructors
      */
-    PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) BOOST_NOEXCEPT;
+    PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT;
     
 public:
     /**
@@ -150,26 +150,26 @@ private:
 } // namespace
 }
 
-// Optional helper macros
+// Optional helper macros, constructor inheritance can be used instead
 
-// required for msvc compiler
+// for msvc compiler
 #define PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \
-class_name(class_name&& other) BOOST_NOEXCEPT : \
+class_name(class_name&& other) STATICLIB_NOEXCEPT : \
 parent_class_name(std::move(other)) { } \
 \
-class_name& operator=(class_name&& other) BOOST_NOEXCEPT { \
+class_name& operator=(class_name&& other) STATICLIB_NOEXCEPT { \
     parent_class_name::operator=(std::move(other)); \
     return *this; \
 }
 
 #define PIMPL_CONSTRUCTOR(class_name) \
-class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) BOOST_NOEXCEPT : \
+class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
 staticlib::pimpl::PimplObject(std::move(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
-class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) BOOST_NOEXCEPT : \
+class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
 parent_class_name(std::move(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
