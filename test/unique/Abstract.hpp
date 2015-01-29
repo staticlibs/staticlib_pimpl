@@ -20,7 +20,7 @@ protected:
     
 public:
 	//    using staticlib::pimpl::PimplObject::PimplObject;
-    PIMPL_INHERIT_CONSTRUCTOR(Abstract, staticlib::pimpl::PimplObject)
+    PIMPL_CONSTRUCTOR(Abstract)
 
     virtual std::string get_str();
 };

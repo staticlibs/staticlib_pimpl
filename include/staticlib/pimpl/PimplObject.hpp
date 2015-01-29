@@ -166,11 +166,16 @@ class_name& operator=(class_name&& other) STATICLIB_NOEXCEPT { \
 class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
 staticlib::pimpl::PimplObject(std::move(pimpl)) { } \
 \
+class_name() STATICLIB_NOEXCEPT : \
+staticlib::pimpl::PimplObject(std::unique_ptr<staticlib::pimpl::PimplObject::Impl>()) { } \
+\
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
 class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
 parent_class_name(std::move(pimpl)) { } \
+\
+class_name() STATICLIB_NOEXCEPT { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
