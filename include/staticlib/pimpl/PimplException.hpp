@@ -5,8 +5,8 @@
  * Created on October 3, 2014, 6:29 PM
  */
 
-#ifndef PIMPLEXCEPTION_HPP
-#define	PIMPLEXCEPTION_HPP
+#ifndef STATICLIB_PIMPLEXCEPTION_HPP
+#define	STATICLIB_PIMPLEXCEPTION_HPP
 
 #include "staticlib/stdlib/BaseException.hpp"
 
@@ -36,5 +36,5 @@ public:
 } // namespace
 }
 
-#endif	/* PIMPLEXCEPTION_HPP */
+#endif	/* STATICLIB_PIMPLEXCEPTION_HPP */
 

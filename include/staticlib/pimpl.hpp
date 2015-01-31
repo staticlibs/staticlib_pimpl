@@ -13,5 +13,5 @@
 // disabled to not leak boost from headers
 //#include "staticlib/pimpl/pimpl_forward_macros.hpp"
 
-#endif	/* PIMPL_HPP */
+#endif	/* STATICLIB_PIMPL_HPP */
 

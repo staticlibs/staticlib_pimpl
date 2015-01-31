@@ -5,8 +5,8 @@
  * Created on September 6, 2014, 11:47 AM
  */
 
-#ifndef PIMPLOBJECT_HPP
-#define	PIMPLOBJECT_HPP
+#ifndef STATICLIB_PIMPLOBJECT_HPP
+#define	STATICLIB_PIMPLOBJECT_HPP
 
 #include <string>
 #include <memory>
@@ -179,5 +179,5 @@ class_name() STATICLIB_NOEXCEPT { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
-#endif	/* PIMPLOBJECT_HPP */
+#endif	/* STATICLIB_PIMPLOBJECT_HPP */
 
