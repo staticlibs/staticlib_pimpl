@@ -8,13 +8,13 @@
 #include <string>
 #include <ostream>
 
-#include "staticlib/stdlib.hpp"
+#include "staticlib/utils.hpp"
 #include "staticlib/pimpl/PimplObject.hpp"
 
 namespace staticlib {
 namespace pimpl {
 
-namespace ss = staticlib::stdlib;
+namespace ss = staticlib::utils;
 
 PimplObject::~PimplObject() STATICLIB_NOEXCEPT = default;
 

@@ -8,7 +8,7 @@
 #ifndef STATICLIB_PIMPLEXCEPTION_HPP
 #define	STATICLIB_PIMPLEXCEPTION_HPP
 
-#include "staticlib/stdlib/BaseException.hpp"
+#include "staticlib/utils/BaseException.hpp"
 
 namespace staticlib {
 namespace pimpl {
@@ -16,7 +16,7 @@ namespace pimpl {
 /**
  * Module specific exception
  */
-class PimplException : public staticlib::stdlib::BaseException {
+class PimplException : public staticlib::utils::BaseException {
 public:
     /**
      * Default constructor
@@ -29,7 +29,7 @@ public:
      * @param msg error message
      */
     PimplException(const std::string& msg) :
-    staticlib::stdlib::BaseException(msg) { }
+    staticlib::utils::BaseException(msg) { }
 
 };
 

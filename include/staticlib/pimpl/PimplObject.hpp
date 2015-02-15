@@ -12,7 +12,7 @@
 #include <memory>
 #include <ostream>
 
-#include "staticlib/stdlib/config.hpp"
+#include "staticlib/utils/config.hpp"
 
 #include "staticlib/pimpl/PimplException.hpp"
 

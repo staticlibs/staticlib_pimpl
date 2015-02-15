@@ -15,7 +15,7 @@
 
 #include "staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp"
 
-#include "staticlib/stdlib/tracemsg.hpp"
+#include "staticlib/utils/tracemsg.hpp"
 #include "staticlib/pimpl/PimplException.hpp"
 
 #define PIMPL_FORWARD_INTERNAL_RET_TYPE_void 1)(1
