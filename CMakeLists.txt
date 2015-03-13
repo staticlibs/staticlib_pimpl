@@ -11,9 +11,7 @@ project ( staticlib_pimpl CXX )
 include ( ${CMAKE_CURRENT_LIST_DIR}/cmake/CMakeLists_common.cmake )
 
 # dependencies
-if ( NOT IS_DIRECTORY ${CMAKE_BINARY_DIR}/staticlib_utils )
-    add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/deps/staticlib_utils ${CMAKE_BINARY_DIR}/staticlib_utils )
-endif ( )
+staticlib_add_subdirectory ( staticlib_utils )
 
 # build steps
 file ( GLOB_RECURSE ${PROJECT_NAME}_SRC ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp )
