@@ -8,7 +8,7 @@ set ( CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_LIST_DIR}/cmake/toolchains/${STATICLI
 # project setup
 project ( staticlib_pimpl CXX )
 # common include
-include ( ${CMAKE_CURRENT_LIST_DIR}/cmake/CMakeLists_common.cmake )
+include ( ${CMAKE_CURRENT_LIST_DIR}/cmake/staticlibs_common.cmake )
 
 # dependencies
 staticlib_add_subdirectory ( staticlib_utils )
