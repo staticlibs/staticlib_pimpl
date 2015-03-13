@@ -19,7 +19,6 @@ add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} )
 set ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include 
         ${staticlib_utils_INCLUDES} )
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE ${${PROJECT_NAME}_INCLUDES} )
-target_link_libraries ( ${PROJECT_NAME} staticlib_utils )
 
 # tests and docs
 set ( ${PROJECT_NAME}_TEST_INCLUDES ${${PROJECT_NAME}_INCLUDES} 
