@@ -10,6 +10,7 @@
 
 #include <string>
 #include <memory>
+#include <utility>
 #include <ostream>
 
 #include "staticlib/utils/config.hpp"
@@ -155,22 +156,22 @@ private:
 // for msvc compiler
 #define PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \
 class_name(class_name&& other) STATICLIB_NOEXCEPT : \
-parent_class_name(std::move(other)) { } \
+parent_class_name(std::forward<class_name>(other)) { } \
 \
 class_name& operator=(class_name&& other) STATICLIB_NOEXCEPT { \
-    parent_class_name::operator=(std::move(other)); \
+    parent_class_name::operator=(std::forward<class_name>(other)); \
     return *this; \
 }
 
 #define PIMPL_CONSTRUCTOR(class_name) \
 class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
-staticlib::pimpl::PimplObject(std::move(pimpl)) { } \
+staticlib::pimpl::PimplObject(std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
 class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
-parent_class_name(std::move(pimpl)) { } \
+parent_class_name(std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 

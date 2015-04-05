@@ -13,6 +13,9 @@
     #pragma warning (disable: 4003)
 #endif //_MSC_VER
 
+#include <memory>
+#include <utility>
+
 #include "staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp"
 
 #include "staticlib/utils/tracemsg.hpp"
@@ -22,7 +25,7 @@
 #define PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(type) STATICLIB_PP_EQUAL(STATICLIB_PP_SEQ_SIZE((PIMPL_FORWARD_INTERNAL_RET_TYPE_##type)),1)
 
 #define PIMPL_FORWARD_INTERNAL_PARAMS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(elem), (elem p##i), ())
-#define PIMPL_FORWARD_INTERNAL_ARGS_PASS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(elem), (std::move(p##i)), ())
+#define PIMPL_FORWARD_INTERNAL_ARGS_PASS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(elem), (std::forward<elem>(p##i)), ())
 #define PIMPL_FORWARD_INTERNAL_MODIFIERS(r, data, i, elem) (elem)
 
 #define PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_PARAMS,_,PARAMS))

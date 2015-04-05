@@ -10,7 +10,7 @@
 
 #include "staticlib/pimpl/PimplException.hpp"
 #include "staticlib/pimpl/PimplObject.hpp"
-// disabled to not leak boost from headers
+// disabled to not leak boost_preprocessor parts from headers
 //#include "staticlib/pimpl/pimpl_forward_macros.hpp"
 
 #endif	/* STATICLIB_PIMPL_HPP */
