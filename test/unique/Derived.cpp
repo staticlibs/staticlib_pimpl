@@ -57,12 +57,12 @@ public:
 
 PIMPL_FORWARD_CONSTRUCTOR(Derived, (const string&), ())
 
-PIMPL_FORWARD_METHOD(Derived, string, get_str, ())
-PIMPL_FORWARD_METHOD(Derived, string, get_str_derived, ())
-PIMPL_FORWARD_METHOD(Derived, void, throw_something, ())
+PIMPL_FORWARD_METHOD(Derived, string, get_str, (void), ())
+PIMPL_FORWARD_METHOD(Derived, string, get_str_derived, (void), ())
+PIMPL_FORWARD_METHOD(Derived, void, throw_something, (void), ())
 PIMPL_FORWARD_METHOD(Derived, std::string, some_method_with_args, (std::string), ())
 PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_with_args, (std::string)(int), (const))
-PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_noargs, (const))
+PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_noargs, (void), (const))
 
 } // namespace
 

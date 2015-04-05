@@ -14,6 +14,7 @@
 #include "staticlib/pimpl/ext_preprocessor/seq/enum.hpp"
 #include "staticlib/pimpl/ext_preprocessor/seq/for_each_i.hpp"
 #include "staticlib/pimpl/ext_preprocessor/control/expr_if.hpp"
+#include "staticlib/pimpl/ext_preprocessor/control/if.hpp"
 #include "staticlib/pimpl/ext_preprocessor/comparison/equal.hpp"
 
 #endif	/* EXT_PREPROCESSOR_HPP */

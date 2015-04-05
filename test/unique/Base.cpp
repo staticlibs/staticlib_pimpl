@@ -24,6 +24,6 @@ string Base::Impl::get_str() {
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_METHOD(Base, string, get_str, ())
+PIMPL_FORWARD_METHOD(Base, string, get_str, (void), ())
 
 } // namespace
