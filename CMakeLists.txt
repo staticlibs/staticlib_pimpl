@@ -38,8 +38,8 @@ target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE ${${PROJECT_NAME}_IN
 set ( ${PROJECT_NAME}_TEST_INCLUDES ${${PROJECT_NAME}_INCLUDES} 
         ${CMAKE_CURRENT_LIST_DIR}/test )
 set ( ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME} staticlib_utils )
-set ( ${PROJECT_NAME}_TEST_DEFS "" )
-staticlib_enable_testing ( ${PROJECT_NAME}_TEST_INCLUDES ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME}_TEST_DEFS )
+set ( ${PROJECT_NAME}_TEST_OPTS "" )
+staticlib_enable_testing ( ${PROJECT_NAME}_TEST_INCLUDES ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME}_TEST_OPTS )
 staticlib_enable_docs ( )
 
 # export headers

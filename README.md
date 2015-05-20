@@ -111,7 +111,7 @@ Example build for Windows x86_64 with Visual Studio 2013 Express, run the follow
 from the development shell `C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\Shortcuts\VS2013 x64 Cross Tools Command Prompt` :
 
     git clone https://github.com/staticlibs/staticlib_pimpl.git
-    cd staticlib_utils
+    cd staticlib_pimpl
     git submodule update --init --recursive
     mkdir build
     cd build
