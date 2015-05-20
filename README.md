@@ -1,7 +1,7 @@
 Staticlibs PIMPL library
 ========================
 
-This project is part of [Staticlibs](http://staticlibs.net/).
+This project is a part of [Staticlibs](http://staticlibs.net/).
 
 This project contains implementation of [PIMPL idiom](http://herbsutter.com/gotw/_100/).
 This implementation deliberately does not use templates, template-based implementation can be found [here](http://herbsutter.com/gotw/_101/).
