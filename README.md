@@ -6,7 +6,7 @@ This project is a part of [Staticlibs](http://staticlibs.net/).
 This project contains implementation of [PIMPL idiom](http://herbsutter.com/gotw/_100/).
 This implementation deliberately does not use templates, template-based implementation can be found [here](http://herbsutter.com/gotw/_101/).
 
-Link to [API documentation](http://staticlibs.github.com/staticlib_pimpl/docs/html/namespacestaticlib_1_1pimpl.html).
+Link to [API documentation](http://staticlibs.github.io/staticlib_pimpl/docs/html/namespacestaticlib_1_1pimpl.html).
 
 PIMPL implementation
 --------------------
