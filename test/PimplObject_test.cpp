@@ -114,6 +114,7 @@ void test_move() {
         (void) e;
         catched_source = true;
     }
+    (void) catched_source;
     assert(true == catched_source);
     bool catched_mc = false;
     try {
@@ -123,6 +124,7 @@ void test_move() {
         (void) e;
         catched_mc = true;
     }
+    (void) catched_mc;
     assert(true == catched_mc);
 }
 
@@ -149,6 +151,7 @@ void test_stacktrace() {
         catched = true;
 //        assert(expected == e.what());
     }
+    (void) catched;
     assert(catched);
 }
 
