@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_pimpl
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.0.3</span>
    </div>
   </td>
  </tr>
@@ -127,8 +127,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a67bd1494af83e6697661cf2fcafacbda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a67bd1494af83e6697661cf2fcafacbda">PimplObject</a> (std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a> &gt; pimpl) STATICLIB_NOEXCEPT</td></tr>
-<tr class="memdesc:a67bd1494af83e6697661cf2fcafacbda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to be called from other constructors.  <a href="#a67bd1494af83e6697661cf2fcafacbda"></a><br/></td></tr>
+<tr class="memitem:a03c63961add02eb6137ed4521cb8f302"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a03c63961add02eb6137ed4521cb8f302">PimplObject</a> (std::nullptr_t, std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a> &gt; pimpl) STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:a03c63961add02eb6137ed4521cb8f302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to be called from other constructors, "nullptr" is required as dummy first argument to disambiguate this "system" constructor from all other possible business-specific constructors.  <a href="#a03c63961add02eb6137ed4521cb8f302"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
@@ -212,7 +212,7 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a67bd1494af83e6697661cf2fcafacbda"></a>
+<a class="anchor" id="a03c63961add02eb6137ed4521cb8f302"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -222,9 +222,19 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">staticlib::pimpl::PimplObject::PimplObject </td>
           <td>(</td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a> &gt;&#160;</td>
-          <td class="paramname"><em>pimpl</em></td><td>)</td>
+          <td class="paramtype">std::nullptr_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a> &gt;&#160;</td>
+          <td class="paramname"><em>pimpl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -234,7 +244,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor to be called from other constructors. </p>
+<p>Constructor to be called from other constructors, "nullptr" is required as dummy first argument to disambiguate this "system" constructor from all other possible business-specific constructors. </p>
 
 </div>
 </div>
@@ -383,7 +393,7 @@ Friends</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 24 2015 21:03:26 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 30 2015 17:54:14 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

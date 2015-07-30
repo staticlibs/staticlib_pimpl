@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_pimpl
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.0.3</span>
    </div>
   </td>
  </tr>
@@ -151,51 +151,51 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
 <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    };</div>
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a129b0b427b37c632433bb780d59d0dff" title="Deleted copy constructor.">PimplObject</a>(std::unique_ptr&lt;PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    std::unique_ptr&lt;PimplObject::Impl&gt;&amp; <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a56748020a0b45a85d35eb369e8e8eed4" title="Unique pointer access, made public only for downcast support, should NOT be used in normal client cod...">get_impl_ptr</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a94a1c2fed68ec42dc7d45407d107ef73" title="String description of this instance, classname@address by default.">to_string</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a90fe624b56b2f86ec2f4ab35894f868f" title="Prints string description to ostream.">operator&lt;&lt;</a>(std::ostream&amp; stream, <span class="keyword">const</span> <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html" title="PIMPL implementation based on &#39;std::unique_ptr&#39;.">PimplObject</a>&amp; obj);</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">mutable</span> std::unique_ptr&lt;PimplObject::Impl&gt; pimpl = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;};</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a129b0b427b37c632433bb780d59d0dff" title="Deleted copy constructor.">PimplObject</a>(std::nullptr_t, std::unique_ptr&lt;PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    std::unique_ptr&lt;PimplObject::Impl&gt;&amp; <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a56748020a0b45a85d35eb369e8e8eed4" title="Unique pointer access, made public only for downcast support, should NOT be used in normal client cod...">get_impl_ptr</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a94a1c2fed68ec42dc7d45407d107ef73" title="String description of this instance, classname@address by default.">to_string</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a90fe624b56b2f86ec2f4ab35894f868f" title="Prints string description to ostream.">operator&lt;&lt;</a>(std::ostream&amp; stream, <span class="keyword">const</span> <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html" title="PIMPL implementation based on &#39;std::unique_ptr&#39;.">PimplObject</a>&amp; obj);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">mutable</span> std::unique_ptr&lt;PimplObject::Impl&gt; pimpl = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;} <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;}</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">// Optional helper macros, constructor inheritance can be used instead</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;};</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;} <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">// for msvc compiler</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">  173</a></span>&#160;<span class="preprocessor">#define PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \</span></div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">class_name(class_name&amp;&amp; other) STATICLIB_NOEXCEPT : \</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor">parent_class_name(std::forward&lt;class_name&gt;(other)) { } \</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">\</span></div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">class_name&amp; operator=(class_name&amp;&amp; other) STATICLIB_NOEXCEPT { \</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">    parent_class_name::operator=(std::forward&lt;class_name&gt;(other)); \</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">    return *this; \</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">}</span></div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="code" href="PimplObject_8hpp.html#ad87e6ed5170646c12c97df244ac5666f">  182</a></span>&#160;<span class="preprocessor">#define PIMPL_CONSTRUCTOR(class_name) \</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor">class_name(std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT : \</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">staticlib::pimpl::PimplObject(std::forward&lt;std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt;&gt;(pimpl)) { } \</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">\</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00188"></a><span class="lineno"><a class="code" href="PimplObject_8hpp.html#ac3760ddf9c067139fa059f088df53a1c">  188</a></span>&#160;<span class="preprocessor">#define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \</span></div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">class_name(std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT : \</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">parent_class_name(std::forward&lt;std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt;&gt;(pimpl)) { } \</span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">\</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_PIMPLOBJECT_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">// Optional helper macros, constructor inheritance can be used instead</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">// for msvc compiler</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">  175</a></span>&#160;<span class="preprocessor">#define PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="preprocessor">class_name(class_name&amp;&amp; other) STATICLIB_NOEXCEPT : \</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="preprocessor">parent_class_name(std::forward&lt;class_name&gt;(other)) { } \</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">\</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor">class_name&amp; operator=(class_name&amp;&amp; other) STATICLIB_NOEXCEPT { \</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">    parent_class_name::operator=(std::forward&lt;class_name&gt;(other)); \</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">    return *this; \</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="preprocessor">}</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="code" href="PimplObject_8hpp.html#ad87e6ed5170646c12c97df244ac5666f">  184</a></span>&#160;<span class="preprocessor">#define PIMPL_CONSTRUCTOR(class_name) \</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">class_name(std::nullptr_t, std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT : \</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">staticlib::pimpl::PimplObject(nullptr, std::forward&lt;std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt;&gt;(pimpl)) { } \</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="preprocessor">\</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="preprocessor">PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="code" href="PimplObject_8hpp.html#ac3760ddf9c067139fa059f088df53a1c">  190</a></span>&#160;<span class="preprocessor">#define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">class_name(std::nullptr_t, std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT : \</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">parent_class_name(nullptr, std::forward&lt;std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt;&gt;(pimpl)) { } \</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">\</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="preprocessor">PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)</span></div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_PIMPLOBJECT_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 24 2015 21:03:25 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 30 2015 17:54:13 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

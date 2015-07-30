@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_pimpl
-   &#160;<span id="projectnumber">1.0.0</span>
+   &#160;<span id="projectnumber">1.0.3</span>
    </div>
   </td>
  </tr>
@@ -161,13 +161,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a29018a472f0a5701248c36e5c484a70f">   71</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_CONSTRUCTOR(class_name, PARAMS, MODIFIERS) \</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">class_name::class_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) : \</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">class_name::class_name(std::unique_ptr&lt;class_name::Impl&gt;(new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)))) { }</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">class_name::class_name(nullptr, std::unique_ptr&lt;class_name::Impl&gt;(new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)))) { }</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">/* STATICLIB_PIMPL_FORWARD_MACROS_HPP */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 24 2015 21:03:25 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 30 2015 17:54:13 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
