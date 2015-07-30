@@ -129,9 +129,11 @@ protected:
     };
 
     /**
-     * Constructor to be called from other constructors
+     * Constructor to be called from other constructors,
+     * "nullptr" is required as dummy first argument to disambiguate this
+     * "system" constructor from all other possible business-specific constructors
      */
-    PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT;
+    PimplObject(std::nullptr_t, std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT;
     
 public:
     /**
@@ -180,14 +182,14 @@ class_name& operator=(class_name&& other) STATICLIB_NOEXCEPT { \
 }
 
 #define PIMPL_CONSTRUCTOR(class_name) \
-class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
-staticlib::pimpl::PimplObject(std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
+staticlib::pimpl::PimplObject(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
-class_name(std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
-parent_class_name(std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
+parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 

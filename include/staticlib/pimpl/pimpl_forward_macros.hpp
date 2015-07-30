@@ -70,6 +70,6 @@ method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(
 
 #define PIMPL_FORWARD_CONSTRUCTOR(class_name, PARAMS, MODIFIERS) \
 class_name::class_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) : \
-class_name::class_name(std::unique_ptr<class_name::Impl>(new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)))) { }
+class_name::class_name(nullptr, std::unique_ptr<class_name::Impl>(new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)))) { }
 
 #endif	/* STATICLIB_PIMPL_FORWARD_MACROS_HPP */

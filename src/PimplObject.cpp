@@ -42,7 +42,7 @@ PimplObject& PimplObject::operator=(PimplObject&& other) STATICLIB_NOEXCEPT {
     return *this;
 }
 
-PimplObject::PimplObject(std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT :
+PimplObject::PimplObject(std::nullptr_t, std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT :
 pimpl(std::move(pimpl)) { };
 
 std::unique_ptr<PimplObject::Impl>& PimplObject::get_impl_ptr() const {

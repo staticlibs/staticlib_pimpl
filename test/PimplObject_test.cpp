@@ -91,8 +91,9 @@ void test_downcast() {
     Derived derived = Derived("foo");
     auto vec = vector<Abstract>();
     vec.push_back(std::move(derived));
-    // downcast
-    Derived downcasted = Derived(std::move(vec[0].get_impl_ptr()));
+    // downcast, nullptr is required by internal PimplObject constructor
+    // to prevent "ambiguous" clash with other constructors
+    Derived downcasted = Derived(nullptr, std::move(vec[0].get_impl_ptr()));
     assert("Derived::foo" == downcasted.get_str());
     assert("intermediate_foo" == downcasted.get_str_intermediate());
     assert("derived_foo" == downcasted.get_str_derived());

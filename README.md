@@ -129,6 +129,10 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-07-30**
+
+* version 1.0.3 - disambiguate internal constructor from business ones
+
 **2015-07-08**
 
  * version 1.0.2 - toolchains update
