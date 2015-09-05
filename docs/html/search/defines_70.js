@@ -1,6 +1,7 @@
 var searchData=
 [
   ['pimpl_5fconstructor',['PIMPL_CONSTRUCTOR',['../PimplObject_8hpp.html#ad87e6ed5170646c12c97df244ac5666f',1,'PimplObject.hpp']]],
+  ['pimpl_5fcurrent_5ffunction',['PIMPL_CURRENT_FUNCTION',['../pimpl__utils_8hpp.html#a7ce7194ea15f270788b54633b9f50b64',1,'pimpl_utils.hpp']]],
   ['pimpl_5fforward_5fconstructor',['PIMPL_FORWARD_CONSTRUCTOR',['../pimpl__forward__macros_8hpp.html#a29018a472f0a5701248c36e5c484a70f',1,'pimpl_forward_macros.hpp']]],
   ['pimpl_5fforward_5finternal_5fargs_5fpass',['PIMPL_FORWARD_INTERNAL_ARGS_PASS',['../pimpl__forward__macros_8hpp.html#a8fe827420bf5d75bd2b25a14a2d36065',1,'pimpl_forward_macros.hpp']]],
   ['pimpl_5fforward_5finternal_5fcreate_5farg_5fpass_5flist',['PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST',['../pimpl__forward__macros_8hpp.html#a6aca3665caf925302d466cc762651385',1,'pimpl_forward_macros.hpp']]],
@@ -14,5 +15,7 @@ var searchData=
   ['pimpl_5fforward_5fmethod',['PIMPL_FORWARD_METHOD',['../pimpl__forward__macros_8hpp.html#ac1441622c39e71afe64c1ed68b543f98',1,'pimpl_forward_macros.hpp']]],
   ['pimpl_5fforward_5fmethod_5fstatic',['PIMPL_FORWARD_METHOD_STATIC',['../pimpl__forward__macros_8hpp.html#a387f7eed1a6338026d0551bb06b45eca',1,'pimpl_forward_macros.hpp']]],
   ['pimpl_5finherit_5fconstructor',['PIMPL_INHERIT_CONSTRUCTOR',['../PimplObject_8hpp.html#ac3760ddf9c067139fa059f088df53a1c',1,'PimplObject.hpp']]],
-  ['pimpl_5finternal_5fmove_5fconstructors',['PIMPL_INTERNAL_MOVE_CONSTRUCTORS',['../PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a',1,'PimplObject.hpp']]]
+  ['pimpl_5finternal_5fmove_5fconstructors',['PIMPL_INTERNAL_MOVE_CONSTRUCTORS',['../PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a',1,'PimplObject.hpp']]],
+  ['pimpl_5fnoexcept',['PIMPL_NOEXCEPT',['../PimplException_8hpp.html#a2d09f14048bc11e0dae32aaeafefa878',1,'PimplException.hpp']]],
+  ['pimpl_5ftracemsg',['PIMPL_TRACEMSG',['../pimpl__utils_8hpp.html#a36dfb973c1cca5d90dcbfcaf7374df74',1,'pimpl_utils.hpp']]]
 ];

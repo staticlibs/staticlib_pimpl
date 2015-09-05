@@ -2,6 +2,7 @@ var searchData=
 [
   ['pimpl_2ehpp',['pimpl.hpp',['../pimpl_8hpp.html',1,'']]],
   ['pimpl_5fconstructor',['PIMPL_CONSTRUCTOR',['../PimplObject_8hpp.html#ad87e6ed5170646c12c97df244ac5666f',1,'PimplObject.hpp']]],
+  ['pimpl_5fcurrent_5ffunction',['PIMPL_CURRENT_FUNCTION',['../pimpl__utils_8hpp.html#a7ce7194ea15f270788b54633b9f50b64',1,'pimpl_utils.hpp']]],
   ['pimpl_5fforward_5fconstructor',['PIMPL_FORWARD_CONSTRUCTOR',['../pimpl__forward__macros_8hpp.html#a29018a472f0a5701248c36e5c484a70f',1,'pimpl_forward_macros.hpp']]],
   ['pimpl_5fforward_5finternal_5fargs_5fpass',['PIMPL_FORWARD_INTERNAL_ARGS_PASS',['../pimpl__forward__macros_8hpp.html#a8fe827420bf5d75bd2b25a14a2d36065',1,'pimpl_forward_macros.hpp']]],
   ['pimpl_5fforward_5finternal_5fcreate_5farg_5fpass_5flist',['PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST',['../pimpl__forward__macros_8hpp.html#a6aca3665caf925302d466cc762651385',1,'pimpl_forward_macros.hpp']]],
@@ -17,10 +18,14 @@ var searchData=
   ['pimpl_5fforward_5fmethod_5fstatic',['PIMPL_FORWARD_METHOD_STATIC',['../pimpl__forward__macros_8hpp.html#a387f7eed1a6338026d0551bb06b45eca',1,'pimpl_forward_macros.hpp']]],
   ['pimpl_5finherit_5fconstructor',['PIMPL_INHERIT_CONSTRUCTOR',['../PimplObject_8hpp.html#ac3760ddf9c067139fa059f088df53a1c',1,'PimplObject.hpp']]],
   ['pimpl_5finternal_5fmove_5fconstructors',['PIMPL_INTERNAL_MOVE_CONSTRUCTORS',['../PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a',1,'PimplObject.hpp']]],
-  ['pimplexception',['PimplException',['../classstaticlib_1_1pimpl_1_1PimplException.html#a895a5d9df3eba69fed34e5d077a1ab22',1,'staticlib::pimpl::PimplException::PimplException()'],['../classstaticlib_1_1pimpl_1_1PimplException.html#a7f2371eeffe6940f6bb1dab6a8696629',1,'staticlib::pimpl::PimplException::PimplException(const std::string &amp;msg)']]],
+  ['pimpl_5fnoexcept',['PIMPL_NOEXCEPT',['../PimplException_8hpp.html#a2d09f14048bc11e0dae32aaeafefa878',1,'PimplException.hpp']]],
+  ['pimpl_5fto_5fstring',['pimpl_to_string',['../namespacestaticlib_1_1pimpl.html#a8fef2bdc5e7b1068c76b95a252363897',1,'staticlib::pimpl']]],
+  ['pimpl_5ftracemsg',['PIMPL_TRACEMSG',['../pimpl__utils_8hpp.html#a36dfb973c1cca5d90dcbfcaf7374df74',1,'PIMPL_TRACEMSG():&#160;pimpl_utils.hpp'],['../namespacestaticlib_1_1pimpl.html#af3324fe6644489f700468bac187a36cf',1,'staticlib::pimpl::pimpl_tracemsg()']]],
+  ['pimpl_5futils_2ehpp',['pimpl_utils.hpp',['../pimpl__utils_8hpp.html',1,'']]],
   ['pimplexception',['PimplException',['../classstaticlib_1_1pimpl_1_1PimplException.html',1,'staticlib::pimpl']]],
+  ['pimplexception',['PimplException',['../classstaticlib_1_1pimpl_1_1PimplException.html#a7f2371eeffe6940f6bb1dab6a8696629',1,'staticlib::pimpl::PimplException']]],
   ['pimplexception_2ehpp',['PimplException.hpp',['../PimplException_8hpp.html',1,'']]],
-  ['pimplobject',['PimplObject',['../classstaticlib_1_1pimpl_1_1PimplObject.html#a129b0b427b37c632433bb780d59d0dff',1,'staticlib::pimpl::PimplObject::PimplObject(const PimplObject &amp;other)'],['../classstaticlib_1_1pimpl_1_1PimplObject.html#a59a65376ec1f521959be7069e93f2582',1,'staticlib::pimpl::PimplObject::PimplObject(PimplObject &amp;&amp;other) STATICLIB_NOEXCEPT'],['../classstaticlib_1_1pimpl_1_1PimplObject.html#a03c63961add02eb6137ed4521cb8f302',1,'staticlib::pimpl::PimplObject::PimplObject(std::nullptr_t, std::unique_ptr&lt; PimplObject::Impl &gt; pimpl) STATICLIB_NOEXCEPT']]],
   ['pimplobject',['PimplObject',['../classstaticlib_1_1pimpl_1_1PimplObject.html',1,'staticlib::pimpl']]],
+  ['pimplobject',['PimplObject',['../classstaticlib_1_1pimpl_1_1PimplObject.html#a129b0b427b37c632433bb780d59d0dff',1,'staticlib::pimpl::PimplObject::PimplObject(const PimplObject &amp;other)'],['../classstaticlib_1_1pimpl_1_1PimplObject.html#ab7800a23ee01bb3fdbd05882054468a4',1,'staticlib::pimpl::PimplObject::PimplObject(PimplObject &amp;&amp;other) PIMPL_NOEXCEPT'],['../classstaticlib_1_1pimpl_1_1PimplObject.html#aa2ab542f44ed52abd890c2e0ccc46f99',1,'staticlib::pimpl::PimplObject::PimplObject(std::nullptr_t, std::unique_ptr&lt; PimplObject::Impl &gt; pimpl) PIMPL_NOEXCEPT']]],
   ['pimplobject_2ehpp',['PimplObject.hpp',['../PimplObject_8hpp.html',1,'']]]
 ];

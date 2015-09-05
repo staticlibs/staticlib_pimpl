@@ -94,7 +94,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &lt;memory&gt;</code><br/>
 <code>#include &lt;utility&gt;</code><br/>
 <code>#include &quot;<a class="el" href="ext__preprocessor_8hpp_source.html">staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp</a>&quot;</code><br/>
-<code>#include &quot;staticlib/utils/tracemsg.hpp&quot;</code><br/>
+<code>#include &quot;<a class="el" href="pimpl__utils_8hpp_source.html">staticlib/pimpl/pimpl_utils.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="PimplException_8hpp_source.html">staticlib/pimpl/PimplException.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="pimpl__forward__macros_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -401,7 +401,7 @@ Macros</h2></td></tr>
 <div class="line">        auto ptr = <span class="keyword">static_cast&lt;</span>class_name::Impl*<span class="keyword">&gt;</span> (this-&gt;get_impl_ptr().get()); \</div>
 <div class="line">        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) ptr-&gt;method_name(<a class="code" href="pimpl__forward__macros_8hpp.html#a6aca3665caf925302d466cc762651385">PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST</a>(PARAMS)); \</div>
 <div class="line">    } catch (const std::exception&amp; e) { \</div>
-<div class="line">        throw <a class="code" href="classstaticlib_1_1pimpl_1_1PimplException.html" title="Module specific exception.">staticlib::pimpl::PimplException</a>(TRACEMSG(e.what())); \</div>
+<div class="line">        throw <a class="code" href="classstaticlib_1_1pimpl_1_1PimplException.html" title="Module specific exception.">staticlib::pimpl::PimplException</a>(<a class="code" href="pimpl__utils_8hpp.html#a36dfb973c1cca5d90dcbfcaf7374df74">PIMPL_TRACEMSG</a>(e.what())); \</div>
 <div class="line">    } \</div>
 <div class="line">}</div>
 </div><!-- fragment -->
@@ -452,7 +452,7 @@ Macros</h2></td></tr>
 <div class="line">    try { \</div>
 <div class="line">        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) class_name::Impl::method_name(<a class="code" href="pimpl__forward__macros_8hpp.html#a6aca3665caf925302d466cc762651385">PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST</a>(PARAMS)); \</div>
 <div class="line">    } catch (const std::exception&amp; e) { \</div>
-<div class="line">        throw <a class="code" href="classstaticlib_1_1pimpl_1_1PimplException.html" title="Module specific exception.">staticlib::pimpl::PimplException</a>(TRACEMSG(e.what())); \</div>
+<div class="line">        throw <a class="code" href="classstaticlib_1_1pimpl_1_1PimplException.html" title="Module specific exception.">staticlib::pimpl::PimplException</a>(<a class="code" href="pimpl__utils_8hpp.html#a36dfb973c1cca5d90dcbfcaf7374df74">PIMPL_TRACEMSG</a>(e.what())); \</div>
 <div class="line">    } \</div>
 <div class="line">}</div>
 </div><!-- fragment -->
@@ -461,7 +461,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jul 30 2015 17:54:14 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Sep 5 2015 19:24:18 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
