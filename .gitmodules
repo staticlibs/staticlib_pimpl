@@ -1,6 +1,3 @@
 [submodule "cmake"]
 	path = cmake
 	url = ../cmake.git
-[submodule "deps/staticlib_utils"]
-	path = deps/staticlib_utils
-	url = ../staticlib_utils.git
