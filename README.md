@@ -36,7 +36,7 @@ All business-specific constructors and methods of that class will need to be imp
 class and then declared and implemented as a "forward arguments" call in main class. To simplify this
 task a set of macros is implemented. Some of the macros use a private partial copy of 
 [Boost.Preprocessor](http://www.boost.org/doc/libs/1_58_0/libs/preprocessor/doc/index.html)
-library (with all elements renamed with `STATICLIB_PP_` prefix so it won't coflict with different versions
+library (with all elements renamed with `STATICLIB_PP_` prefix so it won't conflict with different versions
 of Boost.Preprocessor). All the macros are completely optional (see their usage in example below):
 
  - `PIMPL_CONSTRUCTOR` and `PIMPL_INHERIT_CONSTRUCTOR`: creates a "technical" constructor for the first
@@ -105,7 +105,7 @@ How to build
 [CMake](http://cmake.org/) is required for building.
 
 Staticlib toolchain name must be specified as a `STATICLIB_TOOLCHAIN` parameter to `cmake` command
-unless you are using GCC on Linux x86_64 (`linux_amd64_gcc` toolchain) that is default.
+unless you are using GCC on Linux x86_64 (`linux_amd64_gcc` toolchain) that is a default one.
 
 List of [supported toolchains](https://github.com/staticlibs/cmake/tree/master/toolchains).
 
@@ -129,9 +129,13 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 Changelog
 ---------
 
+**2015-09-05**
+
+ * version 1.0.4 - remove dependency on `staticlib_utils`
+
 **2015-07-30**
 
-* version 1.0.3 - disambiguate internal constructor from business ones
+ * version 1.0.3 - disambiguate internal constructor from business ones
 
 **2015-07-08**
 

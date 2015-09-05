@@ -24,20 +24,16 @@ set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.0.3 )
 # common include
 include ( ${CMAKE_CURRENT_LIST_DIR}/cmake/staticlibs_common.cmake )
 
-# dependencies
-staticlib_add_subdirectory ( deps staticlib_utils )
-
 # build steps
 file ( GLOB_RECURSE ${PROJECT_NAME}_SRC ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp )
 add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} )
-set ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include 
-        ${staticlib_utils_INCLUDES} )
+set ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include )
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE ${${PROJECT_NAME}_INCLUDES} )
 
 # tests and docs
 set ( ${PROJECT_NAME}_TEST_INCLUDES ${${PROJECT_NAME}_INCLUDES} 
         ${CMAKE_CURRENT_LIST_DIR}/test )
-set ( ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME} staticlib_utils )
+set ( ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME} )
 set ( ${PROJECT_NAME}_TEST_OPTS "" )
 staticlib_enable_testing ( ${PROJECT_NAME}_TEST_INCLUDES ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME}_TEST_OPTS )
 staticlib_enable_docs ( )

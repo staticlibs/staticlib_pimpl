@@ -48,7 +48,7 @@ public:
     }
     
     void throw_something() {
-        throw staticlib::pimpl::PimplException(TRACEMSG("foo"));
+        throw staticlib::pimpl::PimplException(PIMPL_TRACEMSG("foo"));
     }
     
     virtual std::string to_string() const override {
