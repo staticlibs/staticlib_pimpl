@@ -13,30 +13,40 @@
 # limitations under the License.
 
 cmake_minimum_required ( VERSION 2.8.12 )
+include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )
 
-# toolchain setup
-set ( STATICLIB_TOOLCHAIN linux_amd64_gcc CACHE STRING "toolchain triplet" )
-set ( CMAKE_TOOLCHAIN_FILE ${CMAKE_CURRENT_LIST_DIR}/cmake/toolchains/${STATICLIB_TOOLCHAIN}.cmake CACHE INTERNAL "" )
-
-# project setup
+# project
 project ( staticlib_pimpl CXX )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.0.4 )
-# common include
-include ( ${CMAKE_CURRENT_LIST_DIR}/cmake/staticlibs_common.cmake )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.0 )
+set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs PIMPL library" )
+set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_pimpl )
 
-# build steps
+# docs
+option ( ${PROJECT_NAME}_ENABLE_DOCS "Generate doxyfile and exit build" OFF )
+if ( ${PROJECT_NAME}_ENABLE_DOCS )
+    configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile )
+    return ( )
+endif ( )
+
+# dependencies
+set ( ${PROJECT_NAME}_DEP_MODULES staticlib_utils )
+staticlib_pkg_check_modules ( ${PROJECT_NAME}_DEP_PC REQUIRED ${PROJECT_NAME}_DEP_MODULES )
+
+# library
 file ( GLOB_RECURSE ${PROJECT_NAME}_SRC ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp )
 add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} )
-set ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include )
+set ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include ${${PROJECT_NAME}_DEP_PC_INCLUDE_DIRS} )
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE ${${PROJECT_NAME}_INCLUDES} )
 
-# tests and docs
-set ( ${PROJECT_NAME}_TEST_INCLUDES ${${PROJECT_NAME}_INCLUDES} 
-        ${CMAKE_CURRENT_LIST_DIR}/test )
-set ( ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME} )
-set ( ${PROJECT_NAME}_TEST_OPTS "" )
-staticlib_enable_testing ( ${PROJECT_NAME}_TEST_INCLUDES ${PROJECT_NAME}_TEST_LIBS ${PROJECT_NAME}_TEST_OPTS )
-staticlib_enable_docs ( )
-
-# export headers
-set ( ${PROJECT_NAME}_INCLUDES ${${PROJECT_NAME}_INCLUDES} CACHE INTERNAL "" )
+# pkg-config
+set ( ${PROJECT_NAME}_PC_CFLAGS "" )
+foreach ( _incdir ${${PROJECT_NAME}_INCLUDES} )
+    set ( ${PROJECT_NAME}_PC_CFLAGS ${${PROJECT_NAME}_PC_CFLAGS} -I${_incdir} )
+endforeach ( )
+set ( ${PROJECT_NAME}_PC_LIBS -l${PROJECT_NAME} )
+set ( ${PROJECT_NAME}_PC_REQUIRES ${${PROJECT_NAME}_DEP_MODULES} )
+if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
+    set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} )
+endif ( )
+configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
+        ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/${PROJECT_NAME}.pc )

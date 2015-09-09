@@ -25,8 +25,8 @@
 #define	STATICLIB_PIMPL_FORWARD_MACROS_HPP
 
 #ifdef _MSC_VER
-    //http://lists.boost.org/boost-users/2014/11/83291.php
-    #pragma warning (disable: 4003)
+//http://lists.boost.org/boost-users/2014/11/83291.php
+#pragma warning (disable: 4003)
 #endif //_MSC_VER
 
 #include <memory>
@@ -34,7 +34,7 @@
 
 #include "staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp"
 
-#include "staticlib/pimpl/pimpl_utils.hpp"
+#include "staticlib/utils/tracemsg.hpp"
 #include "staticlib/pimpl/PimplException.hpp"
 
 #define PIMPL_FORWARD_INTERNAL_RET_TYPE_void 1)(1
@@ -55,7 +55,7 @@ method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(
         auto ptr = static_cast<class_name::Impl*> (this->get_impl_ptr().get()); \
         PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) ptr->method_name(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)); \
     } catch (const std::exception& e) { \
-        throw staticlib::pimpl::PimplException(PIMPL_TRACEMSG(e.what())); \
+        throw staticlib::pimpl::PimplException(TRACEMSG(e.what())); \
     } \
 }
 
@@ -64,7 +64,7 @@ method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(
     try { \
         PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) class_name::Impl::method_name(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)); \
     } catch (const std::exception& e) { \
-        throw staticlib::pimpl::PimplException(PIMPL_TRACEMSG(e.what())); \
+        throw staticlib::pimpl::PimplException(TRACEMSG(e.what())); \
     } \
 }
 

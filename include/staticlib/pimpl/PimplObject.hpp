@@ -29,7 +29,8 @@
 #include <utility>
 #include <ostream>
 
-#include "staticlib/pimpl/pimpl_utils.hpp"
+#include "staticlib/utils/config.hpp"
+
 #include "staticlib/pimpl/PimplException.hpp"
 
 namespace staticlib {
@@ -46,7 +47,7 @@ public:
     /**
      * Virtual destructor
      */
-    virtual ~PimplObject() PIMPL_NOEXCEPT;
+    virtual ~PimplObject() STATICLIB_NOEXCEPT;
     /**
      * Deleted copy constructor
      * 
@@ -65,16 +66,17 @@ public:
      * 
      * @param other other instance
      */
-    PimplObject(PimplObject&& other) PIMPL_NOEXCEPT;
+    PimplObject(PimplObject&& other) STATICLIB_NOEXCEPT;
     /**
      * Move assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    PimplObject& operator=(PimplObject&& other) PIMPL_NOEXCEPT;
+    PimplObject& operator=(PimplObject&& other) STATICLIB_NOEXCEPT;
 
 protected:
+
     /**
      * Implementation class
      */
@@ -84,7 +86,7 @@ protected:
         /**
          * Virtual destructor
          */
-        virtual ~Impl() PIMPL_NOEXCEPT;  
+        virtual ~Impl() STATICLIB_NOEXCEPT;
         /**
          * Deleted copy constructor
          * 
@@ -111,12 +113,12 @@ protected:
          * @return reference to this instance
          */
         Impl& operator=(Impl&& other) = delete;
-        
+
     protected:
         /**
          * Default constructor
          */
-        Impl() PIMPL_NOEXCEPT;
+        Impl() STATICLIB_NOEXCEPT;
         /**
          * String description of this instance,
          * `classname@address` by default
@@ -132,8 +134,8 @@ protected:
      * "nullptr" is required as dummy first argument to disambiguate this
      * "system" constructor from all other possible business-specific constructors
      */
-    PimplObject(std::nullptr_t, std::unique_ptr<PimplObject::Impl> pimpl) PIMPL_NOEXCEPT;
-    
+    PimplObject(std::nullptr_t, std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT;
+
 public:
     /**
      * Unique pointer access, made public only for downcast support,
@@ -172,25 +174,24 @@ private:
 
 // for msvc compiler
 #define PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name) \
-class_name(class_name&& other) PIMPL_NOEXCEPT : \
+class_name(class_name&& other) STATICLIB_NOEXCEPT : \
 parent_class_name(std::forward<class_name>(other)) { } \
 \
-class_name& operator=(class_name&& other) PIMPL_NOEXCEPT { \
+class_name& operator=(class_name&& other) STATICLIB_NOEXCEPT { \
     parent_class_name::operator=(std::forward<class_name>(other)); \
     return *this; \
 }
 
 #define PIMPL_CONSTRUCTOR(class_name) \
-class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) PIMPL_NOEXCEPT : \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
 staticlib::pimpl::PimplObject(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
-class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) PIMPL_NOEXCEPT : \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
 parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
 #endif	/* STATICLIB_PIMPLOBJECT_HPP */
-

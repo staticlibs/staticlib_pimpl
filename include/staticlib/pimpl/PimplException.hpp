@@ -24,14 +24,7 @@
 #ifndef STATICLIB_PIMPLEXCEPTION_HPP
 #define	STATICLIB_PIMPLEXCEPTION_HPP
 
-#include <exception>
-
-// http://stackoverflow.com/a/18387764/314015
-#ifndef _MSC_VER
-#define PIMPL_NOEXCEPT noexcept
-#else
-#define PIMPL_NOEXCEPT
-#endif // _MSC_VER
+#include "staticlib/utils/BaseException.hpp"
 
 namespace staticlib {
 namespace pimpl {
@@ -39,12 +32,12 @@ namespace pimpl {
 /**
  * Module specific exception
  */
-class PimplException : public std::exception {
-    /**
-     * Error message
-     */
-    std::string message;    
+class PimplException : public staticlib::utils::BaseException {
 public:
+    /**
+     * Default constructor
+     */
+    PimplException() = default;
 
     /**
      * Constructor with message
@@ -52,11 +45,7 @@ public:
      * @param msg error message
      */
     PimplException(const std::string& msg) :
-    message(msg) { }
-    
-    const char* what() const PIMPL_NOEXCEPT {
-        return message.c_str();
-    }
+    staticlib::utils::BaseException(msg) { }
 
 };
 
@@ -64,4 +53,3 @@ public:
 }
 
 #endif	/* STATICLIB_PIMPLEXCEPTION_HPP */
-
