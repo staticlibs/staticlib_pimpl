@@ -68,6 +68,17 @@ method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(
     } \
 }
 
+#define PIMPL_FORWARD_METHOD_RETURN_SELF(class_name, method_return, method_name, PARAMS, MODIFIERS) \
+method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \
+    try { \
+        auto ptr = static_cast<class_name::Impl*> (this->get_impl_ptr().get()); \
+        ptr->method_name(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)); \
+        return *this; \
+    } catch (const std::exception& e) { \
+        throw staticlib::pimpl::PimplException(TRACEMSG(e.what())); \
+    } \
+}
+
 #define PIMPL_FORWARD_CONSTRUCTOR(class_name, PARAMS, MODIFIERS) \
 class_name::class_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) : \
 class_name::class_name(nullptr, std::unique_ptr<class_name::Impl>(new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)))) { }

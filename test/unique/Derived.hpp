@@ -49,6 +49,8 @@ public:
     std::string some_const_method_noargs() const;
     
     void throw_something();
+    
+    Derived& self_returning();
 };
 
 } // namespace

@@ -69,6 +69,10 @@ public:
     std::string some_const_method_noargs() const {
         return "foo";
     }
+    
+    void self_returning() {
+        // some work with args
+    }
 };
 
 PIMPL_FORWARD_CONSTRUCTOR(Derived, (const string&), ())
@@ -79,6 +83,7 @@ PIMPL_FORWARD_METHOD(Derived, void, throw_something, (void), ())
 PIMPL_FORWARD_METHOD(Derived, std::string, some_method_with_args, (std::string), ())
 PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_with_args, (std::string)(int), (const))
 PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_noargs, (void), (const))
+PIMPL_FORWARD_METHOD_RETURN_SELF(Derived, Derived&, self_returning, (void), ())
 
 } // namespace
 
