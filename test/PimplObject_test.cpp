@@ -156,12 +156,6 @@ void test_stacktrace() {
     assert(catched);
 }
 
-void test_to_string() {
-    Derived der = Derived("foo");
-    auto st = der.to_string();
-    assert("I am derived" == st);
-}
-
 } // namespace
 
 int main() {
@@ -172,7 +166,6 @@ int main() {
     test_move();
     test_interfaces();
     test_stacktrace();
-    test_to_string();
     
     return 0;
 }

@@ -51,10 +51,6 @@ public:
         throw staticlib::pimpl::PimplException(TRACEMSG("foo"));
     }
     
-    virtual std::string to_string() const override {
-        return "I am derived";
-    }
-
     std::string some_method_with_args(std::string arg1) {
         (void) arg1;
         return "foo";

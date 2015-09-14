@@ -119,14 +119,6 @@ protected:
          * Default constructor
          */
         Impl() STATICLIB_NOEXCEPT;
-        /**
-         * String description of this instance,
-         * `classname@address` by default
-         * 
-         * @return string description
-         */
-        virtual std::string to_string() const;
-
     };
 
     /**
@@ -144,20 +136,6 @@ public:
      * @return unique_ptr to Impl instance
      */
     std::unique_ptr<PimplObject::Impl>& get_impl_ptr() const;
-    /**
-     * String description of this instance,
-     * `classname@address` by default
-     * 
-     * @return string description
-     */
-    virtual std::string to_string() const;
-    /**
-     * Prints string description to ostream
-     * 
-     * @param stream out stream
-     * @param obj instance to print
-     */
-    friend std::ostream& operator<<(std::ostream& stream, const PimplObject& obj);
 
 private:
     /**

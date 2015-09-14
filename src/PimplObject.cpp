@@ -52,20 +52,6 @@ std::unique_ptr<PimplObject::Impl>& PimplObject::get_impl_ptr() const {
     throw PimplException();
 }
 
-std::string PimplObject::to_string() const {
-    return pimpl->to_string();
-}
-
-std::string PimplObject::Impl::to_string() const {
-    return std::string(typeid (*this).name()) + '@' + ss::to_string(this);
-}
-
-std::ostream& operator<<(std::ostream& stream, const PimplObject& obj) {
-    stream << obj.to_string();
-    return stream;
-}
-
-
 PimplObject::Impl::~Impl() STATICLIB_NOEXCEPT = default;
 
 PimplObject::Impl::Impl() STATICLIB_NOEXCEPT = default;
