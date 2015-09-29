@@ -34,13 +34,13 @@ class Intermediate::Impl : public Base::Impl {
 public:
     Impl(const std::string& str);
 
-    virtual std::string get_str() override;
+    virtual std::string get_str(Abstract& self) override;
     
-    virtual std::string get_str_intermediate();
+    virtual std::string get_str_intermediate(Intermediate& self);
     
-    virtual std::string get_str_from_base2() const;
+    virtual std::string get_str_from_base2(const Intermediate& self) const;
     
-    virtual std::string get_str_from_base3();
+    virtual std::string get_str_from_base3(Intermediate& self);
 };
 
 

@@ -33,7 +33,7 @@ protected:
     Impl();
 
 public:
-    virtual std::string get_str() = 0;
+    virtual std::string get_str(Abstract& self) = 0;
 };
 
 } // namespace

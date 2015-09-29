@@ -16,6 +16,7 @@
 #include "staticlib/pimpl/ext_preprocessor/control/expr_if.hpp"
 #include "staticlib/pimpl/ext_preprocessor/control/if.hpp"
 #include "staticlib/pimpl/ext_preprocessor/comparison/equal.hpp"
+#include "staticlib/pimpl/ext_preprocessor/punctuation/comma_if.hpp"
 
 #endif	/* EXT_PREPROCESSOR_HPP */
 

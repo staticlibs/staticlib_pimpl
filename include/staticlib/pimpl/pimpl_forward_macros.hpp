@@ -45,36 +45,49 @@
 #define PIMPL_FORWARD_INTERNAL_PARAMS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (elem p##i), ())
 #define PIMPL_FORWARD_INTERNAL_ARGS_PASS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (std::forward<elem>(p##i)), ())
 #define PIMPL_FORWARD_INTERNAL_MODIFIERS(r, data, i, elem) (elem)
+#define PIMPL_FORWARD_INTERNAL_EMPTY_CONV(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (2), (1))
 
 #define PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_PARAMS,_,PARAMS))
 #define PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_ARGS_PASS, _, PARAMS))      
 #define PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_MODIFIERS, _, MODIFIERS))      
 #define PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) STATICLIB_PP_EXPR_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(method_return),return)
+#define PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS(PARAMS) STATICLIB_PP_NOT_EQUAL(1, STATICLIB_PP_SEQ_ELEM(0, STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_EMPTY_CONV, _, PARAMS)))
 
 #define PIMPL_FORWARD_METHOD(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \
-method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \
+method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \
+        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \
     try { \
         auto ptr = static_cast<class_name::Impl*> (this->get_impl_ptr().get()); \
-        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) ptr->method_name(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)); \
+        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) ptr->method_name( \
+                *this STATICLIB_PP_COMMA_IF(PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS(PARAMS)) \
+                PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) \
+        ); \
     } catch (const std::exception& e) { \
         throw exception_class_name(TRACEMSG(e.what())); \
     } \
 }
 
 #define PIMPL_FORWARD_METHOD_STATIC(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \
-method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \
+method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \
+        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \
     try { \
-        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) class_name::Impl::method_name(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)); \
+        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) class_name::Impl::method_name( \
+                PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) \
+        ); \
     } catch (const std::exception& e) { \
         throw exception_class_name(TRACEMSG(e.what())); \
     } \
 }
 
 #define PIMPL_FORWARD_METHOD_RETURN_SELF(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \
-method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \
+method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \
+        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \
     try { \
         auto ptr = static_cast<class_name::Impl*> (this->get_impl_ptr().get()); \
-        ptr->method_name(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)); \
+        ptr->method_name( \
+                *this STATICLIB_PP_COMMA_IF(PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS(PARAMS)) \
+                PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) \
+        ); \
         return *this; \
     } catch (const std::exception& e) { \
         throw exception_class_name(TRACEMSG(e.what())); \
@@ -82,8 +95,11 @@ method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(
 }
 
 #define PIMPL_FORWARD_CONSTRUCTOR(class_name, PARAMS, MODIFIERS, exception_class_name) \
-class_name::class_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) try : \
-class_name::class_name(nullptr, std::unique_ptr<class_name::Impl>(new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)))) { } \
+class_name::class_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \
+        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) try : \
+class_name::class_name(nullptr, std::unique_ptr<class_name::Impl>( \
+        new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)) \
+)) { } \
 catch (const std::exception& e) { \
     throw exception_class_name(TRACEMSG(e.what())); \
 }

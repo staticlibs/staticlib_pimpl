@@ -33,7 +33,8 @@ Intermediate::Impl::Impl(const string& str) :
 Base::Impl(str), str_intermediate(string("intermediate_").append(str)) { }
 PIMPL_FORWARD_CONSTRUCTOR(Intermediate, (const string&), (), TestException)
 
-string Intermediate::Impl::get_str() {
+string Intermediate::Impl::get_str(Abstract& self) {
+    (void) self;
     string res = string();
     res.append("Intermediate::");
     res.append(this->str_base);
@@ -41,17 +42,20 @@ string Intermediate::Impl::get_str() {
 }
 PIMPL_FORWARD_METHOD(Intermediate, string, get_str, (), (), TestException)
 
-string Intermediate::Impl::get_str_intermediate() {
+string Intermediate::Impl::get_str_intermediate(Intermediate& self) {
+    (void) self;
     return this->str_intermediate;
 }
 PIMPL_FORWARD_METHOD(Intermediate, string, get_str_intermediate, (), (), TestException)
 
-string Intermediate::Impl::get_str_from_base2() const {
+string Intermediate::Impl::get_str_from_base2(const Intermediate& self) const {
+    (void) self;
     return "424242";
 }
 PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base2, (), (const), TestException)
 
-string Intermediate::Impl::get_str_from_base3() {
+string Intermediate::Impl::get_str_from_base3(Intermediate& self) {
+    (void) self;
     return "434343";
 }
 PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base3, (), (), TestException)

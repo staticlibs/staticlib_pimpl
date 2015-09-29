@@ -35,7 +35,8 @@ Base::Impl::Impl(const string& str) :
 Abstract::Impl(), str_base(str) { }
 PIMPL_FORWARD_CONSTRUCTOR(Base, (const string&), (), TestException)
 
-string Base::Impl::get_str() {
+string Base::Impl::get_str(Abstract& self) {
+    (void) self;
     string res = string();
     res.append("Base::");
     res.append(this->str_base);

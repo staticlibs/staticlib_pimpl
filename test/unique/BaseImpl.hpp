@@ -36,7 +36,7 @@ protected:
 public:
     Impl(const std::string& str);
 
-    virtual std::string get_str() override;
+    virtual std::string get_str(Abstract& self) override;
 };
 
 
