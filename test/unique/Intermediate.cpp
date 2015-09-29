@@ -22,6 +22,7 @@
  */
 
 #include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "unique/TestException.hpp"
 #include "unique/IntermediateImpl.hpp"
 
 namespace unique {
@@ -30,7 +31,7 @@ using std::string;
 
 Intermediate::Impl::Impl(const string& str) : 
 Base::Impl(str), str_intermediate(string("intermediate_").append(str)) { }
-PIMPL_FORWARD_CONSTRUCTOR(Intermediate, (const string&), ())
+PIMPL_FORWARD_CONSTRUCTOR(Intermediate, (const string&), (), TestException)
 
 string Intermediate::Impl::get_str() {
     string res = string();
@@ -38,22 +39,22 @@ string Intermediate::Impl::get_str() {
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str, (void), ())
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str, (void), (), TestException)
 
 string Intermediate::Impl::get_str_intermediate() {
     return this->str_intermediate;
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_intermediate, (void), ())
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_intermediate, (void), (), TestException)
 
 string Intermediate::Impl::get_str_from_base2() const {
     return "424242";
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base2, (void), (const))
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base2, (void), (const), TestException)
 
 string Intermediate::Impl::get_str_from_base3() {
     return "434343";
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base3, (void), ())
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base3, (void), (), TestException)
 
 } // namespace
 

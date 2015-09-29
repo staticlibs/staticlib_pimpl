@@ -22,6 +22,7 @@
  */
 
 #include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "unique/TestException.hpp"
 #include "unique/Intermediate.hpp"
 #include "unique/IntermediateImpl.hpp"
 #include "unique/Derived.hpp"
@@ -71,15 +72,15 @@ public:
     }
 };
 
-PIMPL_FORWARD_CONSTRUCTOR(Derived, (const string&), ())
+PIMPL_FORWARD_CONSTRUCTOR(Derived, (const string&), (), TestException)
 
-PIMPL_FORWARD_METHOD(Derived, string, get_str, (void), ())
-PIMPL_FORWARD_METHOD(Derived, string, get_str_derived, (void), ())
-PIMPL_FORWARD_METHOD(Derived, void, throw_something, (void), ())
-PIMPL_FORWARD_METHOD(Derived, std::string, some_method_with_args, (std::string), ())
-PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_with_args, (std::string)(int), (const))
-PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_noargs, (void), (const))
-PIMPL_FORWARD_METHOD_RETURN_SELF(Derived, Derived&, self_returning, (void), ())
+PIMPL_FORWARD_METHOD(Derived, string, get_str, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, string, get_str_derived, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, void, throw_something, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, std::string, some_method_with_args, (std::string), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_with_args, (std::string)(int), (const), TestException)
+PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_noargs, (void), (const), TestException)
+PIMPL_FORWARD_METHOD_RETURN_SELF(Derived, Derived&, self_returning, (void), (), TestException)
 
 } // namespace
 

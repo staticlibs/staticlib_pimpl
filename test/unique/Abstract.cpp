@@ -22,6 +22,7 @@
  */
 
 #include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "unique/TestException.hpp"
 #include "unique/Abstract.hpp"
 #include "unique/AbstractImpl.hpp"
 
@@ -32,6 +33,6 @@ using std::string;
 Abstract::Impl::Impl() :
 PimplObject::Impl() { }
 
-PIMPL_FORWARD_METHOD(Abstract, string, get_str, (void), ())
+PIMPL_FORWARD_METHOD(Abstract, string, get_str, (void), (), TestException)
 
 } // namespace

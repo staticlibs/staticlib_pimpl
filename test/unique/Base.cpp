@@ -22,6 +22,7 @@
  */
 
 #include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "unique/TestException.hpp"
 #include "unique/AbstractImpl.hpp"
 #include "unique/Base.hpp"
 #include "unique/BaseImpl.hpp"
@@ -32,7 +33,7 @@ using std::string;
 
 Base::Impl::Impl(const string& str) : 
 Abstract::Impl(), str_base(str) { }
-PIMPL_FORWARD_CONSTRUCTOR(Base, (const string&), ())
+PIMPL_FORWARD_CONSTRUCTOR(Base, (const string&), (), TestException)
 
 string Base::Impl::get_str() {
     string res = string();
@@ -40,6 +41,6 @@ string Base::Impl::get_str() {
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_METHOD(Base, string, get_str, (void), ())
+PIMPL_FORWARD_METHOD(Base, string, get_str, (void), (), TestException)
 
 } // namespace
