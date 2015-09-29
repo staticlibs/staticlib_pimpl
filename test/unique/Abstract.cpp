@@ -33,6 +33,6 @@ using std::string;
 Abstract::Impl::Impl() :
 PimplObject::Impl() { }
 
-PIMPL_FORWARD_METHOD(Abstract, string, get_str, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Abstract, string, get_str, (), (), TestException)
 
 } // namespace

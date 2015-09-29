@@ -39,22 +39,22 @@ string Intermediate::Impl::get_str() {
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str, (), (), TestException)
 
 string Intermediate::Impl::get_str_intermediate() {
     return this->str_intermediate;
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_intermediate, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_intermediate, (), (), TestException)
 
 string Intermediate::Impl::get_str_from_base2() const {
     return "424242";
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base2, (void), (const), TestException)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base2, (), (const), TestException)
 
 string Intermediate::Impl::get_str_from_base3() {
     return "434343";
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base3, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base3, (), (), TestException)
 
 } // namespace
 

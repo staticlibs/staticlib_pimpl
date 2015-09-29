@@ -70,17 +70,29 @@ public:
     void self_returning() {
         // some work with args
     }
+
+    void self_passing(Derived& self) {
+        (void) self;
+    }
+
+    void self_passing_with_args(Derived& self, std::string arg1) {
+        (void) self;
+        (void) arg1;
+    }
 };
 
 PIMPL_FORWARD_CONSTRUCTOR(Derived, (const string&), (), TestException)
 
-PIMPL_FORWARD_METHOD(Derived, string, get_str, (void), (), TestException)
-PIMPL_FORWARD_METHOD(Derived, string, get_str_derived, (void), (), TestException)
-PIMPL_FORWARD_METHOD(Derived, void, throw_something, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, string, get_str, (), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, string, get_str_derived, (), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, void, throw_something, (), (), TestException)
 PIMPL_FORWARD_METHOD(Derived, std::string, some_method_with_args, (std::string), (), TestException)
 PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_with_args, (std::string)(int), (const), TestException)
-PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_noargs, (void), (const), TestException)
-PIMPL_FORWARD_METHOD_RETURN_SELF(Derived, Derived&, self_returning, (void), (), TestException)
+PIMPL_FORWARD_METHOD(Derived, std::string, some_const_method_noargs, (), (const), TestException)
+PIMPL_FORWARD_METHOD_RETURN_SELF(Derived, Derived&, self_returning, (), (), TestException)
+//PIMPL_FORWARD_METHOD_PASS_SELF(Derived, void, self_passing, (void), (), TestException)
+//PIMPL_FORWARD_METHOD_PASS_SELF(Derived, void, self_passing_with_args, (std::string), (), TestException)
+        
 
 } // namespace
 

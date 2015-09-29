@@ -51,6 +51,10 @@ public:
     void throw_something();
     
     Derived& self_returning();
+    
+    void self_passing();
+    
+    void self_passing_with_args(std::string arg1);
 };
 
 } // namespace
