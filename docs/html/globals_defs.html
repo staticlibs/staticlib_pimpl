@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_pimpl
-   &#160;<span id="projectnumber">1.0.4</span>
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -83,7 +83,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -99,11 +99,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>PIMPL_CONSTRUCTOR
 : <a class="el" href="PimplObject_8hpp.html#ad87e6ed5170646c12c97df244ac5666f">PimplObject.hpp</a>
 </li>
-<li>PIMPL_CURRENT_FUNCTION
-: <a class="el" href="pimpl__utils_8hpp.html#a7ce7194ea15f270788b54633b9f50b64">pimpl_utils.hpp</a>
-</li>
 <li>PIMPL_FORWARD_CONSTRUCTOR
-: <a class="el" href="pimpl__forward__macros_8hpp.html#a29018a472f0a5701248c36e5c484a70f">pimpl_forward_macros.hpp</a>
+: <a class="el" href="pimpl__forward__macros_8hpp.html#a61892692348a8e16dd40922199873546">pimpl_forward_macros.hpp</a>
 </li>
 <li>PIMPL_FORWARD_INTERNAL_ARGS_PASS
 : <a class="el" href="pimpl__forward__macros_8hpp.html#a8fe827420bf5d75bd2b25a14a2d36065">pimpl_forward_macros.hpp</a>
@@ -120,11 +117,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>PIMPL_FORWARD_INTERNAL_CREATE_RETURN
 : <a class="el" href="pimpl__forward__macros_8hpp.html#a60a4a393dd01002870776e7891d6d791">pimpl_forward_macros.hpp</a>
 </li>
+<li>PIMPL_FORWARD_INTERNAL_EMPTY_CONV
+: <a class="el" href="pimpl__forward__macros_8hpp.html#ad40ad47126e523c86cab6669ffccc905">pimpl_forward_macros.hpp</a>
+</li>
+<li>PIMPL_FORWARD_INTERNAL_EMPTY_TYPE_
+: <a class="el" href="pimpl__forward__macros_8hpp.html#a0e2e6e6fd65a92a2cad13c2eda66fb36">pimpl_forward_macros.hpp</a>
+</li>
+<li>PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY
+: <a class="el" href="pimpl__forward__macros_8hpp.html#a128003975a6feceb27986288bb864d9c">pimpl_forward_macros.hpp</a>
+</li>
 <li>PIMPL_FORWARD_INTERNAL_IS_NOT_VOID
 : <a class="el" href="pimpl__forward__macros_8hpp.html#aecdadcd5d301de8a9d14a1d9d5b5262f">pimpl_forward_macros.hpp</a>
 </li>
 <li>PIMPL_FORWARD_INTERNAL_MODIFIERS
 : <a class="el" href="pimpl__forward__macros_8hpp.html#af4ecd821652c816d6cc0d424e0df202d">pimpl_forward_macros.hpp</a>
+</li>
+<li>PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS
+: <a class="el" href="pimpl__forward__macros_8hpp.html#a0ee8c645ac6c7dfb7ce9a41b67a39406">pimpl_forward_macros.hpp</a>
 </li>
 <li>PIMPL_FORWARD_INTERNAL_PARAMS
 : <a class="el" href="pimpl__forward__macros_8hpp.html#a055ac545a73205bac1c1a943752490bd">pimpl_forward_macros.hpp</a>
@@ -133,10 +142,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="pimpl__forward__macros_8hpp.html#a3f0fa9c8bb29cae191ab1e5e6f134a76">pimpl_forward_macros.hpp</a>
 </li>
 <li>PIMPL_FORWARD_METHOD
-: <a class="el" href="pimpl__forward__macros_8hpp.html#ac1441622c39e71afe64c1ed68b543f98">pimpl_forward_macros.hpp</a>
+: <a class="el" href="pimpl__forward__macros_8hpp.html#a939744c0bd3a7ea3b55ff83edc08120b">pimpl_forward_macros.hpp</a>
+</li>
+<li>PIMPL_FORWARD_METHOD_RETURN_SELF
+: <a class="el" href="pimpl__forward__macros_8hpp.html#acca3d959dc0d3d80b662c701fb80036e">pimpl_forward_macros.hpp</a>
 </li>
 <li>PIMPL_FORWARD_METHOD_STATIC
-: <a class="el" href="pimpl__forward__macros_8hpp.html#a387f7eed1a6338026d0551bb06b45eca">pimpl_forward_macros.hpp</a>
+: <a class="el" href="pimpl__forward__macros_8hpp.html#aef135ef33cb7f260226020fb31817184">pimpl_forward_macros.hpp</a>
 </li>
 <li>PIMPL_INHERIT_CONSTRUCTOR
 : <a class="el" href="PimplObject_8hpp.html#ac3760ddf9c067139fa059f088df53a1c">PimplObject.hpp</a>
@@ -144,17 +156,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>PIMPL_INTERNAL_MOVE_CONSTRUCTORS
 : <a class="el" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">PimplObject.hpp</a>
 </li>
-<li>PIMPL_NOEXCEPT
-: <a class="el" href="PimplException_8hpp.html#a2d09f14048bc11e0dae32aaeafefa878">PimplException.hpp</a>
-</li>
-<li>PIMPL_TRACEMSG
-: <a class="el" href="pimpl__utils_8hpp.html#a36dfb973c1cca5d90dcbfcaf7374df74">pimpl_utils.hpp</a>
-</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 5 2015 19:26:27 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 19 2015 19:15:07 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

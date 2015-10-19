@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_pimpl
-   &#160;<span id="projectnumber">1.0.4</span>
+   &#160;<span id="projectnumber">1.1.0</span>
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -97,7 +97,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;memory&gt;</code><br/>
 <code>#include &lt;utility&gt;</code><br/>
 <code>#include &lt;ostream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="pimpl__utils_8hpp_source.html">staticlib/pimpl/pimpl_utils.hpp</a>&quot;</code><br/>
+<code>#include &quot;staticlib/utils/config.hpp&quot;</code><br/>
 <code>#include &quot;<a class="el" href="PimplException_8hpp_source.html">staticlib/pimpl/PimplException.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="PimplObject_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -134,7 +134,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">class_name(std::nullptr_t, std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) <a class="code" href="PimplException_8hpp.html#a2d09f14048bc11e0dae32aaeafefa878">PIMPL_NOEXCEPT</a> : <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html" title="PIMPL implementation based on &#39;std::unique_ptr&#39;.">\</a></div>
+<b>Value:</b><div class="fragment"><div class="line">class_name(std::nullptr_t, std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT : <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html" title="PIMPL implementation based on &#39;std::unique_ptr&#39;.">\</a></div>
 <div class="line"><a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html" title="PIMPL implementation based on &#39;std::unique_ptr&#39;.">staticlib::pimpl::PimplObject</a>(<span class="keyword">nullptr</span>, std::forward&lt;std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt;&gt;(pimpl)) { } <a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">\</a></div>
 <div class="line"><a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">\</a></div>
 <div class="line"><a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">PIMPL_INTERNAL_MOVE_CONSTRUCTORS</a>(class_name, <a class="code" href="classstaticlib_1_1pimpl_1_1PimplObject.html" title="PIMPL implementation based on &#39;std::unique_ptr&#39;.">staticlib::pimpl::PimplObject</a>)</div>
@@ -164,7 +164,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">class_name(std::nullptr_t, std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) <a class="code" href="PimplException_8hpp.html#a2d09f14048bc11e0dae32aaeafefa878">PIMPL_NOEXCEPT</a> : \</div>
+<b>Value:</b><div class="fragment"><div class="line">class_name(std::nullptr_t, std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt; pimpl) STATICLIB_NOEXCEPT : \</div>
 <div class="line">parent_class_name(<span class="keyword">nullptr</span>, std::forward&lt;std::unique_ptr&lt;staticlib::pimpl::PimplObject::Impl&gt;&gt;(pimpl)) { } <a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">\</a></div>
 <div class="line"><a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">\</a></div>
 <div class="line"><a class="code" href="PimplObject_8hpp.html#ac2127d3ab09ba70d9c8c70650b8bfc7a">PIMPL_INTERNAL_MOVE_CONSTRUCTORS</a>(class_name, parent_class_name)</div>
@@ -194,10 +194,10 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">class_name(class_name&amp;&amp; other) <a class="code" href="PimplException_8hpp.html#a2d09f14048bc11e0dae32aaeafefa878">PIMPL_NOEXCEPT</a> : \</div>
+<b>Value:</b><div class="fragment"><div class="line">class_name(class_name&amp;&amp; other) STATICLIB_NOEXCEPT : \</div>
 <div class="line">parent_class_name(std::forward&lt;class_name&gt;(other)) { } \</div>
 <div class="line">\</div>
-<div class="line">class_name&amp; operator=(class_name&amp;&amp; other) <a class="code" href="PimplException_8hpp.html#a2d09f14048bc11e0dae32aaeafefa878">PIMPL_NOEXCEPT</a> { \</div>
+<div class="line">class_name&amp; operator=(class_name&amp;&amp; other) STATICLIB_NOEXCEPT { \</div>
 <div class="line">    parent_class_name::operator=(std::forward&lt;class_name&gt;(other)); \</div>
 <div class="line">    return *<span class="keyword">this</span>; \</div>
 <div class="line">}</div>
@@ -207,7 +207,7 @@ Macros</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Sep 5 2015 19:26:27 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 19 2015 19:15:07 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

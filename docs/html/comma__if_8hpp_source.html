@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>staticlib_pimpl: staticlib/pimpl/ext_preprocessor/facilities/empty.hpp Source File</title>
+<title>staticlib_pimpl: staticlib/pimpl/ext_preprocessor/punctuation/comma_if.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,15 +81,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_c33d3ca81783b96de1fd366e75cb14d0.html">staticlib</a></li><li class="navelem"><a class="el" href="dir_6b6408f5094851266809ee6426b5c609.html">pimpl</a></li><li class="navelem"><a class="el" href="dir_e3c4f90aec4bcd56e0ed5ae77329ef75.html">ext_preprocessor</a></li><li class="navelem"><a class="el" href="dir_9b75b408210458b45b9aeb63cc570964.html">facilities</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_c33d3ca81783b96de1fd366e75cb14d0.html">staticlib</a></li><li class="navelem"><a class="el" href="dir_6b6408f5094851266809ee6426b5c609.html">pimpl</a></li><li class="navelem"><a class="el" href="dir_e3c4f90aec4bcd56e0ed5ae77329ef75.html">ext_preprocessor</a></li><li class="navelem"><a class="el" href="dir_e386064122deece8f9e0c80cf0a35269.html">punctuation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">empty.hpp</div>  </div>
+<div class="title">comma_if.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="empty_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor"># </span><span class="comment">/* Copyright (C) 2001</span></div>
+<a href="comma__if_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor"># </span><span class="comment">/* Copyright (C) 2001</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">#  * Housemarque Oy</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">#  * http://www.housemarque.com</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">#  *</span></div>
@@ -102,16 +102,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># </span><span class="comment">/* See http://www.boost.org for most recent version. */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># ifndef STATICLIB_PREPROCESSOR_FACILITIES_EMPTY_HPP</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># define STATICLIB_PREPROCESSOR_FACILITIES_EMPTY_HPP</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># ifndef STATICLIB_PREPROCESSOR_PUNCTUATION_COMMA_IF_HPP</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># define STATICLIB_PREPROCESSOR_PUNCTUATION_COMMA_IF_HPP</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># include &quot;<a class="code" href="config_8hpp.html">staticlib/pimpl/ext_preprocessor/config/config.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># </span><span class="comment">/* STATICLIB_PP_EMPTY */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="empty_8hpp.html#ae538a3ae70bdc4cf123b02f4576b75ef">   21</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor"># define STATICLIB_PP_EMPTY()</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># endif</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor"># include &quot;<a class="code" href="if_8hpp.html">staticlib/pimpl/ext_preprocessor/control/if.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"># include &quot;<a class="code" href="empty_8hpp.html">staticlib/pimpl/ext_preprocessor/facilities/empty.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"># include &quot;<a class="code" href="comma_8hpp.html">staticlib/pimpl/ext_preprocessor/punctuation/comma.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># </span><span class="comment">/* STATICLIB_PP_COMMA_IF */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># if ~STATICLIB_PP_CONFIG_FLAGS() &amp; STATICLIB_PP_CONFIG_EDG()</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#    define STATICLIB_PP_COMMA_IF(cond) STATICLIB_PP_IF(cond, STATICLIB_PP_COMMA, STATICLIB_PP_EMPTY)()</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># else</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="comma__if_8hpp.html#a33d833d4df8733a0b194a47d122fc101">   27</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#    define STATICLIB_PP_COMMA_IF(cond) STATICLIB_PP_COMMA_IF_I(cond)</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="comma__if_8hpp.html#a9d8c5a9f06b21205c4a76129d79cc486">   28</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#    define STATICLIB_PP_COMMA_IF_I(cond) STATICLIB_PP_IF(cond, STATICLIB_PP_COMMA, STATICLIB_PP_EMPTY)()</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span><span class="preprocessor"># endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

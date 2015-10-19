@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>staticlib_pimpl: staticlib/pimpl/ext_preprocessor/arithmetic/ Directory Reference</title>
+<title>staticlib_pimpl: staticlib/pimpl/ext_preprocessor/punctuation/comma_if.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -40,7 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -59,6 +59,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -75,24 +81,65 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_c33d3ca81783b96de1fd366e75cb14d0.html">staticlib</a></li><li class="navelem"><a class="el" href="dir_6b6408f5094851266809ee6426b5c609.html">pimpl</a></li><li class="navelem"><a class="el" href="dir_e3c4f90aec4bcd56e0ed5ae77329ef75.html">ext_preprocessor</a></li><li class="navelem"><a class="el" href="dir_0988c2220f1f13e3bc7fd0f17d1a1d3a.html">arithmetic</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_c33d3ca81783b96de1fd366e75cb14d0.html">staticlib</a></li><li class="navelem"><a class="el" href="dir_6b6408f5094851266809ee6426b5c609.html">pimpl</a></li><li class="navelem"><a class="el" href="dir_e3c4f90aec4bcd56e0ed5ae77329ef75.html">ext_preprocessor</a></li><li class="navelem"><a class="el" href="dir_e386064122deece8f9e0c80cf0a35269.html">punctuation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle">
-<div class="title">arithmetic Directory Reference</div>  </div>
+<div class="title">comma_if.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="config_8hpp_source.html">staticlib/pimpl/ext_preprocessor/config/config.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="if_8hpp_source.html">staticlib/pimpl/ext_preprocessor/control/if.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="empty_8hpp_source.html">staticlib/pimpl/ext_preprocessor/facilities/empty.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="comma_8hpp_source.html">staticlib/pimpl/ext_preprocessor/punctuation/comma.hpp</a>&quot;</code><br/>
+</div>
+<p><a href="comma__if_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:dec_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="dec_8hpp.html">dec.hpp</a> <a href="dec_8hpp_source.html">[code]</a></td></tr>
-<tr class="memitem:inc_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="inc_8hpp.html">inc.hpp</a> <a href="inc_8hpp_source.html">[code]</a></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a33d833d4df8733a0b194a47d122fc101"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="comma__if_8hpp.html#a33d833d4df8733a0b194a47d122fc101">STATICLIB_PP_COMMA_IF</a>(cond)&#160;&#160;&#160;<a class="el" href="comma__if_8hpp.html#a9d8c5a9f06b21205c4a76129d79cc486">STATICLIB_PP_COMMA_IF_I</a>(cond)</td></tr>
+<tr class="memitem:a9d8c5a9f06b21205c4a76129d79cc486"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="comma__if_8hpp.html#a9d8c5a9f06b21205c4a76129d79cc486">STATICLIB_PP_COMMA_IF_I</a>(cond)&#160;&#160;&#160;<a class="el" href="if_8hpp.html#a1e2386a0abecea320baabe0b35c6efde">STATICLIB_PP_IF</a>(cond, <a class="el" href="comma_8hpp.html#a5dc8f13a0af2ad57085fe951a658c482">STATICLIB_PP_COMMA</a>, <a class="el" href="empty_8hpp.html#ae538a3ae70bdc4cf123b02f4576b75ef">STATICLIB_PP_EMPTY</a>)()</td></tr>
 </table>
+<h2>Macro Definition Documentation</h2>
+<a class="anchor" id="a33d833d4df8733a0b194a47d122fc101"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STATICLIB_PP_COMMA_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cond</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="comma__if_8hpp.html#a9d8c5a9f06b21205c4a76129d79cc486">STATICLIB_PP_COMMA_IF_I</a>(cond)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9d8c5a9f06b21205c4a76129d79cc486"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STATICLIB_PP_COMMA_IF_I</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cond</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="if_8hpp.html#a1e2386a0abecea320baabe0b35c6efde">STATICLIB_PP_IF</a>(cond, <a class="el" href="comma_8hpp.html#a5dc8f13a0af2ad57085fe951a658c482">STATICLIB_PP_COMMA</a>, <a class="el" href="empty_8hpp.html#ae538a3ae70bdc4cf123b02f4576b75ef">STATICLIB_PP_EMPTY</a>)()</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2015 19:15:07 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 19 2015 19:15:06 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
