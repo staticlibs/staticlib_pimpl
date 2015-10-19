@@ -121,6 +121,7 @@ To build this project manually:
  * checkout all the dependent projects
  * configure these projects using the same output directory:
 
+
     mkdir build
     cd build
     cmake .. -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=<my_lib_dir>
