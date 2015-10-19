@@ -3,7 +3,7 @@ Staticlibs PIMPL library
 
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
-This project contains implementation of [PIMPL idiom](http://herbsutter.com/gotw/_100/).
+This project contains an implementation of the [PIMPL idiom](http://herbsutter.com/gotw/_100/).
 This implementation deliberately does not use templates, template-based implementation can be found [here](http://herbsutter.com/gotw/_101/).
 
 Link to [API documentation](http://staticlibs.github.io/staticlib_pimpl/docs/html/namespacestaticlib_1_1pimpl.html).
@@ -11,7 +11,7 @@ Link to [API documentation](http://staticlibs.github.io/staticlib_pimpl/docs/htm
 PIMPL implementation
 --------------------
 
-This library implements PIMPL idiom (also known as "opaque pointers" or "compilation firewall").
+This library implements a PIMPL idiom (also known as "opaque pointers" or "compilation firewall").
 The main part is a `PimplObject` class that declares an inner protected `PimplObject::Impl` class
 and a `std::unique_ptr<PimplObject::Impl>` pointing to the instance of `Impl` class. `PimplObject`
 also implements move-constructor and move-assigning-operator that effectively move the `Impl` pointer.
@@ -43,8 +43,11 @@ of Boost.Preprocessor). All the macros are completely optional (see their usage 
 `PimplObject` or some of its descendants, move-constructor and move-assignment-operator;
 it is roughly equivalent to C++11 constructor inheritance but also supports MSVC compiler.
  - `PIMPL_FORWARD_METHOD` and `PIMPL_FORWARD_METHOD_STATIC`: forwards a method call from main object to `Impl` one;
-this macros also will catch and rethrow the exceptions to produce a partial stack trace.
- - `PIMPL_FORWARD_CONSTRUCTOR`: forwards business constructor call from main object to `Impl` one
+"impl" method must take an extra (first) argument - a reference to a facade class instance 
+(to ease access to this facade from inside impl method);
+ this macros also will catch and rethrow the exceptions to produce a partial stack trace.
+ - `PIMPL_FORWARD_CONSTRUCTOR`: forwards business constructor call from main object to `Impl` one;
+it also with catch and rethrow possible exceptions
 
 Usage example
 -------------
@@ -63,7 +66,7 @@ Class declaration `HttpResponse.hpp`:
 
         unsigned int get_status_code() const noexcept;
 
-        virtual void add_header(const std::string& key, const std::string& value);
+        void add_header(const std::string& key, const std::string& value);
         ...
     };
 
@@ -78,23 +81,22 @@ Class definition `HttpResponse.cpp`:
         Impl(const string& response):
         response(response) { }
 
-        unsigned int get_status_code() const noexcept {
+        unsigned int get_status_code(const HttpResponse&) const noexcept {
             return this->status_code;
         }
 
-        virtual void add_header(const std::string& key, const std::string& value) {
+        void add_header(HttpResponse&, const std::string& key, const std::string& value) {
             ...
         }
     };
     // HttpResponse class definition
 
-    // the last argument is for modifiers that are empty here
-    PIMPL_FORWARD_CONSTRUCTOR(HttpResponse, (const string&), ())
+    // the empty parenthesis argument is for modifiers that are empty here
+    PIMPL_FORWARD_CONSTRUCTOR(HttpResponse, (const string&), (), HttpException)
     // no arguments and two modifiers here
-    PIMPL_FORWARD_METHOD(Derived, unsigned int, get_status_code, (void), (const)(noexcept))
+    PIMPL_FORWARD_METHOD(HttpResponse, unsigned int, get_status_code, (), (const)(noexcept), HttpException)
     // two arguments and no modifiers
-    PIMPL_FORWARD_METHOD(Derived, void, add_header, (const std::string&)(const std::string&), ())
-
+    PIMPL_FORWARD_METHOD(HttpResponse, void, add_header, (const std::string&)(const std::string&), (), HttpException)
 
 For PIMPL hierarchy additional private header file will be required for each intermediate class 
 in hierarchy to allow `Impl` classes inheritance.
@@ -104,15 +106,60 @@ How to build
 
 [CMake](http://cmake.org/) is required for building.
 
-[TODO]
+[pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config/) utility is used for dependency management.
+For Windows users ready-to-use binary version of `pkg-config` can be obtained from [tools_windows_pkgconfig](https://github.com/staticlibs/tools_windows_pkgconfig) repository.
+See [PkgConfig](https://github.com/staticlibs/wiki/wiki/PkgConfig) for Staticlibs-specific details about `pkg-config` usage.
+
+This project depends on a [staticlib_utils](https://github.com/staticlibs/staticlib_utils) project.
+If this project is used from the client project then both `staticlib_pimpl` and `staticlib_utils` must be 
+included as dependencies. 
+See [StaticlibsDependencies](https://github.com/staticlibs/wiki/wiki/StaticlibsDependencies) for more 
+details about dependency management with Staticlibs.
+
+To build this project manually:
+
+ * checkout all the dependent projects
+ * configure these projects using the same output directory:
+
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=<my_lib_dir>
+
+ * build all the dependent projects (optional, required only if you want to create shared library or executable) 
+ * configure this projects using the same output directory and build it:
+
+To build the library on Windows using Visual Studio 2013 Express run the following commands using
+Visual Studio development command prompt 
+(`C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\Shortcuts\VS2013 x86 Native Tools Command Prompt`):
+
+    git clone https://github.com/staticlibs/staticlib_pimpl.git
+    cd staticlib_pimpl
+    mkdir build
+    cd build
+    cmake .. -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=<my_lib_dir>
+    msbuild staticlib_pimpl.sln
+
+To build on other platforms using GCC or Clang with GNU Make:
+
+    cmake .. -DCMAKE_CXX_FLAGS="--std=c++11"
+    make
+
+See [StaticlibsToolchains](https://github.com/staticlibs/wiki/wiki/StaticlibsToolchains) for 
+more information about the toolchain setup and cross-compilation.
 
 License information
 -------------------
 
-This project is released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+This project is released under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0).
 
 Changelog
 ---------
+
+**2015-10-19**
+
+ * version 1.1.0
+ * forward macros enhancements
+ * `pkg-config` integration
 
 **2015-09-05**
 

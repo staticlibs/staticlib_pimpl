@@ -29,16 +29,19 @@ if ( ${PROJECT_NAME}_ENABLE_DOCS )
 endif ( )
 
 # dependencies
-set ( ${PROJECT_NAME}_DEP_MODULES staticlib_utils )
-staticlib_pkg_check_modules ( ${PROJECT_NAME}_DEP_PC REQUIRED ${PROJECT_NAME}_DEP_MODULES )
+set ( ${PROJECT_NAME}_DEPS staticlib_utils )
+staticlib_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
 
 # library
 file ( GLOB_RECURSE ${PROJECT_NAME}_SRC ${CMAKE_CURRENT_LIST_DIR}/src/*.cpp )
-add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} )
+file ( GLOB_RECURSE ${PROJECT_NAME}_HEADERS ${CMAKE_CURRENT_LIST_DIR}/include/*.hpp )
+add_library ( ${PROJECT_NAME} STATIC ${${PROJECT_NAME}_SRC} ${${PROJECT_NAME}_HEADERS} )
+source_group ( "src" FILES ${${PROJECT_NAME}_SRC} )
+source_group ( "include" FILES ${${PROJECT_NAME}_HEADERS} )
 set ( ${PROJECT_NAME}_INCLUDES ${CMAKE_CURRENT_LIST_DIR}/include )
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE 
         ${${PROJECT_NAME}_INCLUDES}
-        ${${PROJECT_NAME}_DEP_PC_INCLUDE_DIRS} )
+        ${${PROJECT_NAME}_DEPS_PC_INCLUDE_DIRS} )
 
 # pkg-config
 if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
@@ -46,6 +49,6 @@ if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
 endif ( )
 staticlib_list_to_string ( ${PROJECT_NAME}_PC_CFLAGS "-I" ${PROJECT_NAME}_INCLUDES )
 set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -l${PROJECT_NAME}" )
-staticlib_list_to_string ( ${PROJECT_NAME}_PC_REQUIRES "" ${PROJECT_NAME}_DEP_MODULES )
+staticlib_list_to_string ( ${PROJECT_NAME}_PC_REQUIRES "" ${PROJECT_NAME}_DEPS )
 configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
         ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/${PROJECT_NAME}.pc )
