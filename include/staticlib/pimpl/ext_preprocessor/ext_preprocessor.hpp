@@ -5,8 +5,8 @@
  * Created on January 29, 2015, 6:45 PM
  */
 
-#ifndef EXT_PREPROCESSOR_HPP
-#define	EXT_PREPROCESSOR_HPP
+#ifndef STATICLIB_PIMPL_EXT_PREPROCESSOR_HPP
+#define	STATICLIB_PIMPL_EXT_PREPROCESSOR_HPP
 
 // https://github.com/boostorg/preprocessor/blob/f1165249fb6a5cfd51f3e2a4c7f1d329a8d2484e/include/boost/preprocessor.hpp
 
@@ -18,5 +18,5 @@
 #include "staticlib/pimpl/ext_preprocessor/comparison/equal.hpp"
 #include "staticlib/pimpl/ext_preprocessor/punctuation/comma_if.hpp"
 
-#endif	/* EXT_PREPROCESSOR_HPP */
+#endif	/* STATICLIB_PIMPL_EXT_PREPROCESSOR_HPP */
 

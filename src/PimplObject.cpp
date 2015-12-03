@@ -21,16 +21,10 @@
  * Created on October 3, 2014, 6:21 PM
  */
 
-#include <string>
-#include <ostream>
-
-#include "staticlib/utils.hpp"
 #include "staticlib/pimpl/PimplObject.hpp"
 
 namespace staticlib {
 namespace pimpl {
-
-namespace ss = staticlib::utils;
 
 PimplObject::~PimplObject() STATICLIB_NOEXCEPT = default;
 

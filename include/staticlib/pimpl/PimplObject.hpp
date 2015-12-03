@@ -21,15 +21,14 @@
  * Created on September 6, 2014, 11:47 AM
  */
 
-#ifndef STATICLIB_PIMPLOBJECT_HPP
-#define	STATICLIB_PIMPLOBJECT_HPP
+#ifndef STATICLIB_PIMPL_PIMPLOBJECT_HPP
+#define	STATICLIB_PIMPL_PIMPLOBJECT_HPP
 
-#include <string>
 #include <memory>
+#include <string>
 #include <utility>
-#include <ostream>
 
-#include "staticlib/utils/config.hpp"
+#include "staticlib/config.hpp"
 
 #include "staticlib/pimpl/PimplException.hpp"
 
@@ -172,4 +171,4 @@ parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::PimplO
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
-#endif	/* STATICLIB_PIMPLOBJECT_HPP */
+#endif	/* STATICLIB_PIMPL_PIMPLOBJECT_HPP */

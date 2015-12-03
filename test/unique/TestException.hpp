@@ -13,7 +13,7 @@ namespace unique {
 /**
  * Module specific exception
  */
-class TestException : public staticlib::utils::BaseException {
+class TestException : public staticlib::config::BaseException {
 public:
     /**
      * Default constructor
@@ -26,7 +26,7 @@ public:
      * @param msg error message
      */
     TestException(const std::string& msg) :
-    staticlib::utils::BaseException(msg) { }
+    staticlib::config::BaseException(msg) { }
 };
 
 } // namespace

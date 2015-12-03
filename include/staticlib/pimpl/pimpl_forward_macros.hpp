@@ -21,21 +21,21 @@
  * Created on September 10, 2014, 8:33 PM
  */
 
-#ifndef STATICLIB_PIMPL_FORWARD_MACROS_HPP
-#define	STATICLIB_PIMPL_FORWARD_MACROS_HPP
-
-#ifdef _MSC_VER
-//http://lists.boost.org/boost-users/2014/11/83291.php
-#pragma warning (disable: 4003)
-#endif //_MSC_VER
+#ifndef STATICLIB_PIMPL_PIMPL_FORWARD_MACROS_HPP
+#define	STATICLIB_PIMPL_PIMPL_FORWARD_MACROS_HPP
 
 #include <memory>
 #include <utility>
 
-#include "staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp"
+#include "staticlib/config.hpp"
 
-#include "staticlib/utils/tracemsg.hpp"
+#ifdef STATICLIB_WINDOWS
+//http://lists.boost.org/boost-users/2014/11/83291.php
+#pragma warning (disable: 4003)
+#endif // STATICLIB_WINDOWS
+
 #include "staticlib/pimpl/PimplException.hpp"
+#include "staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp"
 
 #define PIMPL_FORWARD_INTERNAL_RET_TYPE_void 1)(1
 #define PIMPL_FORWARD_INTERNAL_EMPTY_TYPE_ 1)(1
@@ -104,4 +104,4 @@ catch (const std::exception& e) { \
     throw exception_class_name(TRACEMSG(e.what())); \
 }
 
-#endif	/* STATICLIB_PIMPL_FORWARD_MACROS_HPP */
+#endif	/* STATICLIB_PIMPL_PIMPL_FORWARD_MACROS_HPP */

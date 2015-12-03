@@ -21,10 +21,10 @@
  * Created on October 3, 2014, 6:29 PM
  */
 
-#ifndef STATICLIB_PIMPLEXCEPTION_HPP
-#define	STATICLIB_PIMPLEXCEPTION_HPP
+#ifndef STATICLIB_PIMPL_PIMPLEXCEPTION_HPP
+#define	STATICLIB_PIMPL_PIMPLEXCEPTION_HPP
 
-#include "staticlib/utils/BaseException.hpp"
+#include "staticlib/config.hpp"
 
 namespace staticlib {
 namespace pimpl {
@@ -32,7 +32,7 @@ namespace pimpl {
 /**
  * Module specific exception
  */
-class PimplException : public staticlib::utils::BaseException {
+class PimplException : public staticlib::config::BaseException {
 public:
     /**
      * Default constructor
@@ -45,11 +45,11 @@ public:
      * @param msg error message
      */
     PimplException(const std::string& msg) :
-    staticlib::utils::BaseException(msg) { }
+    staticlib::config::BaseException(msg) { }
 
 };
 
 } // namespace
 }
 
-#endif	/* STATICLIB_PIMPLEXCEPTION_HPP */
+#endif	/* STATICLIB_PIMPL_PIMPLEXCEPTION_HPP */

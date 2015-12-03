@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( staticlib_pimpl CXX )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.2 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.3 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs PIMPL library" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_pimpl )
 include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )
@@ -40,7 +40,7 @@ if ( STATICLIB_USE_DEPLIBS_CACHE )
 endif ( )
 
 # dependencies
-set ( ${PROJECT_NAME}_DEPS staticlib_utils )
+set ( ${PROJECT_NAME}_DEPS staticlib_config )
 staticlib_pimpl_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
 
 # library

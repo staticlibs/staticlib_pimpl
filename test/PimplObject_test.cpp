@@ -21,18 +21,18 @@
  * Created on October 3, 2014, 7:35 PM
  */
 
+#include "staticlib/pimpl/PimplObject.hpp"
+
 #include <iostream>
 #include <vector>
-#include <cassert>
 
-#include "staticlib/pimpl/PimplException.hpp"
+#include "staticlib/config/assert.hpp"
 
 #include "unique/Abstract.cpp"
 #include "unique/Base.cpp"
 #include "unique/Intermediate.cpp"
 #include "unique/Derived.cpp"
 
-namespace { // anonymous
 
 using std::vector;
 using staticlib::pimpl::PimplException;
@@ -52,10 +52,9 @@ void test_size() {
 //    std::cout << sizeof(intermediate) << std::endl;
 //    std::cout << sizeof(derived) << std::endl;
     auto ptr_size = sizeof(void*);
-    (void) ptr_size;
-    assert(2*ptr_size == sizeof (base));
-    assert(4*ptr_size == sizeof (intermediate));
-    assert(4*ptr_size == sizeof (derived));
+    slassert(2*ptr_size == sizeof (base));
+    slassert(4*ptr_size == sizeof (intermediate));
+    slassert(4*ptr_size == sizeof (derived));
 }
 
 void test_polymorphic() {
@@ -64,12 +63,12 @@ void test_polymorphic() {
     Intermediate intermediate = Intermediate("foo");
     Derived derived = Derived("foo");
     // polymorphic calls
-    assert("Base::foo" == base.get_str());
-    assert("Intermediate::foo" == intermediate.get_str());
-    assert("Derived::foo" == derived.get_str());
-    assert("intermediate_foo" == intermediate.get_str_intermediate());
-    assert("intermediate_foo" == derived.get_str_intermediate());
-    assert("derived_foo" == derived.get_str_derived());
+    slassert("Base::foo" == base.get_str());
+    slassert("Intermediate::foo" == intermediate.get_str());
+    slassert("Derived::foo" == derived.get_str());
+    slassert("intermediate_foo" == intermediate.get_str_intermediate());
+    slassert("intermediate_foo" == derived.get_str_intermediate());
+    slassert("derived_foo" == derived.get_str_derived());
 }
 
 void test_nocopy() {
@@ -82,9 +81,9 @@ void test_nocopy() {
     vec.push_back(std::move(base));
     vec.push_back(std::move(intermediate));
     vec.push_back(std::move(derived));
-    assert("Base::foo" == vec[0].get_str());
-    assert("Intermediate::foo" == vec[1].get_str());
-    assert("Derived::foo" == vec[2].get_str());
+    slassert("Base::foo" == vec[0].get_str());
+    slassert("Intermediate::foo" == vec[1].get_str());
+    slassert("Derived::foo" == vec[2].get_str());
 }
 
 void test_downcast() {
@@ -94,9 +93,9 @@ void test_downcast() {
     // downcast, nullptr is required by internal PimplObject constructor
     // to prevent "ambiguous" clash with other constructors
     Derived downcasted = Derived(nullptr, std::move(vec[0].get_impl_ptr()));
-    assert("Derived::foo" == downcasted.get_str());
-    assert("intermediate_foo" == downcasted.get_str_intermediate());
-    assert("derived_foo" == downcasted.get_str_derived());
+    slassert("Derived::foo" == downcasted.get_str());
+    slassert("intermediate_foo" == downcasted.get_str_intermediate());
+    slassert("derived_foo" == downcasted.get_str_derived());
 }
 
 void test_move() {
@@ -105,33 +104,28 @@ void test_move() {
     Intermediate move_constructed = std::move(source);
     Intermediate moved = Intermediate("baz");
     moved = std::move(move_constructed);
-    assert("Intermediate::bar" == moved.get_str());
-    assert("intermediate_bar" == moved.get_str_intermediate());
+    slassert("Intermediate::bar" == moved.get_str());
+    slassert("intermediate_bar" == moved.get_str_intermediate());
     bool catched_source = false;
     try {
         auto tmp = std::move(source.get_impl_ptr());
         (void) tmp;
-    } catch (const PimplException& e) {
-        (void) e;
+    } catch (const PimplException&) {
         catched_source = true;
     }
-    (void) catched_source;
-    assert(true == catched_source);
+    slassert(true == catched_source);
     bool catched_mc = false;
     try {
         auto tmp = std::move(move_constructed.get_impl_ptr());
         (void) tmp;
-    } catch (const PimplException& e) {
-        (void) e;
+    } catch (const PimplException&) {
         catched_mc = true;
     }
-    (void) catched_mc;
-    assert(true == catched_mc);
+    slassert(true == catched_mc);
 }
 
 void takes_iface(const Base2& b2) {
-    (void) b2;
-    assert("424242" == b2.get_str_from_base2());
+    slassert("424242" == b2.get_str_from_base2());
 }
 
 void test_interfaces() {
@@ -147,25 +141,25 @@ void test_stacktrace() {
     try {
         Derived der = Derived("foo");
         der.throw_something();
-    } catch(const std::exception& e) {
-        (void) e;
+    } catch(const std::exception&) {
         catched = true;
-//        assert(expected == e.what());
+//        slassert(expected == e.what());
     }
-    (void) catched;
-    assert(catched);
+    slassert(catched);
 }
 
-} // namespace
-
 int main() {
-    test_size();
-    test_polymorphic();
-    test_nocopy();
-    test_downcast();
-    test_move();
-    test_interfaces();
-    test_stacktrace();
-    
+    try {
+        test_size();
+        test_polymorphic();
+        test_nocopy();
+        test_downcast();
+        test_move();
+        test_interfaces();
+        test_stacktrace();
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }

@@ -6,7 +6,7 @@ This project is a part of [Staticlibs](http://staticlibs.net/).
 This project contains an implementation of the [PIMPL idiom](http://herbsutter.com/gotw/_100/).
 This implementation deliberately does not use templates, template-based implementation can be found [here](http://herbsutter.com/gotw/_101/).
 
-Link to [API documentation](http://staticlibs.github.io/staticlib_pimpl/docs/html/namespacestaticlib_1_1pimpl.html).
+Link to the [API documentation](http://staticlibs.github.io/staticlib_pimpl/docs/html/namespacestaticlib_1_1pimpl.html).
 
 PIMPL implementation
 --------------------
@@ -110,13 +110,11 @@ How to build
 For Windows users ready-to-use binary version of `pkg-config` can be obtained from [tools_windows_pkgconfig](https://github.com/staticlibs/tools_windows_pkgconfig) repository.
 See [PkgConfig](https://github.com/staticlibs/wiki/wiki/PkgConfig) for Staticlibs-specific details about `pkg-config` usage.
 
-This project depends on a [staticlib_utils](https://github.com/staticlibs/staticlib_utils) project.
-If this project is used from the client project then both `staticlib_pimpl` and `staticlib_utils` must be 
-included as dependencies. 
+This project depends on a [staticlib_utils](https://github.com/staticlibs/staticlib_config) project.
 See [StaticlibsDependencies](https://github.com/staticlibs/wiki/wiki/StaticlibsDependencies) for more 
 details about dependency management with Staticlibs.
 
-To build this project manually:
+To build this project manually (without Staticlib toolchains):
 
  * checkout all the dependent projects
  * configure these projects using the same output directory:
@@ -156,6 +154,11 @@ This project is released under the [Apache License 2.0](http://www.apache.org/li
 
 Changelog
 ---------
+
+**2015-12-03**
+
+ * version 1.1.3
+ * depend on `staticlib_config` instead of `staticlib_utils`
 
 **2015-11-17**
 
