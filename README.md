@@ -110,7 +110,7 @@ How to build
 For Windows users ready-to-use binary version of `pkg-config` can be obtained from [tools_windows_pkgconfig](https://github.com/staticlibs/tools_windows_pkgconfig) repository.
 See [PkgConfig](https://github.com/staticlibs/wiki/wiki/PkgConfig) for Staticlibs-specific details about `pkg-config` usage.
 
-This project depends on a [staticlib_utils](https://github.com/staticlibs/staticlib_config) project.
+This project depends on a [staticlib_config](https://github.com/staticlibs/staticlib_config) project.
 See [StaticlibsDependencies](https://github.com/staticlibs/wiki/wiki/StaticlibsDependencies) for more 
 details about dependency management with Staticlibs.
 
