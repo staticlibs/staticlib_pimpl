@@ -16,7 +16,7 @@ cmake_minimum_required ( VERSION 2.8.12 )
 
 # project
 project ( staticlib_pimpl CXX )
-set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.3 )
+set ( ${PROJECT_NAME}_STATICLIB_VERSION 1.1.4 )
 set ( ${PROJECT_NAME}_DESCRIPTION "Staticlibs PIMPL library" )
 set ( ${PROJECT_NAME}_URL https://github.com/staticlibs/staticlib_pimpl )
 include ( ${CMAKE_CURRENT_LIST_DIR}/resources/macros.cmake )
@@ -39,6 +39,14 @@ if ( STATICLIB_USE_DEPLIBS_CACHE )
     endif ( )
 endif ( )
 
+# standalone build
+if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
+    set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR} )
+endif ( )
+if ( NOT DEFINED STATICLIB_TOOLCHAIN )
+    staticlib_pimpl_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../staticlib_config )
+endif ( )
+
 # dependencies
 set ( ${PROJECT_NAME}_DEPS staticlib_config )
 staticlib_pimpl_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
@@ -55,9 +63,6 @@ target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE
         ${${PROJECT_NAME}_DEPS_PC_INCLUDE_DIRS} )
 
 # pkg-config
-if ( NOT DEFINED CMAKE_LIBRARY_OUTPUT_DIRECTORY )
-    set ( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} )
-endif ( )
 staticlib_pimpl_list_to_string ( ${PROJECT_NAME}_PC_CFLAGS "-I" ${PROJECT_NAME}_INCLUDES )
 set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -l${PROJECT_NAME}" )
 staticlib_pimpl_list_to_string ( ${PROJECT_NAME}_PC_REQUIRES "" ${PROJECT_NAME}_DEPS )
