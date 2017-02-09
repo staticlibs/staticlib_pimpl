@@ -79,45 +79,45 @@ protected:
     /**
      * Implementation class
      */
-    class Impl {
+    class impl {
         friend pimpl_object;
     public:
         /**
          * Virtual destructor
          */
-        virtual ~Impl() STATICLIB_NOEXCEPT;
+        virtual ~impl() STATICLIB_NOEXCEPT;
         /**
          * Deleted copy constructor
          * 
          * @param other other instance
          */
-        Impl(const Impl& other) = delete;
+        impl(const impl& other) = delete;
         /**
          * Deleted copy assignment operator
          * 
          * @param other other instance
          * @return reference to this instance
          */
-        Impl& operator=(const Impl& other) = delete;
+        impl& operator=(const impl& other) = delete;
         /**
          * Deleted move constructor
          * 
          * @param other other instance
          */
-        Impl(Impl&& other) = delete;
+        impl(impl&& other) = delete;
         /**
          * Deleted move assignment operator
          * 
          * @param other other instance
          * @return reference to this instance
          */
-        Impl& operator=(Impl&& other) = delete;
+        impl& operator=(impl&& other) = delete;
 
     protected:
         /**
          * Default constructor
          */
-        Impl() STATICLIB_NOEXCEPT;
+        impl() STATICLIB_NOEXCEPT;
     };
 
     /**
@@ -125,22 +125,22 @@ protected:
      * "nullptr" is required as dummy first argument to disambiguate this
      * "system" constructor from all other possible business-specific constructors
      */
-    pimpl_object(std::nullptr_t, std::unique_ptr<pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT;
+    pimpl_object(std::nullptr_t, std::unique_ptr<pimpl_object::impl> pimpl) STATICLIB_NOEXCEPT;
 
 public:
     /**
      * Unique pointer access, made public only for downcast support,
      * should NOT be used in normal client code
      * 
-     * @return unique_ptr to Impl instance
+     * @return unique_ptr to impl instance
      */
-    std::unique_ptr<pimpl_object::Impl>& get_impl_ptr() const;
+    std::unique_ptr<pimpl_object::impl>& get_impl_ptr() const;
 
 private:
     /**
-     * Pointer to Impl instance
+     * Pointer to impl instance
      */
-    mutable std::unique_ptr<pimpl_object::Impl> pimpl = nullptr;
+    mutable std::unique_ptr<pimpl_object::impl> pimpl = nullptr;
 
 };
 
@@ -160,14 +160,14 @@ class_name& operator=(class_name&& other) STATICLIB_NOEXCEPT { \
 }
 
 #define PIMPL_CONSTRUCTOR(class_name) \
-class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT : \
-staticlib::pimpl::pimpl_object(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::pimpl_object::Impl>>(pimpl)) { } \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::pimpl_object::impl> pimpl) STATICLIB_NOEXCEPT : \
+staticlib::pimpl::pimpl_object(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::pimpl_object::impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::pimpl_object)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
-class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT : \
-parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::pimpl_object::Impl>>(pimpl)) { } \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::pimpl_object::impl> pimpl) STATICLIB_NOEXCEPT : \
+parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::pimpl_object::impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 

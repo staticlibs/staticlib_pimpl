@@ -31,7 +31,7 @@ namespace unique {
 using std::string;
 
 Abstract::Impl::Impl() :
-pimpl_object::Impl() { }
+pimpl_object::impl() { }
 
 PIMPL_FORWARD_METHOD(Abstract, string, get_str, (), (), TestException)
 

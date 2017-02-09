@@ -36,19 +36,19 @@ pimpl_object& pimpl_object::operator=(pimpl_object&& other) STATICLIB_NOEXCEPT {
     return *this;
 }
 
-pimpl_object::pimpl_object(std::nullptr_t, std::unique_ptr<pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT :
+pimpl_object::pimpl_object(std::nullptr_t, std::unique_ptr<pimpl_object::impl> pimpl) STATICLIB_NOEXCEPT :
 pimpl(std::move(pimpl)) { };
 
-std::unique_ptr<pimpl_object::Impl>& pimpl_object::get_impl_ptr() const {
+std::unique_ptr<pimpl_object::impl>& pimpl_object::get_impl_ptr() const {
     if (nullptr != this->pimpl.get()) {
         return this->pimpl;
     }
     throw pimpl_exception();
 }
 
-pimpl_object::Impl::~Impl() STATICLIB_NOEXCEPT = default;
+pimpl_object::impl::~impl() STATICLIB_NOEXCEPT = default;
 
-pimpl_object::Impl::Impl() STATICLIB_NOEXCEPT = default;
+pimpl_object::impl::impl() STATICLIB_NOEXCEPT = default;
 
 } // namespace
 }
