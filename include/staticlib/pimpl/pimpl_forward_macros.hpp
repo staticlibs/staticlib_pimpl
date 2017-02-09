@@ -34,7 +34,7 @@
 #pragma warning (disable: 4003)
 #endif // STATICLIB_WINDOWS
 
-#include "staticlib/pimpl/PimplException.hpp"
+#include "staticlib/pimpl/pimpl_exception.hpp"
 #include "staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp"
 
 #define PIMPL_FORWARD_INTERNAL_RET_TYPE_void 1)(1

@@ -8,12 +8,14 @@
 #ifndef TESTEXCEPTION_HPP
 #define	TESTEXCEPTION_HPP
 
+#include "staticlib/config/staticlib_exception.hpp"
+
 namespace unique {
 
 /**
  * Module specific exception
  */
-class TestException : public staticlib::config::BaseException {
+class TestException : public staticlib::config::staticlib_exception {
 public:
     /**
      * Default constructor
@@ -26,7 +28,7 @@ public:
      * @param msg error message
      */
     TestException(const std::string& msg) :
-    staticlib::config::BaseException(msg) { }
+    staticlib::config::staticlib_exception(msg) { }
 };
 
 } // namespace

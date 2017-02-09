@@ -30,12 +30,12 @@
 
 namespace unique {
 
-class Abstract : public staticlib::pimpl::PimplObject {
+class Abstract : public staticlib::pimpl::pimpl_object {
 protected:    
     class Impl;
     
 public:
-	//    using staticlib::pimpl::PimplObject::PimplObject;
+	//    using staticlib::pimpl::pimpl_object::pimpl_object;
     PIMPL_CONSTRUCTOR(Abstract)
 
     virtual std::string get_str();

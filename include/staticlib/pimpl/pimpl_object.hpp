@@ -15,14 +15,14 @@
  */
 
 /* 
- * File:   PimplObject.hpp
+ * File:   pimpl_object.hpp
  * Author: alex
  *
  * Created on September 6, 2014, 11:47 AM
  */
 
-#ifndef STATICLIB_PIMPL_PIMPLOBJECT_HPP
-#define	STATICLIB_PIMPL_PIMPLOBJECT_HPP
+#ifndef STATICLIB_PIMPL_PIMPL_OBJECT_HPP
+#define	STATICLIB_PIMPL_PIMPL_OBJECT_HPP
 
 #include <memory>
 #include <string>
@@ -30,7 +30,7 @@
 
 #include "staticlib/config.hpp"
 
-#include "staticlib/pimpl/PimplException.hpp"
+#include "staticlib/pimpl/pimpl_exception.hpp"
 
 namespace staticlib {
 namespace pimpl {
@@ -41,38 +41,38 @@ namespace pimpl {
  * NOT `CopyConstructible` and `CopyAssignable`.
  * Multiple inheritance is NOT supported.
  */
-class PimplObject {
+class pimpl_object {
 public:
     /**
      * Virtual destructor
      */
-    virtual ~PimplObject() STATICLIB_NOEXCEPT;
+    virtual ~pimpl_object() STATICLIB_NOEXCEPT;
     /**
      * Deleted copy constructor
      * 
      * @param other other instance
      */
-    PimplObject(const PimplObject& other) = delete;
+    pimpl_object(const pimpl_object& other) = delete;
     /**
      * Deleted copy assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    PimplObject& operator=(const PimplObject& other) = delete;
+    pimpl_object& operator=(const pimpl_object& other) = delete;
     /**
      * Move constructor
      * 
      * @param other other instance
      */
-    PimplObject(PimplObject&& other) STATICLIB_NOEXCEPT;
+    pimpl_object(pimpl_object&& other) STATICLIB_NOEXCEPT;
     /**
      * Move assignment operator
      * 
      * @param other other instance
      * @return reference to this instance
      */
-    PimplObject& operator=(PimplObject&& other) STATICLIB_NOEXCEPT;
+    pimpl_object& operator=(pimpl_object&& other) STATICLIB_NOEXCEPT;
 
 protected:
 
@@ -80,7 +80,7 @@ protected:
      * Implementation class
      */
     class Impl {
-        friend PimplObject;
+        friend pimpl_object;
     public:
         /**
          * Virtual destructor
@@ -125,7 +125,7 @@ protected:
      * "nullptr" is required as dummy first argument to disambiguate this
      * "system" constructor from all other possible business-specific constructors
      */
-    PimplObject(std::nullptr_t, std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT;
+    pimpl_object(std::nullptr_t, std::unique_ptr<pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT;
 
 public:
     /**
@@ -134,13 +134,13 @@ public:
      * 
      * @return unique_ptr to Impl instance
      */
-    std::unique_ptr<PimplObject::Impl>& get_impl_ptr() const;
+    std::unique_ptr<pimpl_object::Impl>& get_impl_ptr() const;
 
 private:
     /**
      * Pointer to Impl instance
      */
-    mutable std::unique_ptr<PimplObject::Impl> pimpl = nullptr;
+    mutable std::unique_ptr<pimpl_object::Impl> pimpl = nullptr;
 
 };
 
@@ -160,15 +160,15 @@ class_name& operator=(class_name&& other) STATICLIB_NOEXCEPT { \
 }
 
 #define PIMPL_CONSTRUCTOR(class_name) \
-class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
-staticlib::pimpl::PimplObject(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT : \
+staticlib::pimpl::pimpl_object(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::pimpl_object::Impl>>(pimpl)) { } \
 \
-PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::PimplObject)
+PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, staticlib::pimpl::pimpl_object)
 
 #define PIMPL_INHERIT_CONSTRUCTOR(class_name, parent_class_name) \
-class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT : \
-parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::PimplObject::Impl>>(pimpl)) { } \
+class_name(std::nullptr_t, std::unique_ptr<staticlib::pimpl::pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT : \
+parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::pimpl_object::Impl>>(pimpl)) { } \
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
-#endif	/* STATICLIB_PIMPL_PIMPLOBJECT_HPP */
+#endif	/* STATICLIB_PIMPL_PIMPL_OBJECT_HPP */

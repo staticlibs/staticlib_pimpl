@@ -28,7 +28,7 @@
 
 namespace unique {
 
-class Abstract::Impl : public PimplObject::Impl {
+class Abstract::Impl : public pimpl_object::Impl {
 protected:
     Impl();
 

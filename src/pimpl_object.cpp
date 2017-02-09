@@ -15,40 +15,40 @@
  */
 
 /* 
- * File:   PimplObject.cpp
+ * File:   pimpl_object.cpp
  * Author: alex
  * 
  * Created on October 3, 2014, 6:21 PM
  */
 
-#include "staticlib/pimpl/PimplObject.hpp"
+#include "staticlib/pimpl/pimpl_object.hpp"
 
 namespace staticlib {
 namespace pimpl {
 
-PimplObject::~PimplObject() STATICLIB_NOEXCEPT = default;
+pimpl_object::~pimpl_object() STATICLIB_NOEXCEPT = default;
 
-PimplObject::PimplObject(PimplObject&& other) STATICLIB_NOEXCEPT :
+pimpl_object::pimpl_object(pimpl_object&& other) STATICLIB_NOEXCEPT :
 pimpl(std::move(other.pimpl)) { }
 
-PimplObject& PimplObject::operator=(PimplObject&& other) STATICLIB_NOEXCEPT {
+pimpl_object& pimpl_object::operator=(pimpl_object&& other) STATICLIB_NOEXCEPT {
     this->pimpl = std::move(other.pimpl);
     return *this;
 }
 
-PimplObject::PimplObject(std::nullptr_t, std::unique_ptr<PimplObject::Impl> pimpl) STATICLIB_NOEXCEPT :
+pimpl_object::pimpl_object(std::nullptr_t, std::unique_ptr<pimpl_object::Impl> pimpl) STATICLIB_NOEXCEPT :
 pimpl(std::move(pimpl)) { };
 
-std::unique_ptr<PimplObject::Impl>& PimplObject::get_impl_ptr() const {
+std::unique_ptr<pimpl_object::Impl>& pimpl_object::get_impl_ptr() const {
     if (nullptr != this->pimpl.get()) {
         return this->pimpl;
     }
-    throw PimplException();
+    throw pimpl_exception();
 }
 
-PimplObject::Impl::~Impl() STATICLIB_NOEXCEPT = default;
+pimpl_object::Impl::~Impl() STATICLIB_NOEXCEPT = default;
 
-PimplObject::Impl::Impl() STATICLIB_NOEXCEPT = default;
+pimpl_object::Impl::Impl() STATICLIB_NOEXCEPT = default;
 
 } // namespace
 }

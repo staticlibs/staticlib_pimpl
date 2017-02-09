@@ -15,13 +15,13 @@
  */
 
 /* 
- * File:   test_PimplObject.cpp
+ * File:   test_pimpl_object.cpp
  * Author: alex
  * 
  * Created on October 3, 2014, 7:35 PM
  */
 
-#include "staticlib/pimpl/PimplObject.hpp"
+#include "staticlib/pimpl/pimpl_object.hpp"
 
 #include <iostream>
 #include <vector>
@@ -35,7 +35,7 @@
 
 
 using std::vector;
-using staticlib::pimpl::PimplException;
+using staticlib::pimpl::pimpl_exception;
 using unique::Abstract;
 using unique::Base;
 using unique::Base2;
@@ -90,7 +90,7 @@ void test_downcast() {
     Derived derived = Derived("foo");
     auto vec = vector<Abstract>();
     vec.push_back(std::move(derived));
-    // downcast, nullptr is required by internal PimplObject constructor
+    // downcast, nullptr is required by internal pimpl_object constructor
     // to prevent "ambiguous" clash with other constructors
     Derived downcasted = Derived(nullptr, std::move(vec[0].get_impl_ptr()));
     slassert("Derived::foo" == downcasted.get_str());
@@ -110,7 +110,7 @@ void test_move() {
     try {
         auto tmp = std::move(source.get_impl_ptr());
         (void) tmp;
-    } catch (const PimplException&) {
+    } catch (const pimpl_exception&) {
         catched_source = true;
     }
     slassert(true == catched_source);
@@ -118,7 +118,7 @@ void test_move() {
     try {
         auto tmp = std::move(move_constructed.get_impl_ptr());
         (void) tmp;
-    } catch (const PimplException&) {
+    } catch (const pimpl_exception&) {
         catched_mc = true;
     }
     slassert(true == catched_mc);

@@ -15,16 +15,16 @@
  */
 
 /* 
- * File:   PimplException.hpp
+ * File:   pimpl_exception.hpp
  * Author: alex
  *
  * Created on October 3, 2014, 6:29 PM
  */
 
-#ifndef STATICLIB_PIMPL_PIMPLEXCEPTION_HPP
-#define	STATICLIB_PIMPL_PIMPLEXCEPTION_HPP
+#ifndef STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP
+#define	STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP
 
-#include "staticlib/config.hpp"
+#include "staticlib/config/staticlib_exception.hpp"
 
 namespace staticlib {
 namespace pimpl {
@@ -32,24 +32,24 @@ namespace pimpl {
 /**
  * Module specific exception
  */
-class PimplException : public staticlib::config::BaseException {
+class pimpl_exception : public staticlib::config::staticlib_exception {
 public:
     /**
      * Default constructor
      */
-    PimplException() = default;
+    pimpl_exception() = default;
 
     /**
      * Constructor with message
      * 
      * @param msg error message
      */
-    PimplException(const std::string& msg) :
-    staticlib::config::BaseException(msg) { }
+    pimpl_exception(const std::string& msg) :
+    staticlib::config::staticlib_exception(msg) { }
 
 };
 
 } // namespace
 }
 
-#endif	/* STATICLIB_PIMPL_PIMPLEXCEPTION_HPP */
+#endif	/* STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP */

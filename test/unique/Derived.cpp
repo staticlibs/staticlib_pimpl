@@ -52,7 +52,7 @@ public:
     
     void throw_something(Derived& self) {
         (void) self;
-        throw staticlib::pimpl::PimplException(TRACEMSG("foo"));
+        throw staticlib::pimpl::pimpl_exception(TRACEMSG("foo"));
     }
     
     std::string some_method_with_args(Derived& self, std::string arg1) {
