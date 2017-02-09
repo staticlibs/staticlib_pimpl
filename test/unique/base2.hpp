@@ -15,7 +15,7 @@
  */
 
 /* 
- * File:   Base2.hpp
+ * File:   base2.hpp
  * Author: alex
  *
  * Created on October 4, 2014, 1:39 PM
@@ -26,7 +26,7 @@
 
 namespace unique {
 
-class Base2 {
+class base2 {
 public:
     virtual std::string get_str_from_base2() const = 0;
 };

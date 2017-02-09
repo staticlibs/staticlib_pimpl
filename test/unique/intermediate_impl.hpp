@@ -15,7 +15,7 @@
  */
 
 /* 
- * File:   IntermediateImpl.hpp
+ * File:   intermediate_impl.hpp
  * Author: alex
  *
  * Created on July 1, 2014, 12:54 PM
@@ -24,23 +24,23 @@
 #ifndef UNIQUE_INTERMEDIATEIMPL_HPP
 #define	UNIQUE_INTERMEDIATEIMPL_HPP
 
-#include "unique/BaseImpl.hpp"
-#include "unique/Intermediate.hpp"
+#include "unique/base_impl.hpp"
+#include "unique/intermediate.hpp"
 
 namespace unique {
 
-class Intermediate::Impl : public Base::Impl {
+class intermediate::impl : public base::impl {
     const std::string str_intermediate;    
 public:
-    Impl(const std::string& str);
+    impl(const std::string& str);
 
-    virtual std::string get_str(Abstract& self) override;
+    virtual std::string get_str(abstract& self) override;
     
-    virtual std::string get_str_intermediate(Intermediate& self);
+    virtual std::string get_str_intermediate(intermediate& self);
     
-    virtual std::string get_str_from_base2(const Intermediate& self) const;
+    virtual std::string get_str_from_base2(const intermediate& self) const;
     
-    virtual std::string get_str_from_base3(Intermediate& self);
+    virtual std::string get_str_from_base3(intermediate& self);
 };
 
 

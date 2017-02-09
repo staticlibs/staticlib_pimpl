@@ -15,41 +15,33 @@
  */
 
 /* 
- * File:   Intermediate.hpp
+ * File:   asbtract.hpp
  * Author: alex
  *
- * Created on July 1, 2014, 12:04 PM
+ * Created on September 6, 2014, 11:44 AM
  */
 
-#ifndef UNIQUE_INTERMEDIATE_HPP
-#define	UNIQUE_INTERMEDIATE_HPP
+#ifndef UNIQUE_ABSTRACT_HPP
+#define	UNIQUE_ABSTRACT_HPP
 
-#include "unique/Base.hpp"
-#include "unique/Base2.hpp"
-#include "unique/Base3.hpp"
+#include <string>
+
+#include "staticlib/pimpl.hpp"
 
 namespace unique {
 
-class Intermediate : public Base, public Base2, public Base3 {
+class abstract : public staticlib::pimpl::pimpl_object {
 protected:    
-    class Impl;
+    class impl;
     
 public:
-//    using Base::Base;
-    PIMPL_INHERIT_CONSTRUCTOR(Intermediate, Base)
-    
-    Intermediate(const std::string& str);
+	//    using staticlib::pimpl::pimpl_object::pimpl_object;
+    PIMPL_CONSTRUCTOR(abstract)
 
-    virtual std::string get_str() override;
-
-    virtual std::string get_str_intermediate();
-    
-    virtual std::string get_str_from_base2() const override;
-    
-    virtual std::string get_str_from_base3() override;
+    virtual std::string get_str();
 };
 
 } // namespace
 
-#endif	/* UNIQUE_INTERMEDIATE_HPP */
+#endif	/* UNIQUE_ABSTRACT_HPP */
 

@@ -15,33 +15,46 @@
  */
 
 /* 
- * File:   Base.hpp
+ * File:   derived.hpp
  * Author: alex
  *
- * Created on July 1, 2014, 9:20 AM
+ * Created on July 1, 2014, 2:22 PM
  */
 
-#ifndef UNIQUE_BASE_HPP
-#define	UNIQUE_BASE_HPP
+#ifndef UNIQUE_DERIVED_HPP
+#define	UNIQUE_DERIVED_HPP
 
-#include "unique/Abstract.hpp"
+#include "unique/intermediate.hpp"
 
 namespace unique {
 
-class Base : public Abstract {    
-protected:        
-    class Impl;
-    
+class derived : public intermediate {
+protected:    
+    class impl;
+
 public:
-//    using Abstract::Abstract;
-    PIMPL_INHERIT_CONSTRUCTOR(Base, Abstract)
+//    using intermediate::intermediate;
+    PIMPL_INHERIT_CONSTRUCTOR(derived, intermediate)
     
-    Base(const std::string& str);
+    derived(const std::string& str);
     
     virtual std::string get_str() override;
+
+    virtual std::string get_str_derived();
+    
+    std::string some_method_with_args(std::string arg1);
+    
+    std::string some_const_method_with_args(std::string arg1, int arg2) const;
+    
+    std::string some_const_method_noargs() const;
+    
+    void throw_something();
+    
+    derived& self_returning();
+    
 };
 
 } // namespace
 
-#endif	/* UNIQUE_BASE_HPP */
+#endif	/* UNIQUE_DERIVED_HPP */
 

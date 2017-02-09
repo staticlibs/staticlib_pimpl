@@ -15,32 +15,28 @@
  */
 
 /* 
- * File:   BaseImpl.hpp
+ * File:   abstract_impl.hpp
  * Author: alex
  *
- * Created on July 1, 2014, 12:41 PM
+ * Created on September 6, 2014, 11:45 AM
  */
 
-#ifndef UNIQUE_BASEIMPL_HPP
-#define	UNIQUE_BASEIMPL_HPP
+#ifndef UNIQUE_ABSTRACT_IMPL_HPP
+#define	UNIQUE_ABSTRACT_IMPL_HPP
 
-#include "unique/AbstractImpl.hpp"
-#include "unique/Base.hpp"
+#include "unique/abstract.hpp"
 
 namespace unique {
 
-class Base::Impl : public Abstract::Impl {
-protected:        
-    const std::string str_base;
-    
+class abstract::impl : public pimpl_object::impl {
+protected:
+    impl();
+
 public:
-    Impl(const std::string& str);
-
-    virtual std::string get_str(Abstract& self) override;
+    virtual std::string get_str(abstract& self) = 0;
 };
-
 
 } // namespace
 
-#endif	/* UNIQUE_BASEIMPL_HPP */
+#endif	/* UNIQUE_ABSTRACT_IMPL_HPP */
 

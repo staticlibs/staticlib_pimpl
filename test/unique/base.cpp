@@ -15,24 +15,33 @@
  */
 
 /* 
- * File:   Asbtract.cpp
+ * File:   base.cpp
  * Author: alex
  * 
- * Created on September 6, 2014, 11:44 AM
+ * Created on July 1, 2014, 9:20 AM
  */
 
 #include "staticlib/pimpl/pimpl_forward_macros.hpp"
-#include "unique/TestException.hpp"
-#include "unique/Abstract.hpp"
-#include "unique/AbstractImpl.hpp"
+#include "unique/test_exception.hpp"
+#include "unique/abstract_impl.hpp"
+#include "unique/base.hpp"
+#include "unique/base_impl.hpp"
 
 namespace unique {
 
 using std::string;
 
-Abstract::Impl::Impl() :
-pimpl_object::impl() { }
+base::impl::impl(const string& str) : 
+abstract::impl(), str_base(str) { }
+PIMPL_FORWARD_CONSTRUCTOR(base, (const string&), (), test_exception)
 
-PIMPL_FORWARD_METHOD(Abstract, string, get_str, (), (), TestException)
+string base::impl::get_str(abstract& self) {
+    (void) self;
+    string res = string();
+    res.append("base::");
+    res.append(this->str_base);
+    return res;
+}
+PIMPL_FORWARD_METHOD(base, string, get_str, (), (), test_exception)
 
 } // namespace

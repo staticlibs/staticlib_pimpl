@@ -15,33 +15,24 @@
  */
 
 /* 
- * File:   Base.cpp
+ * File:   base3.hpp
  * Author: alex
- * 
- * Created on July 1, 2014, 9:20 AM
+ *
+ * Created on October 4, 2014, 2:50 PM
  */
 
-#include "staticlib/pimpl/pimpl_forward_macros.hpp"
-#include "unique/TestException.hpp"
-#include "unique/AbstractImpl.hpp"
-#include "unique/Base.hpp"
-#include "unique/BaseImpl.hpp"
+#ifndef UNIQUE_BASE3_HPP
+#define	UNIQUE_BASE3_HPP
 
 namespace unique {
 
-using std::string;
-
-Base::Impl::Impl(const string& str) : 
-Abstract::Impl(), str_base(str) { }
-PIMPL_FORWARD_CONSTRUCTOR(Base, (const string&), (), TestException)
-
-string Base::Impl::get_str(Abstract& self) {
-    (void) self;
-    string res = string();
-    res.append("Base::");
-    res.append(this->str_base);
-    return res;
-}
-PIMPL_FORWARD_METHOD(Base, string, get_str, (), (), TestException)
+class base3 {
+public:
+    virtual std::string get_str_from_base3() = 0;
+};
 
 } // namespace
+
+
+#endif	/* BASE3_HPP */
+

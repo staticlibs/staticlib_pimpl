@@ -15,50 +15,50 @@
  */
 
 /* 
- * File:   Intermediate.cpp
+ * File:   intermediate.cpp
  * Author: alex
  * 
  * Created on July 1, 2014, 12:04 PM
  */
 
 #include "staticlib/pimpl/pimpl_forward_macros.hpp"
-#include "unique/TestException.hpp"
-#include "unique/IntermediateImpl.hpp"
+#include "unique/test_exception.hpp"
+#include "unique/intermediate_impl.hpp"
 
 namespace unique {
 
 using std::string;
 
-Intermediate::Impl::Impl(const string& str) : 
-Base::Impl(str), str_intermediate(string("intermediate_").append(str)) { }
-PIMPL_FORWARD_CONSTRUCTOR(Intermediate, (const string&), (), TestException)
+intermediate::impl::impl(const string& str) : 
+base::impl(str), str_intermediate(string("intermediate_").append(str)) { }
+PIMPL_FORWARD_CONSTRUCTOR(intermediate, (const string&), (), test_exception)
 
-string Intermediate::Impl::get_str(Abstract& self) {
+string intermediate::impl::get_str(abstract& self) {
     (void) self;
     string res = string();
-    res.append("Intermediate::");
+    res.append("intermediate::");
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str, (), (), TestException)
+PIMPL_FORWARD_METHOD(intermediate, string, get_str, (), (), test_exception)
 
-string Intermediate::Impl::get_str_intermediate(Intermediate& self) {
+string intermediate::impl::get_str_intermediate(intermediate& self) {
     (void) self;
     return this->str_intermediate;
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_intermediate, (), (), TestException)
+PIMPL_FORWARD_METHOD(intermediate, string, get_str_intermediate, (), (), test_exception)
 
-string Intermediate::Impl::get_str_from_base2(const Intermediate& self) const {
+string intermediate::impl::get_str_from_base2(const intermediate& self) const {
     (void) self;
     return "424242";
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base2, (), (const), TestException)
+PIMPL_FORWARD_METHOD(intermediate, string, get_str_from_base2, (), (const), test_exception)
 
-string Intermediate::Impl::get_str_from_base3(Intermediate& self) {
+string intermediate::impl::get_str_from_base3(intermediate& self) {
     (void) self;
     return "434343";
 }
-PIMPL_FORWARD_METHOD(Intermediate, string, get_str_from_base3, (), (), TestException)
+PIMPL_FORWARD_METHOD(intermediate, string, get_str_from_base3, (), (), test_exception)
 
 } // namespace
 

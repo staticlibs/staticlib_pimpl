@@ -15,24 +15,32 @@
  */
 
 /* 
- * File:   Base3.hpp
+ * File:   base_impl.hpp
  * Author: alex
  *
- * Created on October 4, 2014, 2:50 PM
+ * Created on July 1, 2014, 12:41 PM
  */
 
-#ifndef UNIQUE_BASE3_HPP
-#define	UNIQUE_BASE3_HPP
+#ifndef UNIQUE_BASE_IMPL_HPP
+#define	UNIQUE_BASE_IMPL_HPP
+
+#include "unique/abstract_impl.hpp"
+#include "unique/base.hpp"
 
 namespace unique {
 
-class Base3 {
+class base::impl : public abstract::impl {
+protected:        
+    const std::string str_base;
+    
 public:
-    virtual std::string get_str_from_base3() = 0;
+    impl(const std::string& str);
+
+    virtual std::string get_str(abstract& self) override;
 };
+
 
 } // namespace
 
-
-#endif	/* BASE3_HPP */
+#endif	/* UNIQUE_BASE_IMPL_HPP */
 

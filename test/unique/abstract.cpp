@@ -15,28 +15,24 @@
  */
 
 /* 
- * File:   AbstractInherit.hpp
+ * File:   asbtract.cpp
  * Author: alex
- *
- * Created on September 6, 2014, 11:45 AM
+ * 
+ * Created on September 6, 2014, 11:44 AM
  */
 
-#ifndef UNIQUE_ABSTRACTIMPL_HPP
-#define	UNIQUE_ABSTRACTIMPL_HPP
-
-#include "unique/Abstract.hpp"
+#include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "unique/test_exception.hpp"
+#include "unique/abstract.hpp"
+#include "unique/abstract_impl.hpp"
 
 namespace unique {
 
-class Abstract::Impl : public pimpl_object::impl {
-protected:
-    Impl();
+using std::string;
 
-public:
-    virtual std::string get_str(Abstract& self) = 0;
-};
+abstract::impl::impl() :
+pimpl_object::impl() { }
+
+PIMPL_FORWARD_METHOD(abstract, string, get_str, (), (), test_exception)
 
 } // namespace
-
-#endif	/* UNIQUE_ABSTRACTIMPL_HPP */
-
