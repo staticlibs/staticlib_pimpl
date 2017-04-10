@@ -57,7 +57,7 @@ This is an example of a single PIMPL class, you can find the hierarchy example i
 
 Class declaration `http_response.hpp`:
 
-    class http_response : public staticlib::pimpl::sl::pimpl::object {
+    class http_response : public sl::pimpl::object {
     protected:
         class impl;
     public:
@@ -109,7 +109,7 @@ How to build
 
 [pkg-config](http://www.freedesktop.org/wiki/Software/pkg-config/) utility is used for dependency management.
 For Windows users ready-to-use binary version of `pkg-config` can be obtained from [tools_windows_pkgconfig](https://github.com/staticlibs/tools_windows_pkgconfig) repository.
-See [PkgConfig](https://github.com/staticlibs/wiki/wiki/PkgConfig) for Staticlibs-specific details about `pkg-config` usage.
+See [StaticlibPkgConfig](https://github.com/staticlibs/wiki/wiki/StaticlibPkgConfig) for Staticlibs-specific details about `pkg-config` usage.
 
 To build the library on Windows using Visual Studio 2013 Express run the following commands using
 Visual Studio development command prompt 
