@@ -142,7 +142,7 @@ Changelog
 
 **2017-04-10**
 
- * version 1.6.0
+ * version 1.2.0
  * classes renamed
 
 **2016-01-16**
