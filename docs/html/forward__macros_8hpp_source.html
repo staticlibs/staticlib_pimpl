@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>staticlib_pimpl: staticlib/pimpl/pimpl_forward_macros.hpp Source File</title>
+<title>staticlib_pimpl: staticlib/pimpl/forward_macros.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_pimpl
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -86,10 +86,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">pimpl_forward_macros.hpp</div>  </div>
+<div class="title">forward_macros.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="pimpl__forward__macros_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="forward__macros_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright 2015, alex at staticlibs.net</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
@@ -115,40 +115,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef STATICLIB_PIMPL_FORWARD_MACROS_HPP</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define STATICLIB_PIMPL_FORWARD_MACROS_HPP</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor"></span><span class="comment">//http://lists.boost.org/boost-users/2014/11/83291.php</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#pragma warning (disable: 4003)</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif //_MSC_VER</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ext__preprocessor_8hpp.html">staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;staticlib/utils/tracemsg.hpp&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="PimplException_8hpp.html">staticlib/pimpl/PimplException.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;staticlib/config.hpp&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#ifdef STATICLIB_WINDOWS</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span><span class="comment">//http://lists.boost.org/boost-users/2014/11/83291.php</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#pragma warning (disable: 4003)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // STATICLIB_WINDOWS</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="pimpl__exception_8hpp.html">staticlib/pimpl/pimpl_exception.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ext__preprocessor_8hpp.html">staticlib/pimpl/ext_preprocessor/ext_preprocessor.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a3f0fa9c8bb29cae191ab1e5e6f134a76">   40</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_RET_TYPE_void 1)(1</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a0e2e6e6fd65a92a2cad13c2eda66fb36">   41</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_EMPTY_TYPE_ 1)(1</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#aecdadcd5d301de8a9d14a1d9d5b5262f">   42</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(type) STATICLIB_PP_EQUAL(STATICLIB_PP_SEQ_SIZE((PIMPL_FORWARD_INTERNAL_RET_TYPE_##type)),1)</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a128003975a6feceb27986288bb864d9c">   43</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(type) STATICLIB_PP_EQUAL(STATICLIB_PP_SEQ_SIZE((PIMPL_FORWARD_INTERNAL_EMPTY_TYPE_##type)),1)</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a3f0fa9c8bb29cae191ab1e5e6f134a76">   40</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_RET_TYPE_void 1)(1</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a0e2e6e6fd65a92a2cad13c2eda66fb36">   41</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_EMPTY_TYPE_ 1)(1</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#aecdadcd5d301de8a9d14a1d9d5b5262f">   42</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(type) STATICLIB_PP_EQUAL(STATICLIB_PP_SEQ_SIZE((PIMPL_FORWARD_INTERNAL_RET_TYPE_##type)),1)</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a128003975a6feceb27986288bb864d9c">   43</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(type) STATICLIB_PP_EQUAL(STATICLIB_PP_SEQ_SIZE((PIMPL_FORWARD_INTERNAL_EMPTY_TYPE_##type)),1)</span></div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a055ac545a73205bac1c1a943752490bd">   45</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_PARAMS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (elem p##i), ())</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a8fe827420bf5d75bd2b25a14a2d36065">   46</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_ARGS_PASS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (std::forward&lt;elem&gt;(p##i)), ())</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#af4ecd821652c816d6cc0d424e0df202d">   47</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_MODIFIERS(r, data, i, elem) (elem)</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#ad40ad47126e523c86cab6669ffccc905">   48</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_EMPTY_CONV(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (2), (1))</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a055ac545a73205bac1c1a943752490bd">   45</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_PARAMS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (elem p##i), ())</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a8fe827420bf5d75bd2b25a14a2d36065">   46</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_ARGS_PASS(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (std::forward&lt;elem&gt;(p##i)), ())</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#af4ecd821652c816d6cc0d424e0df202d">   47</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_MODIFIERS(r, data, i, elem) (elem)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#ad40ad47126e523c86cab6669ffccc905">   48</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_EMPTY_CONV(r, data, i, elem) STATICLIB_PP_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_EMPTY(elem), (2), (1))</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#af86561d69d14cc75b15082b3618cf5f5">   50</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_PARAMS,_,PARAMS))</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a6aca3665caf925302d466cc762651385">   51</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_ARGS_PASS, _, PARAMS))      </span></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#aeb10976768e0d79fd59a3976199360a3">   52</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_MODIFIERS, _, MODIFIERS))      </span></div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a60a4a393dd01002870776e7891d6d791">   53</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) STATICLIB_PP_EXPR_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(method_return),return)</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a0ee8c645ac6c7dfb7ce9a41b67a39406">   54</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS(PARAMS) STATICLIB_PP_NOT_EQUAL(1, STATICLIB_PP_SEQ_ELEM(0, STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_EMPTY_CONV, _, PARAMS)))</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#af86561d69d14cc75b15082b3618cf5f5">   50</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_PARAMS,_,PARAMS))</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a6aca3665caf925302d466cc762651385">   51</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_ARGS_PASS, _, PARAMS))      </span></div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#aeb10976768e0d79fd59a3976199360a3">   52</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) STATICLIB_PP_SEQ_ENUM(STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_MODIFIERS, _, MODIFIERS))      </span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a60a4a393dd01002870776e7891d6d791">   53</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) STATICLIB_PP_EXPR_IF(PIMPL_FORWARD_INTERNAL_IS_NOT_VOID(method_return),return)</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a0ee8c645ac6c7dfb7ce9a41b67a39406">   54</a></span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS(PARAMS) STATICLIB_PP_NOT_EQUAL(1, STATICLIB_PP_SEQ_ELEM(0, STATICLIB_PP_SEQ_FOR_EACH_I(PIMPL_FORWARD_INTERNAL_EMPTY_CONV, _, PARAMS)))</span></div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a939744c0bd3a7ea3b55ff83edc08120b">   56</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_METHOD(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a939744c0bd3a7ea3b55ff83edc08120b">   56</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_METHOD(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \</span></div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">    try { \</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">        auto ptr = static_cast&lt;class_name::Impl*&gt; (this-&gt;get_impl_ptr().get()); \</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">        auto ptr = static_cast&lt;class_name::impl*&gt; (this-&gt;get_impl_ptr().get()); \</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) ptr-&gt;method_name( \</span></div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">                *this STATICLIB_PP_COMMA_IF(PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS(PARAMS)) \</span></div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">                PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) \</span></div>
@@ -158,11 +158,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">    } \</span></div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">}</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#aef135ef33cb7f260226020fb31817184">   70</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_METHOD_STATIC(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#aef135ef33cb7f260226020fb31817184">   70</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_METHOD_STATIC(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \</span></div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \</span></div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">    try { \</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) class_name::Impl::method_name( \</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">        PIMPL_FORWARD_INTERNAL_CREATE_RETURN(method_return) class_name::impl::method_name( \</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">                PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) \</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">        ); \</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">    } catch (const std::exception&amp; e) { \</span></div>
@@ -170,11 +170,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">    } \</span></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">}</span></div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#acca3d959dc0d3d80b662c701fb80036e">   82</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_METHOD_RETURN_SELF(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#acca3d959dc0d3d80b662c701fb80036e">   82</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_METHOD_RETURN_SELF(class_name, method_return, method_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">method_return class_name::method_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) { \</span></div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">    try { \</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">        auto ptr = static_cast&lt;class_name::Impl*&gt; (this-&gt;get_impl_ptr().get()); \</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">        auto ptr = static_cast&lt;class_name::impl*&gt; (this-&gt;get_impl_ptr().get()); \</span></div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">        ptr-&gt;method_name( \</span></div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">                *this STATICLIB_PP_COMMA_IF(PIMPL_FORWARD_INTERNAL_NOT_EMPTY_ARGS(PARAMS)) \</span></div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">                PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS) \</span></div>
@@ -185,11 +185,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">    } \</span></div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">}</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="pimpl__forward__macros_8hpp.html#a61892692348a8e16dd40922199873546">   97</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_CONSTRUCTOR(class_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="code" href="forward__macros_8hpp.html#a61892692348a8e16dd40922199873546">   97</a></span>&#160;<span class="preprocessor">#define PIMPL_FORWARD_CONSTRUCTOR(class_name, PARAMS, MODIFIERS, exception_class_name) \</span></div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">class_name::class_name(PIMPL_FORWARD_INTERNAL_CREATE_PARAMS_LIST(PARAMS)) \</span></div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">        PIMPL_FORWARD_INTERNAL_CREATE_MODIFIERS_LIST(MODIFIERS) try : \</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">class_name::class_name(nullptr, std::unique_ptr&lt;class_name::Impl&gt;( \</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">        new class_name::Impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)) \</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">class_name::class_name(nullptr, std::unique_ptr&lt;class_name::impl&gt;( \</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">        new class_name::impl(PIMPL_FORWARD_INTERNAL_CREATE_ARG_PASS_LIST(PARAMS)) \</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">)) { } \</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">catch (const std::exception&amp; e) { \</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">    throw exception_class_name(TRACEMSG(e.what())); \</span></div>
@@ -199,7 +199,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2015 19:15:06 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 10 2017 18:55:25 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

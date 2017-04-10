@@ -2,8 +2,8 @@ var searchData=
 [
   ['if_2ehpp',['if.hpp',['../if_8hpp.html',1,'']]],
   ['iif_2ehpp',['iif.hpp',['../iif_8hpp.html',1,'']]],
-  ['impl',['Impl',['../classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html',1,'staticlib::pimpl::PimplObject']]],
-  ['impl',['Impl',['../classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html#a18a70556121d33e2a5f9d1e73bce1320',1,'staticlib::pimpl::PimplObject::Impl::Impl(const Impl &amp;other)'],['../classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html#a8da5f04dbe2e2ac8bdefdd68ff0c51c1',1,'staticlib::pimpl::PimplObject::Impl::Impl(Impl &amp;&amp;other)'],['../classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html#ab0b39c019270508763115f20462438c1',1,'staticlib::pimpl::PimplObject::Impl::Impl() STATICLIB_NOEXCEPT']]],
+  ['impl',['impl',['../classstaticlib_1_1pimpl_1_1object_1_1impl.html',1,'staticlib::pimpl::object']]],
+  ['impl',['impl',['../classstaticlib_1_1pimpl_1_1object_1_1impl.html#ae1e16c023c19731a9828efc9f2fc9a7a',1,'staticlib::pimpl::object::impl::impl(const impl &amp;other)'],['../classstaticlib_1_1pimpl_1_1object_1_1impl.html#a2d2a06d42438669559a20c6221e1575d',1,'staticlib::pimpl::object::impl::impl(impl &amp;&amp;other)'],['../classstaticlib_1_1pimpl_1_1object_1_1impl.html#a1006cc99d8425e9408be0af75ac04221',1,'staticlib::pimpl::object::impl::impl() STATICLIB_NOEXCEPT']]],
   ['inc_2ehpp',['inc.hpp',['../inc_8hpp.html',1,'']]],
   ['is_5f1_2ehpp',['is_1.hpp',['../is__1_8hpp.html',1,'']]],
   ['is_5fbegin_5fparens_2ehpp',['is_begin_parens.hpp',['../detail_2is__begin__parens_8hpp.html',1,'']]],

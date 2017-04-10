@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>staticlib_pimpl: staticlib::pimpl::PimplObject Class Reference</title>
+<title>staticlib_pimpl: staticlib::pimpl::object Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
   <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">staticlib_pimpl
-   &#160;<span id="projectnumber">1.1.0</span>
+   &#160;<span id="projectnumber">1.2.0</span>
    </div>
   </td>
  </tr>
@@ -82,7 +82,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacestaticlib.html">staticlib</a></li><li class="navelem"><a class="el" href="namespacestaticlib_1_1pimpl.html">pimpl</a></li><li class="navelem"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacestaticlib.html">staticlib</a></li><li class="navelem"><a class="el" href="namespacestaticlib_1_1pimpl.html">pimpl</a></li><li class="navelem"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -90,48 +90,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="classstaticlib_1_1pimpl_1_1PimplObject-members.html">List of all members</a>  </div>
+<a href="classstaticlib_1_1pimpl_1_1object-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">staticlib::pimpl::PimplObject Class Reference</div>  </div>
+<div class="title">staticlib::pimpl::object Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>PIMPL implementation based on 'std::unique_ptr'.  
- <a href="classstaticlib_1_1pimpl_1_1PimplObject.html#details">More...</a></p>
+ <a href="classstaticlib_1_1pimpl_1_1object.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="PimplObject_8hpp_source.html">staticlib/pimpl/PimplObject.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="object_8hpp_source.html">staticlib/pimpl/object.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">Impl</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation class.  <a href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html#details">More...</a><br/></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object_1_1impl.html">impl</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation class.  <a href="classstaticlib_1_1pimpl_1_1object_1_1impl.html#details">More...</a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad8d961500aea84fd13831d87c8f0e41f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#ad8d961500aea84fd13831d87c8f0e41f">~PimplObject</a> () STATICLIB_NOEXCEPT</td></tr>
-<tr class="memdesc:ad8d961500aea84fd13831d87c8f0e41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#ad8d961500aea84fd13831d87c8f0e41f"></a><br/></td></tr>
-<tr class="memitem:a129b0b427b37c632433bb780d59d0dff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a129b0b427b37c632433bb780d59d0dff">PimplObject</a> (const <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;other)</td></tr>
-<tr class="memdesc:a129b0b427b37c632433bb780d59d0dff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor.  <a href="#a129b0b427b37c632433bb780d59d0dff"></a><br/></td></tr>
-<tr class="memitem:a81b8d812bd16d9c03fe2ad9396395916"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a81b8d812bd16d9c03fe2ad9396395916">operator=</a> (const <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;other)</td></tr>
-<tr class="memdesc:a81b8d812bd16d9c03fe2ad9396395916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator.  <a href="#a81b8d812bd16d9c03fe2ad9396395916"></a><br/></td></tr>
-<tr class="memitem:a59a65376ec1f521959be7069e93f2582"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a59a65376ec1f521959be7069e93f2582">PimplObject</a> (<a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&amp;other) STATICLIB_NOEXCEPT</td></tr>
-<tr class="memdesc:a59a65376ec1f521959be7069e93f2582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="#a59a65376ec1f521959be7069e93f2582"></a><br/></td></tr>
-<tr class="memitem:ace42e04f8617d4561329c6a56d9ff502"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#ace42e04f8617d4561329c6a56d9ff502">operator=</a> (<a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&amp;other) STATICLIB_NOEXCEPT</td></tr>
-<tr class="memdesc:ace42e04f8617d4561329c6a56d9ff502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <a href="#ace42e04f8617d4561329c6a56d9ff502"></a><br/></td></tr>
-<tr class="memitem:a56748020a0b45a85d35eb369e8e8eed4"><td class="memItemLeft" align="right" valign="top">std::unique_ptr<br class="typebreak"/>
-&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a56748020a0b45a85d35eb369e8e8eed4">get_impl_ptr</a> () const </td></tr>
-<tr class="memdesc:a56748020a0b45a85d35eb369e8e8eed4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique pointer access, made public only for downcast support, should NOT be used in normal client code.  <a href="#a56748020a0b45a85d35eb369e8e8eed4"></a><br/></td></tr>
+<tr class="memitem:ac2d6612940aa46926aafa59949616dce"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html#ac2d6612940aa46926aafa59949616dce">~object</a> () STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:ac2d6612940aa46926aafa59949616dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor.  <a href="#ac2d6612940aa46926aafa59949616dce"></a><br/></td></tr>
+<tr class="memitem:ad3896aa5a1a244697b278870c1cc621a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html#ad3896aa5a1a244697b278870c1cc621a">object</a> (const <a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;other)</td></tr>
+<tr class="memdesc:ad3896aa5a1a244697b278870c1cc621a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor.  <a href="#ad3896aa5a1a244697b278870c1cc621a"></a><br/></td></tr>
+<tr class="memitem:a3e3f2ee333397f157b844c0aa711cbae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html#a3e3f2ee333397f157b844c0aa711cbae">operator=</a> (const <a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;other)</td></tr>
+<tr class="memdesc:a3e3f2ee333397f157b844c0aa711cbae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator.  <a href="#a3e3f2ee333397f157b844c0aa711cbae"></a><br/></td></tr>
+<tr class="memitem:aeeb5be0e232cc51c0beeeffaa14b4efc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html#aeeb5be0e232cc51c0beeeffaa14b4efc">object</a> (<a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&amp;other) STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:aeeb5be0e232cc51c0beeeffaa14b4efc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="#aeeb5be0e232cc51c0beeeffaa14b4efc"></a><br/></td></tr>
+<tr class="memitem:a810c7a9f43a1275776a4befd8ae92386"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html#a810c7a9f43a1275776a4befd8ae92386">operator=</a> (<a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&amp;other) STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:a810c7a9f43a1275776a4befd8ae92386"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <a href="#a810c7a9f43a1275776a4befd8ae92386"></a><br/></td></tr>
+<tr class="memitem:a8f87cbd01006e7f4bb41d74fdb45ccec"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1object_1_1impl.html">object::impl</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html#a8f87cbd01006e7f4bb41d74fdb45ccec">get_impl_ptr</a> () const </td></tr>
+<tr class="memdesc:a8f87cbd01006e7f4bb41d74fdb45ccec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unique pointer access, made public only for downcast support, should NOT be used in normal client code.  <a href="#a8f87cbd01006e7f4bb41d74fdb45ccec"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a03c63961add02eb6137ed4521cb8f302"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html#a03c63961add02eb6137ed4521cb8f302">PimplObject</a> (std::nullptr_t, std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a> &gt; pimpl) STATICLIB_NOEXCEPT</td></tr>
-<tr class="memdesc:a03c63961add02eb6137ed4521cb8f302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to be called from other constructors, "nullptr" is required as dummy first argument to disambiguate this "system" constructor from all other possible business-specific constructors.  <a href="#a03c63961add02eb6137ed4521cb8f302"></a><br/></td></tr>
+<tr class="memitem:a1ca3cba5fd188fde782861ac1502b9a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html#a1ca3cba5fd188fde782861ac1502b9a4">object</a> (std::nullptr_t, std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1object_1_1impl.html">object::impl</a> &gt; pimpl) STATICLIB_NOEXCEPT</td></tr>
+<tr class="memdesc:a1ca3cba5fd188fde782861ac1502b9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor to be called from other constructors, "nullptr" is required as dummy first argument to disambiguate this "system" constructor from all other possible business-specific constructors.  <a href="#a1ca3cba5fd188fde782861ac1502b9a4"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>PIMPL implementation based on 'std::unique_ptr'. </p>
 <p><code>MoveConstructible</code>, <code>MoveAssignable</code>. NOT <code>CopyConstructible</code> and <code>CopyAssignable</code>. Multiple inheritance is NOT supported. </p>
 </div><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ad8d961500aea84fd13831d87c8f0e41f"></a>
+<a class="anchor" id="ac2d6612940aa46926aafa59949616dce"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -139,7 +138,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual staticlib::pimpl::PimplObject::~PimplObject </td>
+          <td class="memname">virtual staticlib::pimpl::object::~object </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -156,14 +155,14 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a129b0b427b37c632433bb780d59d0dff"></a>
+<a class="anchor" id="ad3896aa5a1a244697b278870c1cc621a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">staticlib::pimpl::PimplObject::PimplObject </td>
+          <td class="memname">staticlib::pimpl::object::object </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -180,14 +179,14 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a59a65376ec1f521959be7069e93f2582"></a>
+<a class="anchor" id="aeeb5be0e232cc51c0beeeffaa14b4efc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">staticlib::pimpl::PimplObject::PimplObject </td>
+          <td class="memname">staticlib::pimpl::object::object </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -204,7 +203,7 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a03c63961add02eb6137ed4521cb8f302"></a>
+<a class="anchor" id="a1ca3cba5fd188fde782861ac1502b9a4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -212,7 +211,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">staticlib::pimpl::PimplObject::PimplObject </td>
+          <td class="memname">staticlib::pimpl::object::object </td>
           <td>(</td>
           <td class="paramtype">std::nullptr_t&#160;</td>
           <td class="paramname">, </td>
@@ -220,7 +219,7 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a> &gt;&#160;</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="classstaticlib_1_1pimpl_1_1object_1_1impl.html">object::impl</a> &gt;&#160;</td>
           <td class="paramname"><em>pimpl</em>&#160;</td>
         </tr>
         <tr>
@@ -241,12 +240,12 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <h2>Member Function Documentation</h2>
-<a class="anchor" id="a56748020a0b45a85d35eb369e8e8eed4"></a>
+<a class="anchor" id="a8f87cbd01006e7f4bb41d74fdb45ccec"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;<a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html">PimplObject::Impl</a>&gt;&amp; staticlib::pimpl::PimplObject::get_impl_ptr </td>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="classstaticlib_1_1pimpl_1_1object_1_1impl.html">object::impl</a>&gt;&amp; staticlib::pimpl::object::get_impl_ptr </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -255,18 +254,18 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Unique pointer access, made public only for downcast support, should NOT be used in normal client code. </p>
-<dl class="section return"><dt>Returns</dt><dd>unique_ptr to <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject_1_1Impl.html" title="Implementation class.">Impl</a> instance </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>unique_ptr to impl instance </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a81b8d812bd16d9c03fe2ad9396395916"></a>
+<a class="anchor" id="a3e3f2ee333397f157b844c0aa711cbae"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a>&amp; staticlib::pimpl::PimplObject::operator= </td>
+          <td class="memname"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a>&amp; staticlib::pimpl::object::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -284,14 +283,14 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ace42e04f8617d4561329c6a56d9ff502"></a>
+<a class="anchor" id="a810c7a9f43a1275776a4befd8ae92386"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a>&amp; staticlib::pimpl::PimplObject::operator= </td>
+          <td class="memname"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a>&amp; staticlib::pimpl::object::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classstaticlib_1_1pimpl_1_1PimplObject.html">PimplObject</a> &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classstaticlib_1_1pimpl_1_1object.html">object</a> &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -310,12 +309,12 @@ Protected Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>staticlib/pimpl/<a class="el" href="PimplObject_8hpp_source.html">PimplObject.hpp</a></li>
+<li>staticlib/pimpl/<a class="el" href="object_8hpp_source.html">object.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 19 2015 19:15:07 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 10 2017 18:55:26 for staticlib_pimpl by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
