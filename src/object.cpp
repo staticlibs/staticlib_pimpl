@@ -15,40 +15,40 @@
  */
 
 /* 
- * File:   pimpl_object.cpp
+ * File:   object.cpp
  * Author: alex
  * 
  * Created on October 3, 2014, 6:21 PM
  */
 
-#include "staticlib/pimpl/pimpl_object.hpp"
+#include "staticlib/pimpl/object.hpp"
 
 namespace staticlib {
 namespace pimpl {
 
-pimpl_object::~pimpl_object() STATICLIB_NOEXCEPT = default;
+object::~object() STATICLIB_NOEXCEPT = default;
 
-pimpl_object::pimpl_object(pimpl_object&& other) STATICLIB_NOEXCEPT :
+object::object(object&& other) STATICLIB_NOEXCEPT :
 pimpl(std::move(other.pimpl)) { }
 
-pimpl_object& pimpl_object::operator=(pimpl_object&& other) STATICLIB_NOEXCEPT {
+object& object::operator=(object&& other) STATICLIB_NOEXCEPT {
     this->pimpl = std::move(other.pimpl);
     return *this;
 }
 
-pimpl_object::pimpl_object(std::nullptr_t, std::unique_ptr<pimpl_object::impl> pimpl) STATICLIB_NOEXCEPT :
+object::object(std::nullptr_t, std::unique_ptr<object::impl> pimpl) STATICLIB_NOEXCEPT :
 pimpl(std::move(pimpl)) { };
 
-std::unique_ptr<pimpl_object::impl>& pimpl_object::get_impl_ptr() const {
+std::unique_ptr<object::impl>& object::get_impl_ptr() const {
     if (nullptr != this->pimpl.get()) {
         return this->pimpl;
     }
     throw pimpl_exception();
 }
 
-pimpl_object::impl::~impl() STATICLIB_NOEXCEPT = default;
+object::impl::~impl() STATICLIB_NOEXCEPT = default;
 
-pimpl_object::impl::impl() STATICLIB_NOEXCEPT = default;
+object::impl::impl() STATICLIB_NOEXCEPT = default;
 
 } // namespace
 }

@@ -21,7 +21,7 @@
  * Created on July 1, 2014, 2:22 PM
  */
 
-#include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "staticlib/pimpl/forward_macros.hpp"
 #include "unique/test_exception.hpp"
 #include "unique/intermediate.hpp"
 #include "unique/intermediate_impl.hpp"
@@ -52,7 +52,7 @@ public:
     
     void throw_something(derived& self) {
         (void) self;
-        throw staticlib::pimpl::pimpl_exception(TRACEMSG("foo"));
+        throw sl::pimpl::pimpl_exception(TRACEMSG("foo"));
     }
     
     std::string some_method_with_args(derived& self, std::string arg1) {

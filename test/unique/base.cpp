@@ -21,7 +21,7 @@
  * Created on July 1, 2014, 9:20 AM
  */
 
-#include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "staticlib/pimpl/forward_macros.hpp"
 #include "unique/test_exception.hpp"
 #include "unique/abstract_impl.hpp"
 #include "unique/base.hpp"

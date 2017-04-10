@@ -31,8 +31,9 @@ if ( NOT DEFINED STATICLIB_DEPS )
     set ( STATICLIB_DEPS ${CMAKE_CURRENT_LIST_DIR}/../../ CACHE INTERNAL "" )    
 endif ( )
 staticlib_add_subdirectory ( ${STATICLIB_DEPS}/staticlib_config )
+staticlib_add_subdirectory ( ${STATICLIB_DEPS}/staticlib_support )
 staticlib_add_subdirectory ( ${CMAKE_CURRENT_LIST_DIR}/../../staticlib_pimpl )
-set ( ${PROJECT_NAME}_DEPS staticlib_pimpl staticlib_config )
+set ( ${PROJECT_NAME}_DEPS staticlib_pimpl )
 staticlib_pkg_check_modules ( ${PROJECT_NAME}_DEPS_PC REQUIRED ${PROJECT_NAME}_DEPS )
 
 # tests

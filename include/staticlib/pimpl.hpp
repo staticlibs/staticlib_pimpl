@@ -24,10 +24,12 @@
 #ifndef STATICLIB_PIMPL_HPP
 #define	STATICLIB_PIMPL_HPP
 
+#include "staticlib/config.hpp"
+
 #include "staticlib/pimpl/pimpl_exception.hpp"
-#include "staticlib/pimpl/pimpl_object.hpp"
+#include "staticlib/pimpl/object.hpp"
 // disabled to not leak local copy of boost_preprocessor parts from headers
-//#include "staticlib/pimpl/pimpl_forward_macros.hpp"
+//#include "staticlib/pimpl/forward_macros.hpp"
 
 #endif	/* STATICLIB_STATICLIB_PIMPL_HPP */
 

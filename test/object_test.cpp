@@ -21,7 +21,7 @@
  * Created on October 3, 2014, 7:35 PM
  */
 
-#include "staticlib/pimpl/pimpl_object.hpp"
+#include "staticlib/pimpl/object.hpp"
 
 #include <iostream>
 #include <vector>
@@ -33,14 +33,11 @@
 #include "unique/intermediate.cpp"
 #include "unique/derived.cpp"
 
-namespace sp = staticlib::pimpl;
-namespace uq = unique;
-
 void test_size() {
     // instantiation
-    uq::base base = uq::base("foo");
-    uq::intermediate intermediate = uq::intermediate("foo");
-    uq::derived derived = uq::derived("foo");
+    unique::base base = unique::base("foo");
+    unique::intermediate intermediate = unique::intermediate("foo");
+    unique::derived derived = unique::derived("foo");
     // size check
 //    std::cout << sizeof(base) << std::endl;
 //    std::cout << sizeof(intermediate) << std::endl;
@@ -53,9 +50,9 @@ void test_size() {
 
 void test_polymorphic() {
     // instantiation
-    uq::base base = uq::base("foo");
-    uq::intermediate intermediate = uq::intermediate("foo");
-    uq::derived derived = uq::derived("foo");
+    unique::base base = unique::base("foo");
+    unique::intermediate intermediate = unique::intermediate("foo");
+    unique::derived derived = unique::derived("foo");
     // polymorphic calls
     slassert("base::foo" == base.get_str());
     slassert("intermediate::foo" == intermediate.get_str());
@@ -67,11 +64,11 @@ void test_polymorphic() {
 
 void test_nocopy() {
     // instantiation
-    uq::base base = uq::base("foo");
-    uq::intermediate intermediate = uq::intermediate("foo");
-    uq::derived derived = uq::derived("foo");
+    unique::base base = unique::base("foo");
+    unique::intermediate intermediate = unique::intermediate("foo");
+    unique::derived derived = unique::derived("foo");
     // lack of copy semantics
-    auto vec = std::vector<uq::abstract>();
+    auto vec = std::vector<unique::abstract>();
     vec.push_back(std::move(base));
     vec.push_back(std::move(intermediate));
     vec.push_back(std::move(derived));
@@ -81,12 +78,12 @@ void test_nocopy() {
 }
 
 void test_downcast() {
-    uq::derived derived = uq::derived("foo");
-    auto vec = std::vector<uq::abstract>();
+    unique::derived derived = unique::derived("foo");
+    auto vec = std::vector<unique::abstract>();
     vec.push_back(std::move(derived));
-    // downcast, nullptr is required by internal pimpl_object constructor
+    // downcast, nullptr is required by internal object constructor
     // to prevent "ambiguous" clash with other constructors
-    uq::derived downcasted = uq::derived(nullptr, std::move(vec[0].get_impl_ptr()));
+    unique::derived downcasted = unique::derived(nullptr, std::move(vec[0].get_impl_ptr()));
     slassert("derived::foo" == downcasted.get_str());
     slassert("intermediate_foo" == downcasted.get_str_intermediate());
     slassert("derived_foo" == downcasted.get_str_derived());
@@ -94,9 +91,9 @@ void test_downcast() {
 
 void test_move() {
     // move semantics
-    uq::intermediate source = uq::intermediate("bar");
-    uq::intermediate move_constructed = std::move(source);
-    uq::intermediate moved = uq::intermediate("baz");
+    unique::intermediate source = unique::intermediate("bar");
+    unique::intermediate move_constructed = std::move(source);
+    unique::intermediate moved = unique::intermediate("baz");
     moved = std::move(move_constructed);
     slassert("intermediate::bar" == moved.get_str());
     slassert("intermediate_bar" == moved.get_str_intermediate());
@@ -104,7 +101,7 @@ void test_move() {
     try {
         auto tmp = std::move(source.get_impl_ptr());
         (void) tmp;
-    } catch (const sp::pimpl_exception&) {
+    } catch (const sl::pimpl::pimpl_exception&) {
         catched_source = true;
     }
     slassert(true == catched_source);
@@ -112,18 +109,18 @@ void test_move() {
     try {
         auto tmp = std::move(move_constructed.get_impl_ptr());
         (void) tmp;
-    } catch (const sp::pimpl_exception&) {
+    } catch (const sl::pimpl::pimpl_exception&) {
         catched_mc = true;
     }
     slassert(true == catched_mc);
 }
 
-void takes_iface(const uq::base2& b2) {
+void takes_iface(const unique::base2& b2) {
     slassert("424242" == b2.get_str_from_base2());
 }
 
 void test_interfaces() {
-    uq::derived der = uq::derived("foo");
+    unique::derived der = unique::derived("foo");
     takes_iface(der);
 }
 
@@ -133,7 +130,7 @@ void test_stacktrace() {
     at unique::derived::throw_something(derived.cpp:47))"};
     bool catched = false;
     try {
-        uq::derived der = uq::derived("foo");
+        unique::derived der = unique::derived("foo");
         der.throw_something();
     } catch(const std::exception&) {
         catched = true;

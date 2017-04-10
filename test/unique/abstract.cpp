@@ -21,7 +21,7 @@
  * Created on September 6, 2014, 11:44 AM
  */
 
-#include "staticlib/pimpl/pimpl_forward_macros.hpp"
+#include "staticlib/pimpl/forward_macros.hpp"
 #include "unique/test_exception.hpp"
 #include "unique/abstract.hpp"
 #include "unique/abstract_impl.hpp"
@@ -31,7 +31,7 @@ namespace unique {
 using std::string;
 
 abstract::impl::impl() :
-pimpl_object::impl() { }
+object::impl() { }
 
 PIMPL_FORWARD_METHOD(abstract, string, get_str, (), (), test_exception)
 
