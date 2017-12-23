@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP
-#define	STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP
+#define STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP
 
 #include "staticlib/support/exception.hpp"
 
@@ -52,4 +52,4 @@ public:
 } // namespace
 }
 
-#endif	/* STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP */
+#endif /* STATICLIB_PIMPL_PIMPL_EXCEPTION_HPP */

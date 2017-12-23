@@ -22,7 +22,7 @@
  */
 
 #ifndef UNIQUE_INTERMEDIATEIMPL_HPP
-#define	UNIQUE_INTERMEDIATEIMPL_HPP
+#define UNIQUE_INTERMEDIATEIMPL_HPP
 
 #include "unique/base_impl.hpp"
 #include "unique/intermediate.hpp"
@@ -46,5 +46,5 @@ public:
 
 } // namespace
 
-#endif	/* UNIQUE_INTERMEDIATEIMPL_HPP */
+#endif /* UNIQUE_INTERMEDIATEIMPL_HPP */
 

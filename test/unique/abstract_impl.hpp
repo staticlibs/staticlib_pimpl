@@ -22,7 +22,7 @@
  */
 
 #ifndef UNIQUE_ABSTRACT_IMPL_HPP
-#define	UNIQUE_ABSTRACT_IMPL_HPP
+#define UNIQUE_ABSTRACT_IMPL_HPP
 
 #include "unique/abstract.hpp"
 
@@ -38,5 +38,5 @@ public:
 
 } // namespace
 
-#endif	/* UNIQUE_ABSTRACT_IMPL_HPP */
+#endif /* UNIQUE_ABSTRACT_IMPL_HPP */
 

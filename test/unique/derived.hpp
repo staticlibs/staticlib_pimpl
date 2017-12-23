@@ -22,7 +22,7 @@
  */
 
 #ifndef UNIQUE_DERIVED_HPP
-#define	UNIQUE_DERIVED_HPP
+#define UNIQUE_DERIVED_HPP
 
 #include "unique/intermediate.hpp"
 
@@ -56,5 +56,5 @@ public:
 
 } // namespace
 
-#endif	/* UNIQUE_DERIVED_HPP */
+#endif /* UNIQUE_DERIVED_HPP */
 

@@ -6,7 +6,7 @@
  */
 
 #ifndef TEST_EXCEPTION_HPP
-#define	TEST_EXCEPTION_HPP
+#define TEST_EXCEPTION_HPP
 
 #include "staticlib/support/exception.hpp"
 
@@ -33,5 +33,5 @@ public:
 
 } // namespace
 
-#endif	/* TEST_EXCEPTION_HPP */
+#endif /* TEST_EXCEPTION_HPP */
 

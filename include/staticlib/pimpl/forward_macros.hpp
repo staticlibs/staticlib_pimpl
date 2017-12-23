@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_PIMPL_FORWARD_MACROS_HPP
-#define	STATICLIB_PIMPL_FORWARD_MACROS_HPP
+#define STATICLIB_PIMPL_FORWARD_MACROS_HPP
 
 #include <memory>
 #include <utility>
@@ -104,4 +104,4 @@ catch (const std::exception& e) { \
     throw exception_class_name(TRACEMSG(e.what())); \
 }
 
-#endif	/* STATICLIB_PIMPL_FORWARD_MACROS_HPP */
+#endif /* STATICLIB_PIMPL_FORWARD_MACROS_HPP */

@@ -22,7 +22,7 @@
  */
 
 #ifndef UNIQUE_BASE2_HPP
-#define	UNIQUE_BASE2_HPP
+#define UNIQUE_BASE2_HPP
 
 namespace unique {
 
@@ -33,5 +33,5 @@ public:
 
 } // namespace
 
-#endif	/* UNIQUE_BASE2_HPP */
+#endif /* UNIQUE_BASE2_HPP */
 

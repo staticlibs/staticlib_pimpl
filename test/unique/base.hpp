@@ -22,7 +22,7 @@
  */
 
 #ifndef UNIQUE_BASE_HPP
-#define	UNIQUE_BASE_HPP
+#define UNIQUE_BASE_HPP
 
 #include "unique/abstract.hpp"
 
@@ -43,5 +43,5 @@ public:
 
 } // namespace
 
-#endif	/* UNIQUE_BASE_HPP */
+#endif /* UNIQUE_BASE_HPP */
 

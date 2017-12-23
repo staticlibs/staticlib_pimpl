@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_PIMPL_OBJECT_HPP
-#define	STATICLIB_PIMPL_OBJECT_HPP
+#define STATICLIB_PIMPL_OBJECT_HPP
 
 #include <memory>
 #include <string>
@@ -171,4 +171,4 @@ parent_class_name(nullptr, std::forward<std::unique_ptr<staticlib::pimpl::object
 \
 PIMPL_INTERNAL_MOVE_CONSTRUCTORS(class_name, parent_class_name)
 
-#endif	/* STATICLIB_PIMPL_OBJECT_HPP */
+#endif /* STATICLIB_PIMPL_OBJECT_HPP */

@@ -22,7 +22,7 @@
  */
 
 #ifndef UNIQUE_ABSTRACT_HPP
-#define	UNIQUE_ABSTRACT_HPP
+#define UNIQUE_ABSTRACT_HPP
 
 #include <string>
 
@@ -43,5 +43,5 @@ public:
 
 } // namespace
 
-#endif	/* UNIQUE_ABSTRACT_HPP */
+#endif /* UNIQUE_ABSTRACT_HPP */
 

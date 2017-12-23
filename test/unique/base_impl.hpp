@@ -22,7 +22,7 @@
  */
 
 #ifndef UNIQUE_BASE_IMPL_HPP
-#define	UNIQUE_BASE_IMPL_HPP
+#define UNIQUE_BASE_IMPL_HPP
 
 #include "unique/abstract_impl.hpp"
 #include "unique/base.hpp"
@@ -42,5 +42,5 @@ public:
 
 } // namespace
 
-#endif	/* UNIQUE_BASE_IMPL_HPP */
+#endif /* UNIQUE_BASE_IMPL_HPP */
 

@@ -22,7 +22,7 @@
  */
 
 #ifndef STATICLIB_PIMPL_HPP
-#define	STATICLIB_PIMPL_HPP
+#define STATICLIB_PIMPL_HPP
 
 #include "staticlib/config.hpp"
 
@@ -31,5 +31,5 @@
 // disabled to not leak local copy of boost_preprocessor parts from headers
 //#include "staticlib/pimpl/forward_macros.hpp"
 
-#endif	/* STATICLIB_STATICLIB_PIMPL_HPP */
+#endif /* STATICLIB_STATICLIB_PIMPL_HPP */
 
