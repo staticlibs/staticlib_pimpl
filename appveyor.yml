@@ -21,7 +21,7 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       SL_CMAKE_VS: 15 2017
 
-clone_folder: c:\projects\staticlib_utils
+clone_folder: c:\projects\staticlib_pimpl
 
 install:
   - cd ..
