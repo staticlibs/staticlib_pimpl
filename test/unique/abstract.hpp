@@ -31,14 +31,16 @@
 namespace unique {
 
 class abstract : public sl::pimpl::object {
-protected:    
+protected:
     class impl;
-    
+
 public:
     //    using sl::pimpl::object::object;
     PIMPL_CONSTRUCTOR(abstract)
 
-    virtual std::string get_str();
+    // this method is not virtual (not overloded)
+    // the same method on impl class is overloaded instead
+    std::string get_str();
 };
 
 } // namespace

@@ -30,17 +30,16 @@
 namespace unique {
 
 class intermediate::impl : public base::impl {
-    const std::string str_intermediate;    
+    const std::string str_intermediate;
+
 public:
     impl(const std::string& str);
 
     virtual std::string get_str(abstract& self) override;
-    
+
     virtual std::string get_str_intermediate(intermediate& self);
-    
+
     virtual std::string get_str_from_base2(const intermediate& self) const;
-    
-    virtual std::string get_str_from_base3(intermediate& self);
 };
 
 

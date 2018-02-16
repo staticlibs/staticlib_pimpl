@@ -29,19 +29,21 @@
 
 namespace unique {
 
-using std::string;
+base::impl::impl(const std::string& str) :
+abstract::impl(),
+str_base(str) { }
+PIMPL_FORWARD_CONSTRUCTOR(base, (const std::string&), (), test_exception)
 
-base::impl::impl(const string& str) : 
-abstract::impl(), str_base(str) { }
-PIMPL_FORWARD_CONSTRUCTOR(base, (const string&), (), test_exception)
-
-string base::impl::get_str(abstract& self) {
-    (void) self;
-    string res = string();
+// this method doesn't need to be forwarded to the
+// corresponding method of facade class, because
+// it is used only as an overloaded variant of
+// pure virual method 'get_str', that is declared and
+// forwarded to facade inside 'abstract_impl.hpp'
+std::string base::impl::get_str(abstract&) {
+    auto res = std::string();
     res.append("base::");
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_METHOD(base, string, get_str, (), (), test_exception)
 
 } // namespace

@@ -6,7 +6,7 @@ Staticlibs PIMPL library
 
 This project is a part of [Staticlibs](http://staticlibs.net/).
 
-This project contains an implementation of the [PIMPL idiom](http://herbsutter.com/gotw/_100/).
+This project contains an implementation of a [PIMPL idiom](http://herbsutter.com/gotw/_100/).
 This implementation deliberately does not use templates, 
 existing template-based implementation can be found [here](http://herbsutter.com/gotw/_101/).
 
@@ -34,24 +34,24 @@ and declare inside protected `impl` class that will hold all the object state an
 the business logic. That class should also implement constructor specific to `sl::pimpl::object` 
 that will take `std::unique_ptr<sl::pimpl::object::impl>` and forward it to the parent class constructor.
 For MSVC implementation of move-constructor and move-assigning-operator (forwarding to parent one) is also required (other 
-compiler can generate them based on parent class).
+compilers can generate them based on parent class).
 
-All business-specific constructors and methods of that class will need to be implemented in `impl`
+All business-specific constructors and methods of that class will need to be implemented inside `impl`
 class and then declared and implemented as a "forward arguments" call in main class. To simplify this
 task a set of macros is implemented. Some of the macros use a private partial copy of 
 [Boost.Preprocessor](http://www.boost.org/doc/libs/1_58_0/libs/preprocessor/doc/index.html)
 library (with all elements renamed with `STATICLIB_PP_` prefix so it won't conflict with different versions
 of Boost.Preprocessor). All the macros are completely optional (see their usage in example below):
 
- - `PIMPL_CONSTRUCTOR` and `PIMPL_INHERIT_CONSTRUCTOR`: creates a "technical" constructor for the first
+ - `PIMPL_CONSTRUCTOR` and `PIMPL_INHERIT_CONSTRUCTOR`: creates an "internal" constructor for the first
 `sl::pimpl::object` or some of its descendants, move-constructor and move-assignment-operator;
-it is roughly equivalent to C++11 constructor inheritance but also supports MSVC compiler.
+it is roughly equivalent to C++11 constructor inheritance but also supports MSVC compiler;
  - `PIMPL_FORWARD_METHOD` and `PIMPL_FORWARD_METHOD_STATIC`: forwards a method call from main object to `impl` one;
 "impl" method must take an extra (first) argument - a reference to a facade class instance 
 (to ease access to this facade from inside impl method);
- this macros also will catch and rethrow the exceptions to produce a partial stack trace.
+ this macros also will catch and rethrow the exceptions to produce a partial stack trace;
  - `PIMPL_FORWARD_CONSTRUCTOR`: forwards business constructor call from main object to `impl` one;
-it also with catch and rethrow possible exceptions
+it also will catch and rethrow possible exceptions
 
 Usage example
 -------------

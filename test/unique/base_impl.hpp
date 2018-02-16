@@ -30,9 +30,9 @@
 namespace unique {
 
 class base::impl : public abstract::impl {
-protected:        
+protected:
     const std::string str_base;
-    
+
 public:
     impl(const std::string& str);
 

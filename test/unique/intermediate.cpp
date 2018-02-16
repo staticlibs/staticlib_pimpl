@@ -27,38 +27,27 @@
 
 namespace unique {
 
-using std::string;
+intermediate::impl::impl(const std::string& str) : 
+base::impl(str),
+str_intermediate(std::string("intermediate_").append(str)) { }
+PIMPL_FORWARD_CONSTRUCTOR(intermediate, (const std::string&), (), test_exception)
 
-intermediate::impl::impl(const string& str) : 
-base::impl(str), str_intermediate(string("intermediate_").append(str)) { }
-PIMPL_FORWARD_CONSTRUCTOR(intermediate, (const string&), (), test_exception)
-
-string intermediate::impl::get_str(abstract& self) {
-    (void) self;
-    string res = string();
+std::string intermediate::impl::get_str(abstract&) {
+    auto res = std::string();
     res.append("intermediate::");
     res.append(this->str_base);
     return res;
 }
-PIMPL_FORWARD_METHOD(intermediate, string, get_str, (), (), test_exception)
 
-string intermediate::impl::get_str_intermediate(intermediate& self) {
-    (void) self;
+std::string intermediate::impl::get_str_intermediate(intermediate&) {
     return this->str_intermediate;
 }
-PIMPL_FORWARD_METHOD(intermediate, string, get_str_intermediate, (), (), test_exception)
+PIMPL_FORWARD_METHOD(intermediate, std::string, get_str_intermediate, (), (), test_exception)
 
-string intermediate::impl::get_str_from_base2(const intermediate& self) const {
-    (void) self;
+std::string intermediate::impl::get_str_from_base2(const intermediate&) const {
     return "424242";
 }
-PIMPL_FORWARD_METHOD(intermediate, string, get_str_from_base2, (), (const), test_exception)
-
-string intermediate::impl::get_str_from_base3(intermediate& self) {
-    (void) self;
-    return "434343";
-}
-PIMPL_FORWARD_METHOD(intermediate, string, get_str_from_base3, (), (), test_exception)
+PIMPL_FORWARD_METHOD(intermediate, std::string, get_str_from_base2, (), (const), test_exception)
 
 } // namespace
 

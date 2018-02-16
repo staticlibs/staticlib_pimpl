@@ -26,27 +26,22 @@
 
 #include "unique/base.hpp"
 #include "unique/base2.hpp"
-#include "unique/base3.hpp"
 
 namespace unique {
 
-class intermediate : public base, public base2, public base3 {
-protected:    
+class intermediate : public base, public base2 {
+protected:
     class impl;
-    
+
 public:
 //    using base::base;
     PIMPL_INHERIT_CONSTRUCTOR(intermediate, base)
-    
+
     intermediate(const std::string& str);
 
-    virtual std::string get_str() override;
-
     virtual std::string get_str_intermediate();
-    
+
     virtual std::string get_str_from_base2() const override;
-    
-    virtual std::string get_str_from_base3() override;
 };
 
 } // namespace

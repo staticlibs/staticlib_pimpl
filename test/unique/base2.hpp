@@ -28,6 +28,9 @@ namespace unique {
 
 class base2 {
 public:
+    // addtional pure method implemented by 'intermediate'
+    // may be called only if 'intermediate'
+    // object is passed by reference/pointer
     virtual std::string get_str_from_base2() const = 0;
 };
 

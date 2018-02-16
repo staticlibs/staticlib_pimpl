@@ -29,29 +29,27 @@
 namespace unique {
 
 class derived : public intermediate {
-protected:    
+protected:
     class impl;
 
 public:
 //    using intermediate::intermediate;
     PIMPL_INHERIT_CONSTRUCTOR(derived, intermediate)
-    
+
     derived(const std::string& str);
-    
-    virtual std::string get_str() override;
 
     virtual std::string get_str_derived();
-    
+
     std::string some_method_with_args(std::string arg1);
-    
+
     std::string some_const_method_with_args(std::string arg1, int arg2) const;
-    
+
     std::string some_const_method_noargs() const;
-    
+
     void throw_something();
-    
+
     derived& self_returning();
-    
+
 };
 
 } // namespace

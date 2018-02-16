@@ -28,17 +28,15 @@
 
 namespace unique {
 
-class base : public abstract {    
-protected:        
+class base : public abstract {
+protected:
     class impl;
-    
+
 public:
 //    using abstract::abstract;
     PIMPL_INHERIT_CONSTRUCTOR(base, abstract)
-    
+
     base(const std::string& str);
-    
-    virtual std::string get_str() override;
 };
 
 } // namespace

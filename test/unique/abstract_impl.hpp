@@ -29,12 +29,11 @@
 namespace unique {
 
 class abstract::impl : public sl::pimpl::object::impl {
-protected:
-    impl();
-
 public:
     virtual std::string get_str(abstract& self) = 0;
+
 };
+PIMPL_FORWARD_METHOD(abstract, std::string, get_str, (), (), test_exception)
 
 } // namespace
 

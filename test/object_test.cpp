@@ -28,7 +28,6 @@
 
 #include "staticlib/config/assert.hpp"
 
-#include "unique/abstract.cpp"
 #include "unique/base.cpp"
 #include "unique/intermediate.cpp"
 #include "unique/derived.cpp"
@@ -44,8 +43,8 @@ void test_size() {
 //    std::cout << sizeof(derived) << std::endl;
     auto ptr_size = sizeof(void*);
     slassert(2*ptr_size == sizeof (base));
-    slassert(4*ptr_size == sizeof (intermediate));
-    slassert(4*ptr_size == sizeof (derived));
+    slassert(3*ptr_size == sizeof (intermediate));
+    slassert(3*ptr_size == sizeof (derived));
 }
 
 void test_polymorphic() {
