@@ -15,29 +15,22 @@
  */
 
 /* 
- * File:   abstract_impl.hpp
+ * File:   asbtract.cpp
  * Author: alex
- *
- * Created on September 6, 2014, 11:45 AM
+ * 
+ * Created on September 6, 2014, 11:44 AM
  */
 
-#ifndef UNIQUE_ABSTRACT_IMPL_HPP
-#define UNIQUE_ABSTRACT_IMPL_HPP
-
+#include "staticlib/pimpl/forward_macros.hpp"
+#include "unique/test_exception.hpp"
 #include "unique/abstract.hpp"
+#include "unique/abstract_impl.hpp"
 
 namespace unique {
 
-class abstract::impl : public sl::pimpl::object::impl {
-protected:
-    impl();
+abstract::impl::impl() :
+object::impl() { }
 
-public:
-    virtual std::string get_str(abstract& self) = 0;
-
-};
+PIMPL_FORWARD_METHOD(abstract, std::string, get_str, (), (), test_exception)
 
 } // namespace
-
-#endif /* UNIQUE_ABSTRACT_IMPL_HPP */
-

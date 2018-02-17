@@ -28,6 +28,7 @@
 
 #include "staticlib/config/assert.hpp"
 
+#include "unique/abstract.cpp"
 #include "unique/base.cpp"
 #include "unique/intermediate.cpp"
 #include "unique/derived.cpp"
